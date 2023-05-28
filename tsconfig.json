@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/", // куда идет сборка, но у нас собирает вебпак
+    "noImplicitAny": true,
+    "module": "ESNext",
+    "target": "es5", // в какую версию компилировать
+    "jsx": "react-jsx", // "react-jsx" чтобы не импортировать в файл tsx React
+    "baseUrl": ".", // для абсолютных импортов
+    "allowJs": true, // компилятор обрабатывает не только ts, но js
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true, // позволяет импортировать без import * as 
+    "esModuleInterop": true, // для привычных импортов import
+  },
+  "ts-node": {
+    "compilerOptions": { // эти параметры являются переопределениями, используемыми только узлом ts
+      "module": "commonjs" // для привычных импортов import
+    }
+  },
+}
