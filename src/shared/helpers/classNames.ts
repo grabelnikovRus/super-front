@@ -1,7 +1,5 @@
 export const classNames = (...args: Array<string | string[] |Record<string, boolean>>): string => {
-    console.log(args)
-    
-    return args.map((item) => {
+    return args.filter(Boolean).map((item) => {
         if (typeof item === "string") return item;
         
         if (Array.isArray(item)) return item.join(" ");

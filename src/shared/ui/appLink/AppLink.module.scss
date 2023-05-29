@@ -1,0 +1,16 @@
+.link {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.default {
+    &:hover {
+        color: var(--primary-color);
+    }
+}
+
+.border {
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid var(--primary-color);
+}

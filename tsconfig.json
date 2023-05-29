@@ -9,6 +9,7 @@
     "paths": {
       "@app/*": ["src/app/*"],
       "@page/*": ["src/page/*"],
+      "@widgets/*": ["src/widgets/*"],
       "@shared/*": ["src/shared/*"],
     },
     "allowJs": true, // компилятор обрабатывает не только ts, но js
