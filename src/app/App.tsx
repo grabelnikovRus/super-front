@@ -1,12 +1,11 @@
 import { FC, Suspense, useContext } from "react"
-import { Counter } from "./components/Counter";
 import { Route, Routes, Link } from "react-router-dom";
-import { AboutAsync } from "./page/About.async";
-import { MainAsync } from "./page/MainAsync";
-import { useTheme } from "./components/providers/useTheme";
+import { AboutAsync } from "@page/aboutPage";
+import { MainAsync } from "@page/mainPage";
+import { useTheme } from "@app/providers/themeProviders";
+import { classNames } from "@shared/helpers";
 
 import "./styles/index.scss"
-import { classNames } from "./common/classNames";
 
 export const App: FC = () => {
     const { theme, toggleTheme } = useTheme();

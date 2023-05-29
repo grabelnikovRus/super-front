@@ -5,7 +5,12 @@
     "module": "ESNext",
     "target": "es5", // в какую версию компилировать
     "jsx": "react-jsx", // "react-jsx" чтобы не импортировать в файл tsx React
-    "baseUrl": ".", // для абсолютных импортов
+    "baseUrl": "./", // для абсолютных импортов
+    "paths": {
+      "@app/*": ["src/app/*"],
+      "@page/*": ["src/page/*"],
+      "@shared/*": ["src/shared/*"],
+    },
     "allowJs": true, // компилятор обрабатывает не только ts, но js
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true, // позволяет импортировать без import * as 
