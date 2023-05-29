@@ -1,7 +1,6 @@
 import { FC, Suspense, useContext } from "react"
-import { Route, Routes, Link } from "react-router-dom";
-import { AboutAsync } from "@page/aboutPage";
-import { MainAsync } from "@page/mainPage";
+import { Link } from "react-router-dom";
+import { AppRouter } from "./router";
 import { useTheme } from "@app/providers/themeProviders";
 import { classNames } from "@shared/helpers";
 
@@ -15,12 +14,9 @@ export const App: FC = () => {
             <Link to="/">главная</Link>
             <Link to="/about">о нас</Link>
             <button onClick={toggleTheme}>toggle</button>
-            <Suspense fallback="Load">
-                <Routes>
-                    <Route path="/" element={<MainAsync />} />
-                    <Route path="/about" element={<AboutAsync />} />
-                </Routes>
-            </Suspense>
+            
+                <AppRouter />
+            
         </div>
     )
 }
