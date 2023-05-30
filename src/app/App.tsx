@@ -8,12 +8,11 @@ import "./styles/index.scss"
 import { NavBar } from "@widgets/navBar";
 
 export const App: FC = () => {
-    const { theme, toggleTheme } = useTheme();
+    const { theme } = useTheme();
 
     return (
          <div className={classNames("app", theme)}>
             <NavBar />
-            <button onClick={toggleTheme}>toggle</button>
             <AppRouter />
         </div>
     )

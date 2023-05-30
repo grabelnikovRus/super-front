@@ -4,6 +4,22 @@ import { BuildOptions } from "./types/config"
 
 export function buildLoaders(mode: BuildOptions["mode"]): RuleSetRule[] {
   const isProd = mode ==="production"
+
+  const svgLoader = {
+    test: /\.svg$/i,
+    issuer: /\.[jt]sx?$/,
+    use: ['@svgr/webpack'],
+  }
+
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif)$/i,
+    use: [
+      {
+        loader: 'file-loader',
+      },
+    ],
+  }
+
   const tsLoader = { // лоадер применяется только к файлам с .tsx
     test: /\.tsx?$/,
     use: 'ts-loader',
@@ -30,6 +46,8 @@ export function buildLoaders(mode: BuildOptions["mode"]): RuleSetRule[] {
 
   // важен порядок лоадеров
   return [
+    svgLoader,
+    fileLoader,
     tsLoader,
     cssLoader
   ]

@@ -1,9 +1,9 @@
 .navbar {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
     width: 100%;
     height: var(--height-navbar);
+    padding: 20px;
     background: var(--bg-color-inverted);
 
     &__links {
@@ -11,7 +11,7 @@
         grid-auto-flow: column;
         align-items: center;
         grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-        margin-right: 20px;
+        margin-left: auto;
     }
 
     &__link {
