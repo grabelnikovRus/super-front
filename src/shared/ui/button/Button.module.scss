@@ -4,4 +4,12 @@
     cursor: pointer;
     outline: none;
     border: none;
+    color: var(--primary-color);
+}
+
+.xl {
+    padding: 10px 16px;
+    border-radius: 5px;
+    background: var(--gray);
+    font: var(--font-l);
 }

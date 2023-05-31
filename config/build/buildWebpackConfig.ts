@@ -7,9 +7,7 @@ import { buildResolvers } from "./buildResolvers";
 import { buildPlugins } from "./buildPlugins";
 import { buildDevSrver } from "./buildDevServer";
 
-export function buildWebpackCongif({ mode, paths, port }: BuildOptions): Configuration {
-    const isDev = mode === "development"
-
+export function buildWebpackCongif({ mode, paths, port, isDev }: BuildOptions): Configuration {
     return {
         entry: paths.entry,
         output: {
@@ -22,7 +20,7 @@ export function buildWebpackCongif({ mode, paths, port }: BuildOptions): Configu
           rules: buildLoaders(mode),
         },
         resolve: buildResolvers(paths.src),
-        plugins: buildPlugins(paths.html),
+        plugins: buildPlugins(paths.html, isDev),
         devServer: isDev ? buildDevSrver(port) : undefined,
         devtool: isDev ? "inline-source-map" : false
     }

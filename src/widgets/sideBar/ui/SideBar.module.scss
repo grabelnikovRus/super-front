@@ -9,12 +9,16 @@
   &_switchers {
     position: absolute;
     display: flex;
+    row-gap: 10px;
+    flex-direction: column;
     justify-content: center;
-    width: 100%;
+    width: 60px;
     bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   &__collapsed {
-    width: 50px;
+    width: 70px;
   }
 }
