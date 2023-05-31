@@ -6,6 +6,7 @@ import { classNames } from "@shared/helpers";
 
 import "./styles/index.scss"
 import { NavBar } from "@widgets/navBar";
+import { SideBar } from "@widgets/sideBar";
 
 export const App: FC = () => {
     const { theme } = useTheme();
@@ -13,7 +14,10 @@ export const App: FC = () => {
     return (
          <div className={classNames("app", theme)}>
             <NavBar />
-            <AppRouter />
+            <main className="main">
+                <SideBar />
+                <AppRouter />
+            </main>
         </div>
     )
 }
