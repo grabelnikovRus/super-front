@@ -1,11 +1,11 @@
-import { useContext } from "react"
-import { ProviderProps, ThemeContext } from "../ui/ThemeContext"
+import { useContext } from "react";
+import { type ProviderProps, ThemeContext } from "../ui/ThemeContext";
 
 export const useTheme = (): ProviderProps => {
-    const {theme, toggleTheme} = useContext(ThemeContext);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
-    return {
-        theme,
-        toggleTheme
-    }
-}
+  return {
+    theme,
+    toggleTheme,
+  };
+};

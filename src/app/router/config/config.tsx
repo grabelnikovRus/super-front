@@ -1,17 +1,17 @@
 import { AboutAsync } from "@page/aboutPage";
 import { MainAsync } from "@page/mainPage";
-import { PathRouteProps } from "react-router-dom";
+import { type PathRouteProps } from "react-router-dom";
 
 export enum RouterPath {
-    MAIN = "/",
-    ABOUT = "/about"
+  MAIN = "/",
+  ABOUT = "/about",
 }
 
 export const routerConfig: Record<RouterPath, PathRouteProps> = {
-    [RouterPath.MAIN]: {
-        element: <MainAsync />
-    },
-    [RouterPath.ABOUT]: {
-        element: <AboutAsync />
-    },
-}
+  [RouterPath.MAIN]: {
+    element: <MainAsync />,
+  },
+  [RouterPath.ABOUT]: {
+    element: <AboutAsync />,
+  },
+};

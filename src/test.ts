@@ -1,3 +1,3 @@
 export function f() {
-    console.log(f.name)
+  console.log(f.name);
 }
