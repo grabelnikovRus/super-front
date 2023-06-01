@@ -19,7 +19,8 @@
   },
   "ts-node": {
     "compilerOptions": { // эти параметры являются переопределениями, используемыми только узлом ts
-      "module": "commonjs" // для привычных импортов import
+      "module": "commonjs", // для привычных импортов import
+      "strictNullChecks": true
     }
   },
 }
