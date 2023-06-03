@@ -1,0 +1,10 @@
+import { type FC } from "react"
+import { Loader } from "@shared/ui"
+
+import s from "./PageLoader.module.scss"
+
+export const PageLoader: FC = () => (
+  <div className={s.loader}>
+    <Loader />
+   </div>
+)

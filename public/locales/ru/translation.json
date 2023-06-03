@@ -1,5 +1,6 @@
 {
     "main": "Главная",
     "about_us": "О нас",
-    "language": "RU"
+    "language": "RU",
+    "not_found_page": "Такой страницы не существует"
 }
