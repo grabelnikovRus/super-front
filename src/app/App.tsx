@@ -14,7 +14,7 @@ export const App: FC = () => {
   const { theme } = useTheme();
 
   return (
-    <Suspense fallback={<PageLoader />}>
+    <Suspense fallback={<PageLoader appLoad/>}>
       <div className={classNames("app", theme)}>
         <NavBar />
         <main className="main">
