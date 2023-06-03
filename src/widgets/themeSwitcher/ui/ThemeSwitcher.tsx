@@ -3,7 +3,7 @@ import { type FC } from "react";
 import IconDark from "@shared/assest/icon/theme-dark.svg";
 import IconLight from "@shared/assest/icon/theme-light.svg";
 
-import { Button } from "@shared/ui/button/Button";
+import { Button } from "@shared/ui";
 
 export const ThemeSwitcher: FC = () => {
   const { theme, toggleTheme } = useTheme();

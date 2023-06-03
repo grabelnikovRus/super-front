@@ -4,7 +4,7 @@ import { AppLink } from "@shared/ui";
 import s from "./NavBar.module.scss";
 
 interface NavBarProps {
-  className?: string;
+  className?: string
 }
 
 export const NavBar: FC<NavBarProps> = () => {

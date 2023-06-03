@@ -1,6 +1,6 @@
 import { type FC } from "react";
 
-import { Button } from "@shared/ui/button/Button";
+import { Button } from "@shared/ui";
 import { useTranslation } from "react-i18next";
 
 export const LangSwitcher: FC = () => {

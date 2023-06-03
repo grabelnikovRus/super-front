@@ -2,7 +2,7 @@ import { type FC, useState } from "react";
 
 import s from "./SideBar.module.scss";
 import { classNames } from "@shared/helpers";
-import { Button } from "@shared/ui/button/Button";
+import { Button } from "@shared/ui";
 import { ThemeSwitcher } from "@widgets/themeSwitcher";
 import { LangSwitcher } from "@widgets/langSwitcher";
 
