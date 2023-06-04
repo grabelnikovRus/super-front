@@ -2,5 +2,6 @@
     "main": "Main",
     "language": "EN",
     "about_us": "About Us",
-    "not_found_page": "Not Found Page"
+    "not_found_page": "Not Found Page",
+    "error_boundary": "Sorry An Error Has Occurred"
 }
