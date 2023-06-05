@@ -20,7 +20,7 @@ export const SideBar: FC = () => {
         [s.sidebar__collapsed]: collapsed,
       })}
     >
-      <Button 
+      <Button
         onClick={onToggle}
         data-testid="toggle-sidebar"
       >
