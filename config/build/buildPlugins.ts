@@ -1,6 +1,7 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { DefinePlugin, ProgressPlugin, type WebpackPluginInstance } from "webpack";
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"
 import { type BuildOptions, type BuildPaths } from "./types/config";
 
 export function buildPlugins(
@@ -16,5 +17,6 @@ export function buildPlugins(
     // MiniCssExtractPlugin также содержит статический метод loader
     new ProgressPlugin(),
     new DefinePlugin({ _IS_DEV_: isDev }),
+    new BundleAnalyzerPlugin()
   ];
 }
