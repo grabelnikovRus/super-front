@@ -24,7 +24,13 @@
     }
   },
   "include": [
-    "/",
-    "/config/jest/jest-setup.ts"
+    "./config/**/*.ts",
+    "./config/**/*.tsx",
+    "./src/**/*.tsx",
+    "./src/**/*.ts",
+    "./.eslintrc.js",
+    "./config/jest/jest-setup.ts",
+    "./babel.config.js",
+    "./webpack.config.ts"
   ],
 }
