@@ -15,11 +15,17 @@ export const SideBar: FC = () => {
 
   return (
     <div
+      data-testid="sidebar"
       className={classNames(s.sidebar, {
         [s.sidebar__collapsed]: collapsed,
       })}
     >
-      <Button onClick={onToggle}>toggle</Button>
+      <Button 
+        onClick={onToggle}
+        data-testid="toggle-sidebar"
+      >
+        toggle
+        </Button>
       <div className={s.sidebar_switchers}>
         <ThemeSwitcher />
         <LangSwitcher />
