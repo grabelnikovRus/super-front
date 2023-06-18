@@ -1,7 +1,7 @@
 import path from "path";
 import { type Configuration } from "webpack";
 import { buildWebpackCongif } from "./config/build/buildWebpackConfig";
-import { type BuildEnv } from "config/build/types/config";
+import { type BuildEnv } from "./config/build/types/config";
 
 export default (env: BuildEnv) => {
   const port = env.port || 3000;

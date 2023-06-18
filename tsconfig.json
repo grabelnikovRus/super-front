@@ -29,8 +29,7 @@
     "./src/**/*.tsx",
     "./src/**/*.ts",
     "./.eslintrc.js",
-    "./config/jest/jest-setup.ts",
     "./babel.config.js",
-    "./webpack.config.ts"
+    "./webpack.config.ts",
   ],
 }

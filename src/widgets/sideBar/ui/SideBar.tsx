@@ -25,7 +25,7 @@ export const SideBar: FC = () => {
         data-testid="toggle-sidebar"
       >
         toggle
-        </Button>
+      </Button>
       <div className={s.sidebar_switchers}>
         <ThemeSwitcher />
         <LangSwitcher />
