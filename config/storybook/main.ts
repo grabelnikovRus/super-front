@@ -22,7 +22,7 @@ const config: StorybookConfig = {
   webpackFinal: async (config, { configType }): Promise<Configuration> => {
     config.resolve.plugins = [new TsconfigPathsPlugin()];
 
-    config.module.rules.push(buildCssLoader(configType === "PRODUCTION"));
+    config.module.rules.push(buildCssLoader(false));
 
     config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
       if (rule.test instanceof RegExp && rule.test.toString().includes("svg")) {
