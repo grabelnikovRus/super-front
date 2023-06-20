@@ -1,5 +1,5 @@
 .button {
-  padding: 0;
+  padding: 4px 6px;
   background: none;
   cursor: pointer;
   outline: none;
@@ -7,11 +7,25 @@
   color: var(--primary-color);
 }
 
+.m, .l, .xl {
+  background: var(--gray);
+}
+
+.m {
+  border-radius: 3px;
+  font: var(--font-m);
+}
+
+.l {
+  padding: 6px 8px;
+  border-radius: 4px;
+  font: var(--font-l);
+}
+
 .xl {
   padding: 10px 16px;
-  border-radius: 5px;
-  background: var(--gray);
-  font: var(--font-l);
+  border-radius: 6px;
+  font: var(--font-xl);
 }
 
 .outline {

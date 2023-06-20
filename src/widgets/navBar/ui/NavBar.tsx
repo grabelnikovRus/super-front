@@ -1,5 +1,6 @@
 import { type FC } from "react";
 import { AppLink } from "@shared/ui";
+import { RouterPath } from "@app/router/config/config";
 
 import s from "./NavBar.module.scss";
 
@@ -11,11 +12,8 @@ export const NavBar: FC<NavBarProps> = () => {
   return (
     <div className={s.navbar}>
       <div className={s.navbar__links}>
-        <AppLink to="/" className={s.navbar__link}>
+        <AppLink to={RouterPath.MAIN} className={s.navbar__link}>
           главная
-        </AppLink>
-        <AppLink to="/about" className={s.navbar__link} theme="border">
-          о нас
         </AppLink>
       </div>
     </div>

@@ -18,6 +18,20 @@ export const Default: Story = {
   },
 };
 
+export const M: Story = {
+  args: {
+    children: "Кнопка",
+    theme: "m"
+  },
+};
+
+export const L: Story = {
+  args: {
+    children: "Кнопка",
+    theme: "l"
+  },
+};
+
 export const Xl: Story = {
   args: {
     children: "Кнопка",

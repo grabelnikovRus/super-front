@@ -6,6 +6,44 @@
   width: 200px;
   transition: .3s width;
 
+  &_links {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    margin-top: 25px;
+    margin-left: 25px;
+    width: fit-content;
+  }
+
+  &_link {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    height: 26px;
+    color: var(--secondary-color);
+
+    svg {
+      flex-shrink: 0;
+      fill: var(--secondary-color);;
+    }
+  }
+
+  &_text {
+    transition: .6s;
+
+    &__collapsed {
+      width: 0;
+      opacity: 0;
+      transition: 0s;
+    }
+  }
+
+  &_button {
+    position: absolute;
+    bottom: 20px;
+    right: -55px;
+  }
+
   &_switchers {
     position: absolute;
     display: flex;

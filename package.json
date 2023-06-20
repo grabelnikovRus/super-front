@@ -13,8 +13,8 @@
     "stylelint:fix": "npx stylelint \"**/*.scss\" --fix",
     "test:unit": "jest --config=config/jest/jest.config.ts",
     "test:ui": "loki test",
-    "test:ui:ok": "loki test approve",
-    "test:ui:upd": "loki test update",
+    "test:ui:ok": "loki approve",
+    "test:ui:upd": "loki update",
     "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook"
