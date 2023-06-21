@@ -3,5 +3,6 @@
     "about_us": "О нас",
     "language": "RU",
     "not_found_page": "Такой страницы не существует",
-    "error_boundary": "Извините произошла ошибка"
+    "error_boundary": "Извините произошла ошибка",
+    "sign_in": "Войти"
 }
