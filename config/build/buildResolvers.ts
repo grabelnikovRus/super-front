@@ -13,6 +13,7 @@ export function buildResolvers(pathSrc: BuildPaths["src"]): ResolveOptions {
       "@page": path.resolve(__dirname, pathSrc, "page"),
       "@widgets": path.resolve(__dirname, pathSrc, "widgets"),
       "@shared": path.resolve(__dirname, pathSrc, "shared"),
+      "@entities": path.resolve(__dirname, pathSrc, "entities"),
     },
   };
 }
