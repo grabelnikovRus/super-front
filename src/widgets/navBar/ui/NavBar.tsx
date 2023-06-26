@@ -1,6 +1,7 @@
 import { useState, type FC, useCallback } from "react";
-import { Button, Modal } from "@shared/ui";
+import { Button } from "@shared/ui";
 import { useTranslation } from "react-i18next";
+import { LoginModal } from "@feature/authByUser";
 
 import s from "./NavBar.module.scss";
 
@@ -27,13 +28,7 @@ export const NavBar: FC<NavBarProps> = () => {
         >
           {t("sign_in")}
         </Button>
-        <Modal
-          isOpen={openAuthModal}
-          onClose={toggleAuthModal}
-          containerMount={document.body}
-        >
-          dwdeewd wedwedwd wedwed
-        </Modal>
+        <LoginModal isOpen={openAuthModal} onClose={toggleAuthModal}/>
       </div>
     </div>
   );

@@ -4,5 +4,7 @@
     "about_us": "About Us",
     "not_found_page": "Not Found Page",
     "error_boundary": "Sorry An Error Has Occurred",
-    "sign_in": "Sign In"
+    "sign_in": "Sign In",
+    "login": "Login",
+    "pass": "Password"
 }

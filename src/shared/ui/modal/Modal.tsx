@@ -51,6 +51,8 @@ export const Modal: FC<ModalProps> = ({
     }
   }, [isOpen])
 
+  if (!isOpen) return null
+
   return (
     <Portal container={containerMount}>
       <div className={classNames(s.modal, { [s.modal__close]: !isOpen })}>

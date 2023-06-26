@@ -1,0 +1,10 @@
+.auth {
+    min-width: 400px;
+    background-color: var(--bg-color-inverted);
+    padding: 10px;
+    border-radius: 5px;
+
+    &_btn {
+        margin-top: 10px;
+    }
+}

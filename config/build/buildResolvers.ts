@@ -14,6 +14,7 @@ export function buildResolvers(pathSrc: BuildPaths["src"]): ResolveOptions {
       "@widgets": path.resolve(__dirname, pathSrc, "widgets"),
       "@shared": path.resolve(__dirname, pathSrc, "shared"),
       "@entities": path.resolve(__dirname, pathSrc, "entities"),
+      "@feature": path.resolve(__dirname, pathSrc, "feature"),
     },
   };
 }

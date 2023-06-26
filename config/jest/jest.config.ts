@@ -95,6 +95,7 @@ export default {
     "@widgets(.*)": "<rootDir>/src/widgets/$1",
     "@page(.*)": "<rootDir>/src/page/$1",
     "@entities(.*)": "<rootDir>/src/entities/$1",
+    "@feature(.*)": "<rootDir>/src/feature/$1",
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader

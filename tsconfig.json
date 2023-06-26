@@ -12,6 +12,7 @@
       "@widgets/*": ["src/widgets/*"],
       "@shared/*": ["src/shared/*"],
       "@entities/*": ["src/entities/*"],
+      "@feature/*": ["src/feature/*"],
     },
     "allowJs": true, // компилятор обрабатывает не только ts, но js
     "moduleResolution": "node",
