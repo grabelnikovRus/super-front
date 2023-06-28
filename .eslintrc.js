@@ -32,6 +32,7 @@ module.exports = {
     "@typescript-eslint/space-before-function-paren": "off",
     "@typescript-eslint/comma-dangle": "off",
     "react/display-name": "off",
-    "linebreak-style": "off"
+    "linebreak-style": "off",
+    "@typescript-eslint/no-dynamic-delete": "off"
   }
 }

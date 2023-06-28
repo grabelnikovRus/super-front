@@ -1,3 +1,3 @@
 import { type StateType } from "@app/providers/storeProvider";
-
-export const getLogin = (state: StateType) => state.login
+const a = { username: "", password: "", isLoading: false, error: "" }
+export const getLogin = (state: StateType) => state.login || a

@@ -19,7 +19,7 @@ export const NavBar: FC<NavBarProps> = () => {
   const { t } = useTranslation()
 
   const toggleAuthModal = useCallback(() => {
-    authData ? dispatch(userActions.logout()) : setOpenAuthModal(true);
+    authData ? dispatch(userActions.logout()) : setOpenAuthModal((prev) => !prev);
   }, [openAuthModal, authData])
 
   return (

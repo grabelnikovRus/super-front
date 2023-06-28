@@ -1,11 +1,12 @@
 import { type FC, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { Button, Input, Article } from "@shared/ui"
-import { loginActions } from "../../model/slice/loginSlice"
+import { loginActions, loginReducer } from "../../model/slice/loginSlice"
 import { useSelector } from "react-redux"
 import { useAppDispatch } from "@shared/hooks/useAppDispatch"
 import { getLogin } from "../../model/selectors/getLogin/getLogin"
 import { loginByUser } from "../../model/services/loginByUser"
+import { useReducerManager } from "@shared/hooks/useReducerManager"
 
 import s from "./LoginForm.module.scss"
 
@@ -13,6 +14,8 @@ export const LoginForm: FC = () => {
   const { t } = useTranslation()
   const { username, password, isLoading, error } = useSelector(getLogin)
   const dispatch = useAppDispatch()
+
+  useReducerManager({ login: loginReducer })
 
   const onChangeLogin = useCallback((value: string) =>
     dispatch(loginActions.setUsername(value)), [])
@@ -22,8 +25,7 @@ export const LoginForm: FC = () => {
 
   const onClickBtn = useCallback(() => {
     dispatch(loginByUser({ username, password }))
-  }
-  , [username, password])
+  }, [username, password])
 
   return (
     <div className={s.auth}>
@@ -33,7 +35,7 @@ export const LoginForm: FC = () => {
       <Input
         label={t("login")}
         placeholder={t("login")}
-        value={username}
+        value={username || ""}
         onChange={onChangeLogin}
         autoFocus
       />
