@@ -2,7 +2,7 @@ import type { StorybookConfig } from "@storybook/react-webpack5";
 import { buildCssLoader } from "../build/buildCssLoader";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin"
 import { buildSvgLoader } from "../../config/build/buildSvgLOader";
-import { type RuleSetRule, type Configuration } from "webpack";
+import { type RuleSetRule, type Configuration, DefinePlugin } from "webpack";
 
 const config: StorybookConfig = {
   stories: ["../../src/**/*.stories.@(js|jsx|ts|tsx)"],
@@ -33,6 +33,10 @@ const config: StorybookConfig = {
     });
 
     config.module.rules.push(buildSvgLoader());
+
+    config.plugins.push(new DefinePlugin({
+      _IS_DEV_: false
+    }))
 
     return config;
   }

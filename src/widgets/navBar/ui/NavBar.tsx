@@ -2,6 +2,9 @@ import { useState, type FC, useCallback } from "react";
 import { Button } from "@shared/ui";
 import { useTranslation } from "react-i18next";
 import { LoginModal } from "@feature/authByUser";
+import { useSelector } from "react-redux";
+import { getAuthData, userActions } from "@entities/user";
+import { useAppDispatch } from "@shared/hooks/useAppDispatch";
 
 import s from "./NavBar.module.scss";
 
@@ -11,12 +14,13 @@ interface NavBarProps {
 
 export const NavBar: FC<NavBarProps> = () => {
   const [openAuthModal, setOpenAuthModal] = useState(false)
+  const dispatch = useAppDispatch()
+  const authData = useSelector(getAuthData)
   const { t } = useTranslation()
 
-  const toggleAuthModal = useCallback(
-    () => { setOpenAuthModal((prev) => !prev); },
-    [openAuthModal]
-  )
+  const toggleAuthModal = useCallback(() => {
+    authData ? dispatch(userActions.logout()) : setOpenAuthModal(true);
+  }, [openAuthModal, authData])
 
   return (
     <div className={s.navbar}>
@@ -26,7 +30,7 @@ export const NavBar: FC<NavBarProps> = () => {
           className={s.navbar__link}
           onClick={toggleAuthModal}
         >
-          {t("sign_in")}
+          {t(authData ? "logout" : "sign_in")}
         </Button>
         <LoginModal isOpen={openAuthModal} onClose={toggleAuthModal}/>
       </div>

@@ -11,10 +11,17 @@ export const Button: FC<ButtonProps> = ({
   children,
   className,
   theme = "default",
+  disabled,
   ...other
 }) => {
   return (
-    <button className={classNames(s.button, className, s[theme])} {...other}>
+    <button
+      className={classNames(s.button, className, s[theme], {
+        [s.button__disabled]: disabled,
+      })}
+      disabled={disabled}
+      {...other}
+    >
       {children}
     </button>
   );

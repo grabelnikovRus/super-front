@@ -7,8 +7,9 @@ interface StoreProviderProps {
   initialState?: StateType
 }
 
-export const StoreProvider: FC<StoreProviderProps> = ({ children, initialState }) => {
-  const store = createStore(initialState)
+export const store = createStore()
+
+export const StoreProvider: FC<StoreProviderProps> = ({ children }) => {
   return (
     <Provider store={store}>
       {children}

@@ -6,5 +6,7 @@
     "error_boundary": "Sorry An Error Has Occurred",
     "sign_in": "Sign In",
     "login": "Login",
-    "pass": "Password"
+    "pass": "Password",
+    "check_username":"Check your username or password",
+    "logout": "Logout"
 }

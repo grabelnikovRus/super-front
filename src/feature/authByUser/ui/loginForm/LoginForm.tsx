@@ -1,17 +1,56 @@
-import { type FC } from "react"
+import { type FC, useCallback } from "react"
 import { useTranslation } from "react-i18next"
-import { Button, Input } from "@shared/ui"
+import { Button, Input, Article } from "@shared/ui"
+import { loginActions } from "../../model/slice/loginSlice"
+import { useSelector } from "react-redux"
+import { useAppDispatch } from "@shared/hooks/useAppDispatch"
+import { getLogin } from "../../model/selectors/getLogin/getLogin"
+import { loginByUser } from "../../model/services/loginByUser"
 
 import s from "./LoginForm.module.scss"
 
 export const LoginForm: FC = () => {
   const { t } = useTranslation()
+  const { username, password, isLoading, error } = useSelector(getLogin)
+  const dispatch = useAppDispatch()
+
+  const onChangeLogin = useCallback((value: string) =>
+    dispatch(loginActions.setUsername(value)), [])
+
+  const onChangePass = useCallback((value: string) =>
+    dispatch(loginActions.setPassword(value)), [])
+
+  const onClickBtn = useCallback(() => {
+    dispatch(loginByUser({ username, password }))
+  }
+  , [username, password])
 
   return (
     <div className={s.auth}>
-      <Input type="text" label={t("login")} placeholder={t("login")}/>
-      <Input type="text" label={t("pass")} placeholder={t("pass")} autoFocus/>
-      <Button theme="m" className={s.auth_btn}>{t("sign_in")}</Button>
+      <div className={s.auth_error}>
+        <Article theme="error" text={error} />
+      </div>
+      <Input
+        label={t("login")}
+        placeholder={t("login")}
+        value={username}
+        onChange={onChangeLogin}
+        autoFocus
+      />
+      <Input
+        label={t("pass")}
+        placeholder={t("pass")}
+        value={password}
+        onChange={onChangePass}
+      />
+      <Button
+        theme="m"
+        className={s.auth_btn}
+        onClick={onClickBtn}
+        disabled={isLoading}
+      >
+        {t("sign_in")}
+      </Button>
     </div>
   )
 }

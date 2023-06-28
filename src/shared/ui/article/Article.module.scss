@@ -1,0 +1,21 @@
+.article {
+  &_title {
+    color: var(--primary-color);
+    font: var(--font-l)
+  }
+
+  &_text {
+    color: var(--secondary-color);
+  }
+
+  &__error {
+    .article_title {
+      color: var(--error-color);
+    }
+    
+    .article_text {
+      color: var(--error-color);
+    }
+  }
+} 
+

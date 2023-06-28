@@ -1,3 +1,3 @@
 export { StoreProvider } from "./ui/StoreProvider"
 export { createStore } from "./config/store"
-export { type StateType } from "./config/types"
+export { type StateType, type RootState, type AppDispatch } from "./config/types"
