@@ -1,4 +1,4 @@
-import { useState, type FC, useCallback } from "react";
+import { useState, type FC, useCallback, useEffect } from "react";
 import { Button } from "@shared/ui";
 import { useTranslation } from "react-i18next";
 import { LoginModal } from "@feature/authByUser";
@@ -19,8 +19,17 @@ export const NavBar: FC<NavBarProps> = () => {
   const { t } = useTranslation()
 
   const toggleAuthModal = useCallback(() => {
-    authData ? dispatch(userActions.logout()) : setOpenAuthModal((prev) => !prev);
+    setOpenAuthModal((prev) => !prev);
+  }, [])
+
+  const onClickBtn = useCallback(() => {
+    if (authData) dispatch(userActions.logout());
+    else setOpenAuthModal(true);
   }, [openAuthModal, authData])
+
+  useEffect(() => {
+    if (authData) setOpenAuthModal(false)
+  }, [authData])
 
   return (
     <div className={s.navbar}>
@@ -28,7 +37,7 @@ export const NavBar: FC<NavBarProps> = () => {
         <Button
           theme="outline"
           className={s.navbar__link}
-          onClick={toggleAuthModal}
+          onClick={onClickBtn}
         >
           {t(authData ? "logout" : "sign_in")}
         </Button>

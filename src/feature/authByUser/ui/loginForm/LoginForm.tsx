@@ -1,4 +1,4 @@
-import { type FC, useCallback } from "react"
+import { type FC, useCallback, useMemo } from "react"
 import { useTranslation } from "react-i18next"
 import { Button, Input, Article } from "@shared/ui"
 import { loginActions, loginReducer } from "../../model/slice/loginSlice"
@@ -12,7 +12,10 @@ import s from "./LoginForm.module.scss"
 
 export const LoginForm: FC = () => {
   const { t } = useTranslation()
-  const { username, password, isLoading, error } = useSelector(getLogin)
+  const stateLogin = useSelector(getLogin)
+  const { username, password, isLoading, error } = useMemo(
+    () => stateLogin || { username: "", password: "", isLoading: false }
+    , [stateLogin])
   const dispatch = useAppDispatch()
 
   useReducerManager({ login: loginReducer })
