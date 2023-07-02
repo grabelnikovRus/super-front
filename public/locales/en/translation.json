@@ -7,6 +7,6 @@
     "sign_in": "Sign In",
     "login": "Login",
     "pass": "Password",
-    "check_username":"Check your username or password",
+    "check_username": "Check your username or password",
     "logout": "Logout"
 }

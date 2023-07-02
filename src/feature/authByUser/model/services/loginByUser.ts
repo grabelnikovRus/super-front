@@ -19,6 +19,8 @@ export const loginByUser = createAsyncThunk<UserType, LoginByUserProps, Options>
       const res = await axios.post("http://localhost:8000/login", data)
 
       api.dispatch(userActions.setAuthData(res.data))
+
+      return res.data
     } catch (e) {
       if (e.response.status === 403) {
         return api.rejectWithValue(i18n.t("check_username"))
