@@ -1,7 +1,7 @@
 import { type FC } from "react"
 
 import s from "./Article.module.scss"
-import { classNames } from "@shared/helpers"
+import { classNames } from "@shared/helpers/lib"
 
 type theme = "default" | "error"
 

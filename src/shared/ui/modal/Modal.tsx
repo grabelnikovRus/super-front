@@ -5,7 +5,7 @@ import {
   useEffect,
   useRef,
 } from "react"
-import { classNames } from "@shared/helpers"
+import { classNames } from "@shared/helpers/lib"
 import { Portal } from "../portal/Portal"
 
 import s from "./Modal.module.scss"

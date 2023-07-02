@@ -2,7 +2,7 @@ import { type FC } from "react"
 import { Loader } from "@shared/ui"
 
 import s from "./PageLoader.module.scss"
-import { classNames } from "@shared/helpers"
+import { classNames } from "@shared/helpers/lib"
 
 interface PageLoaderProps {
   appLoad?: boolean
