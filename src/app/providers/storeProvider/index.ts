@@ -5,5 +5,6 @@ export {
   type RootState,
   type AppDispatch,
   type StoreWithReducerManager,
-  type KeyStateType
+  type KeyStateType,
+  type OptionsCreateAsync
 } from "./config/types"

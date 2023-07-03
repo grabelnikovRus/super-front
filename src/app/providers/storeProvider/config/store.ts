@@ -3,10 +3,17 @@ import { type StateType } from "./types";
 import { counterReducer } from "@entities/counter";
 import { userReducer, userMiddleware } from "@entities/user";
 import { createReducerManager } from "./reducerManager";
+import { api } from "@shared/api/api";
+import { type NavigateOptions, type To } from "react-router-dom";
 
 const initialState: StateType = {
   counter: { value: 0 },
   user: {}
+}
+
+interface CreateStoreType {
+  state?: StateType
+  navigate?: (to: To, options?: NavigateOptions) => void
 }
 
 const rootReducer: ReducersMapObject<StateType> = {
@@ -14,7 +21,7 @@ const rootReducer: ReducersMapObject<StateType> = {
   user: userReducer
 }
 
-export const createStore = (state = initialState) => {
+export const createStore = ({ state = initialState, navigate }: CreateStoreType) => {
   const reducerManager = createReducerManager(rootReducer)
 
   const store = configureStore({
@@ -22,7 +29,11 @@ export const createStore = (state = initialState) => {
     preloadedState: state,
     devTools: _IS_DEV_,
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(userMiddleware.middleware)
+      getDefaultMiddleware({
+        thunk: {
+          extraArgument: { api, navigate }
+        }
+      }).concat(userMiddleware.middleware)
   })
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment

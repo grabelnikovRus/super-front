@@ -1,7 +1,6 @@
 import { type FC, useState, useEffect } from "react";
 import { ThemeContext, type ThemeType } from "./ThemeContext";
-
-const KEY_THEME = "theme";
+import { KEY_THEME } from "@shared/constants/common";
 
 export const ThemeProvider: FC = ({ children }) => {
   const [theme, setTheme] = useState<ThemeType>(

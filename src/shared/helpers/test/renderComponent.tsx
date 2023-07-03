@@ -22,7 +22,7 @@ export const renderComponent = (
     initalState = {}
   } = options;
 
-  const store = createStore(initalState as StateType)
+  const store = createStore({ state: initalState as StateType })
 
   render(
     <Provider store={store}>

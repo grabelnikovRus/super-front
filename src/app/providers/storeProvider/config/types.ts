@@ -1,6 +1,6 @@
 import { type CounterShema } from "@entities/counter";
 import { type LoginSchema } from "@feature/authByUser";
-import { type store } from "../ui/StoreProvider";
+import { type createStore } from "./store";
 import { type UserSchema } from "@entities/user";
 import {
   type Reducer,
@@ -10,6 +10,8 @@ import {
 } from "@reduxjs/toolkit";
 import { type configureStore } from "@reduxjs/toolkit/dist/configureStore";
 import { type ProfileScheme } from "@entities/profile";
+import { type AxiosInstance } from "axios";
+import { type NavigateOptions, type To } from "react-router-dom";
 
 export interface StateType {
   counter: CounterShema
@@ -21,8 +23,8 @@ export interface StateType {
 
 export type KeyStateType = keyof StateType
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof createStore>["getState"]
+export type AppDispatch = ReturnType<typeof createStore>["dispatch"]
 
 export interface CreateReducerManagerType {
   getReducerMap: () => ReducersMapObject<StateType>
@@ -33,4 +35,14 @@ export interface CreateReducerManagerType {
 
 export interface StoreWithReducerManager extends ReturnType<typeof configureStore> {
   reducerManager: CreateReducerManagerType
+}
+
+interface ThunkExtraArgType {
+  api: AxiosInstance
+  navigate: (to: To, options?: NavigateOptions) => void
+}
+
+export interface OptionsCreateAsync<T = string> {
+  rejectValue: T
+  extra: ThunkExtraArgType
 }
