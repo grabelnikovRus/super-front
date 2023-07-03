@@ -5,5 +5,5 @@ export interface UserType {
 }
 
 export interface UserSchema {
-  authData?: UserType
+  authData?: UserType | null
 }

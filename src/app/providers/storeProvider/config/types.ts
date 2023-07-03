@@ -39,7 +39,7 @@ export interface StoreWithReducerManager extends ReturnType<typeof configureStor
 
 interface ThunkExtraArgType {
   api: AxiosInstance
-  navigate: (to: To, options?: NavigateOptions) => void
+  navigate?: (to: To, options?: NavigateOptions) => void
 }
 
 export interface OptionsCreateAsync<T = string> {

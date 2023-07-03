@@ -2,7 +2,7 @@ import type { StorybookConfig } from "@storybook/react-webpack5";
 import { buildCssLoader } from "../build/buildCssLoader";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin"
 import { buildSvgLoader } from "../../config/build/buildSvgLOader";
-import { type RuleSetRule, type Configuration, DefinePlugin } from "webpack";
+import { type Configuration, DefinePlugin } from "webpack";
 
 const config: StorybookConfig = {
   stories: ["../../src/**/*.stories.@(js|jsx|ts|tsx)"],
@@ -20,21 +20,25 @@ const config: StorybookConfig = {
     autodocs: "tag",
   },
   webpackFinal: async (config, { configType }): Promise<Configuration> => {
-    config.resolve.plugins = [new TsconfigPathsPlugin()];
+    if (config.resolve?.plugins) config.resolve.plugins = [new TsconfigPathsPlugin()];
 
-    config.module.rules.push(buildCssLoader(false));
+    if (config.module?.rules) {
+      config.module.rules = config.module.rules.map((rule) => {
+        if (
+          rule !== "..." &&
+          rule.test instanceof RegExp && rule.test.toString().includes("svg")
+        ) {
+          return { ...rule, exclude: /\.svg$/i };
+        }
 
-    config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
-      if (rule.test instanceof RegExp && rule.test.toString().includes("svg")) {
-        return { ...rule, exclude: /\.svg$/i };
-      }
+        return rule;
+      });
 
-      return rule;
-    });
+      config.module.rules.push(buildCssLoader(false));
+      config.module.rules.push(buildSvgLoader());
+    }
 
-    config.module.rules.push(buildSvgLoader());
-
-    config.plugins.push(new DefinePlugin({
+    config.plugins?.push(new DefinePlugin({
       _IS_DEV_: false,
       _API_: ""
     }))

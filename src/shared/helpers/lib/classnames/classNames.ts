@@ -1,9 +1,11 @@
 export const classNames = (
-  ...args: Array<string | string[] | Record<string, boolean>>
+  ...args: Array<string | string[] | undefined | Record<string, boolean | undefined>>
 ): string => {
   return args
     .filter(Boolean)
     .map((item) => {
+      if (!item) return "";
+
       if (typeof item === "string") return item;
 
       if (Array.isArray(item)) return item.join(" ");

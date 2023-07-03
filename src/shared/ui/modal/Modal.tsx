@@ -25,7 +25,7 @@ export const Modal: FC<ModalProps> = ({
   containerMount
 }) => {
   const [openModal, setOpenModal] = useState(false)
-  const timer = useRef<ReturnType<typeof setTimeout>>(null)
+  const timer = useRef<ReturnType<typeof setTimeout>>()
 
   const onClickContent = (e: MouseEvent<HTMLDivElement>) => { e.stopPropagation(); }
 

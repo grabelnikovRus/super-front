@@ -2,6 +2,7 @@ import { type OptionsCreateAsync } from "@app/providers/storeProvider";
 import { userActions, type UserType } from "@entities/user";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import i18n from "@shared/config/i18n/config";
+import { AxiosError } from "axios";
 
 interface LoginByUserProps {
   username: string
@@ -19,9 +20,12 @@ export const loginByUser =
 
         return res.data
       } catch (e) {
-        if (e.response.status === 403) {
+        if (e instanceof AxiosError && e.response?.status === 403) {
           return rejectWithValue(i18n.t("check_username"))
         }
-        return rejectWithValue(e.message)
+
+        if (e instanceof Error) return rejectWithValue(e.message)
+
+        return rejectWithValue("error")
       }
     })

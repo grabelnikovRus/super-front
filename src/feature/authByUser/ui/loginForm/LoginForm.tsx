@@ -36,15 +36,15 @@ export const LoginForm: FC = () => {
         <Article theme="error" text={error} />
       </div>
       <Input
-        label={t("login")}
-        placeholder={t("login")}
+        label={t("login") || ""}
+        placeholder={t("login") || ""}
         value={username || ""}
         onChange={onChangeLogin}
         autoFocus
       />
       <Input
-        label={t("pass")}
-        placeholder={t("pass")}
+        label={t("pass") || ""}
+        placeholder={t("pass") || ""}
         value={password}
         onChange={onChangePass}
       />
