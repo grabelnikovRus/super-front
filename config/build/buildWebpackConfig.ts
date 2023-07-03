@@ -11,6 +11,7 @@ export function buildWebpackCongif({
   paths,
   port,
   isDev,
+  apiUrl,
 }: BuildOptions): Configuration {
   return {
     entry: paths.entry,
@@ -24,7 +25,7 @@ export function buildWebpackCongif({
       rules: buildLoaders(mode),
     },
     resolve: buildResolvers(paths.src),
-    plugins: buildPlugins(paths.html, isDev),
+    plugins: buildPlugins(paths.html, isDev, apiUrl),
     devServer: isDev ? buildDevSrver(port) : undefined,
     devtool: isDev ? "inline-source-map" : false,
   };

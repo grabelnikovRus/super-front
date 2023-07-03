@@ -7,11 +7,13 @@ export default (env: BuildEnv) => {
   const port = env.port || 3000;
   const mode = env.mode || "development";
   const isDev = mode === "development";
+  const apiUrl = env.mode || "http://localhost:8000/";
 
   const config: Configuration = buildWebpackCongif({
     mode,
     port,
     isDev,
+    apiUrl,
     paths: {
       src: path.resolve(__dirname, "./src"),
       entry: path.resolve(__dirname, "./src/index.tsx"),

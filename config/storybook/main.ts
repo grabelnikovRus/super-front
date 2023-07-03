@@ -35,7 +35,8 @@ const config: StorybookConfig = {
     config.module.rules.push(buildSvgLoader());
 
     config.plugins.push(new DefinePlugin({
-      _IS_DEV_: false
+      _IS_DEV_: false,
+      _API_: ""
     }))
 
     return config;
