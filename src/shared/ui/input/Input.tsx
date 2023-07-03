@@ -2,8 +2,8 @@ import {
   useEffect,
   useRef,
   type ChangeEvent,
-  type FC,
-  type InputHTMLAttributes
+  type InputHTMLAttributes,
+  memo
 } from "react"
 
 import s from "./Input.module.scss"
@@ -14,13 +14,13 @@ interface InputProps extends
   label?: string
 }
 
-export const Input: FC<InputProps> = ({
+export const Input = memo(({
   label,
   type = "text",
   autoFocus,
   onChange,
   ...other
-}) => {
+}: InputProps) => {
   const ref = useRef<HTMLInputElement>(null);
 
   const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
@@ -45,4 +45,4 @@ export const Input: FC<InputProps> = ({
       </label>
     </div>
   )
-}
+})

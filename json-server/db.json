@@ -25,5 +25,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": { 
+    "name": "Ruslan",
+    "surname": "Grabelnikov",
+    "age": 36,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Tomsk",
+    "username": "admin",
+    "avatar": "https://w7.pngwing.com/pngs/607/878/png-transparent-avatar-batman-comics-hero-avatars-xmas-giveaway-icon.png"
+  }
 }

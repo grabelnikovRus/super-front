@@ -1,1 +1,1 @@
-export { LangSwitcher } from "./ui/LangSwitcher";
+export { LangSwitcherMemo as LangSwitcher } from "./ui/LangSwitcher";

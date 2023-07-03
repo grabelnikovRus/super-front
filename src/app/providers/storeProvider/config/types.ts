@@ -9,12 +9,14 @@ import {
   type ReducersMapObject,
 } from "@reduxjs/toolkit";
 import { type configureStore } from "@reduxjs/toolkit/dist/configureStore";
+import { type ProfileScheme } from "@entities/profile";
 
 export interface StateType {
   counter: CounterShema
   user: UserSchema
   // асинхронные редусеры
   login?: LoginSchema
+  profile?: ProfileScheme
 }
 
 export type KeyStateType = keyof StateType

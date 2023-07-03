@@ -1,1 +1,1 @@
-export { ThemeSwitcher } from "./ui/ThemeSwitcher";
+export { ThemeSwitcherMemo as ThemeSwitcher } from "./ui/ThemeSwitcher";

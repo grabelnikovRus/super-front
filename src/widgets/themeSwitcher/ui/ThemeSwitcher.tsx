@@ -1,5 +1,5 @@
 import { useTheme } from "@app/providers/themeProviders";
-import { type FC } from "react";
+import { memo, type FC } from "react";
 import IconDark from "@shared/assest/icon/theme-dark.svg";
 import IconLight from "@shared/assest/icon/theme-light.svg";
 
@@ -14,3 +14,5 @@ export const ThemeSwitcher: FC = () => {
     </Button>
   );
 };
+
+export const ThemeSwitcherMemo = memo(ThemeSwitcher)

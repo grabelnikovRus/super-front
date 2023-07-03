@@ -8,5 +8,6 @@
     "login": "Login",
     "pass": "Password",
     "check_username": "Check your username or password",
-    "logout": "Logout"
+    "logout": "Logout",
+    "profile": "Profile"
 }

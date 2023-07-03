@@ -1,9 +1,9 @@
-import { type FC } from "react";
+import { memo, type FC } from "react";
 
 import { Button } from "@shared/ui";
 import { useTranslation } from "react-i18next";
 
-export const LangSwitcher: FC = () => {
+const LangSwitcher: FC = () => {
   const { t, i18n } = useTranslation();
 
   const onToggleLang = async () =>
@@ -15,3 +15,5 @@ export const LangSwitcher: FC = () => {
     </Button>
   );
 };
+
+export const LangSwitcherMemo = memo(LangSwitcher)
