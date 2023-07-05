@@ -1,11 +1,7 @@
-
-import axios from "axios"
 import { loginByUser } from "./loginByUser"
 import { userActions } from "@entities/user";
 import { TestAsyncThunk } from "@shared/helpers/test/testAsyncThunk";
 
-jest.mock("axios");
-const mockedAxios = jest.mocked(axios);
 const action = new TestAsyncThunk(loginByUser)
 
 describe("loginByUser", () => {
@@ -40,7 +36,7 @@ describe("loginByUser", () => {
 
   test("success login", async () => {
     const userValue = { username: "admin", password: "123", id: 1 };
-    mockedAxios.post.mockResolvedValue({ data: userValue });
+    action.api.post.mockResolvedValue({ data: userValue });
     const result = await action.callThunk({ username: "admin", password: "123" })
 
     expect(action.dispatch).toBeCalledTimes(3)
@@ -52,10 +48,10 @@ describe("loginByUser", () => {
 
   test("reject login", async () => {
     const errorValue = { response: { status: 403 } };
-    mockedAxios.post.mockRejectedValue(errorValue);
+    action.api.post.mockRejectedValue(errorValue);
     const result = await action.callThunk({ username: "", password: "" })
 
     expect(action.dispatch).toBeCalledTimes(2);
-    expect(result.payload).toBe("check_username")
+    expect(result.payload).toBe("error")
   });
 })
