@@ -21,6 +21,7 @@ const config: StorybookConfig = {
   },
   webpackFinal: async (config, { configType }): Promise<Configuration> => {
     if (config.resolve?.plugins) config.resolve.plugins = [new TsconfigPathsPlugin()];
+    else if (config.resolve) config.resolve.plugins = [new TsconfigPathsPlugin()];
 
     if (config.module?.rules) {
       config.module.rules = config.module.rules.map((rule) => {
@@ -40,7 +41,7 @@ const config: StorybookConfig = {
 
     config.plugins?.push(new DefinePlugin({
       _IS_DEV_: false,
-      _API_: ""
+      _API_: "/dist/"
     }))
 
     return config;

@@ -9,16 +9,10 @@ import { counterReducer } from "@entities/counter";
 import { userReducer, userMiddleware } from "@entities/user";
 import { createReducerManager } from "./reducerManager";
 import { api } from "@shared/api/api";
-import { type NavigateOptions, type To } from "react-router-dom";
 
 const initialState: StateType = {
   counter: { value: 0 },
   user: {}
-}
-
-interface CreateStoreType {
-  state?: StateType
-  navigate?: (to: To, options?: NavigateOptions) => void
 }
 
 const rootReducer: ReducersMapObject<StateType> = {
@@ -26,7 +20,7 @@ const rootReducer: ReducersMapObject<StateType> = {
   user: userReducer
 }
 
-export const createStore = ({ state = initialState, navigate }: CreateStoreType) => {
+export const createStore = (state = initialState) => {
   const reducerManager = createReducerManager(rootReducer)
 
   const store = configureStore({
@@ -36,7 +30,7 @@ export const createStore = ({ state = initialState, navigate }: CreateStoreType)
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
         thunk: {
-          extraArgument: { api, navigate }
+          extraArgument: { api }
         }
       }).concat(userMiddleware.middleware)
   })

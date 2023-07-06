@@ -22,15 +22,15 @@ export const renderComponent = (
     initalState = {}
   } = options;
 
-  const store = createStore({ state: initalState as StateType })
+  const store = createStore(initalState as StateType)
 
   render(
-    <Provider store={store}>
-      <MemoryRouter initialEntries={typeof router === "string" ? [router] : router}>
+    <MemoryRouter initialEntries={typeof router === "string" ? [router] : router}>
+      <Provider store={store}>
         <I18nextProvider i18n={config} >
           {MyComponent}
         </I18nextProvider>
-      </MemoryRouter>
-    </Provider>
+      </Provider>
+    </MemoryRouter>
   )
 }

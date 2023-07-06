@@ -1,0 +1,10 @@
+{
+    "profile": "Profile",
+    "edit": "Edit",
+    "name": "Name",
+    "surname": "Surname",
+    "enter_surname":"Enter your surname",
+    "enter_name":"Enter your name",
+    "has_error": "An error has occurred",
+    "reload_age": "Try reloading the page"
+}
