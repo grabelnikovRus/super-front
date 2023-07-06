@@ -17,5 +17,26 @@
       color: var(--error-color);
     }
   }
+
+  &.left {
+    .article_title,
+    .article_text {
+      text-align: left;
+    }
+  }
+
+  &.rigth {
+    .article_title,
+    .article_text {
+      text-align: right;
+    }
+  }
+
+  &.center {
+    .article_title,
+    .article_text {
+      text-align: center;
+    }
+  }
 } 
 
