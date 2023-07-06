@@ -7,6 +7,7 @@ import {
 } from "react"
 
 import s from "./Input.module.scss"
+import { classNames } from "@shared/helpers/lib"
 
 interface InputProps extends
   Omit<InputHTMLAttributes<HTMLInputElement>, "onChange"> {
@@ -19,6 +20,7 @@ export const Input = memo(({
   type = "text",
   autoFocus,
   onChange,
+  readOnly,
   ...other
 }: InputProps) => {
   const ref = useRef<HTMLInputElement>(null);
@@ -37,9 +39,12 @@ export const Input = memo(({
         {label && label}
         <input
           ref={ref}
-          className={s.input}
+          className={classNames(s.input, {
+            [s.readonly]: readOnly
+          })}
           type={type}
           onChange={onChangeInput}
+          readOnly={readOnly}
           {...other}
         />
       </label>
