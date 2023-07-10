@@ -21,7 +21,7 @@ export const ProfilePage: FC = () => {
   useReducerManager(reducers);
 
   const onClickEdit = useCallback(
-    () => { dispatch(profileActions.editProfile(!readonly)); console.log(readonly) }
+    () => { dispatch(profileActions.editProfile(!readonly)) }
     , [readonly]
   )
 
@@ -42,6 +42,7 @@ export const ProfilePage: FC = () => {
   }, [])
 
   useEffect(() => {
+    if (_PROJECT_ !== "frontend") return
     dispatch(fetchProfile())
   }, [])
 
