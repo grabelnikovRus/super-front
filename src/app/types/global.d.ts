@@ -21,3 +21,4 @@ declare module "*.png" {
 
 declare const _IS_DEV_: boolean;
 declare const _API_: string;
+declare const _PROJECT_: "frontend" | "jest" | "storybook"

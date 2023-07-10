@@ -7,7 +7,8 @@ import { type BuildOptions, type BuildPaths } from "./types/config";
 export function buildPlugins(
   paths: BuildPaths["html"],
   isDev: BuildOptions["isDev"],
-  apiUrl: BuildOptions["apiUrl"]
+  apiUrl: BuildOptions["apiUrl"],
+  project: BuildOptions["project"]
 ): WebpackPluginInstance[] {
   const plugins = [
     new HtmlWebpackPlugin({ template: paths }),
@@ -18,7 +19,11 @@ export function buildPlugins(
     // Он поддерживает загрузку CSS и SourceMaps по требованию.
     // MiniCssExtractPlugin также содержит статический метод loader
     new ProgressPlugin(),
-    new DefinePlugin({ _IS_DEV_: isDev, _API_: JSON.stringify(apiUrl) }),
+    new DefinePlugin({
+      _IS_DEV_: isDev,
+      _API_: JSON.stringify(apiUrl),
+      _PROJECT_: JSON.stringify(project)
+    }),
   ]
 
   if (isDev) plugins.push(new BundleAnalyzerPlugin())

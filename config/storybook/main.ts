@@ -41,7 +41,8 @@ const config: StorybookConfig = {
 
     config.plugins?.push(new DefinePlugin({
       _IS_DEV_: false,
-      _API_: "/dist/"
+      _API_: "/dist/",
+      _PROJECT_: JSON.stringify("storybook")
     }))
 
     return config;
