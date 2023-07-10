@@ -9,7 +9,6 @@ export const styleDecorator = (theme: ThemeType = "light") =>
     useEffect(() => {
       document.body.classList.remove(theme === "light" ? "dark" : "light")
       document.body.classList.add(theme)
-      return () => { document.body.classList.remove("light", "dark") }
     }, [theme])
 
     return <>{story()}</>
