@@ -25,12 +25,12 @@
       "password": "123"
     }
   ],
-  "profile": { 
+  "profile": {
     "name": "Ruslan",
-    "surname": "Grabelnikov",
-    "age": 36,
+    "surname": "GrabelnikovR",
+    "age": "35",
     "currency": "RUB",
-    "country": "Russia",
+    "country": "RUS",
     "city": "Tomsk",
     "username": "admin",
     "avatar": "https://w7.pngwing.com/pngs/607/878/png-transparent-avatar-batman-comics-hero-avatars-xmas-giveaway-icon.png"

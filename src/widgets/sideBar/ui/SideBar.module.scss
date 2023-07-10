@@ -2,8 +2,9 @@
   position: relative;
   flex-direction: column;
   background-color: var(--bg-color-inverted);
-  height: calc(100vh - var(--height-navbar));
   width: 200px;
+  height: auto;
+  min-height: 100vh;
   transition: .3s width;
 
   &_links {

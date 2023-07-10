@@ -1,10 +1,22 @@
 {
     "profile": "Profile",
     "edit": "Edit",
+    "cancel_edit": "Cancel edit",
     "name": "Name",
     "surname": "Surname",
     "enter_surname":"Enter your surname",
     "enter_name":"Enter your name",
     "has_error": "An error has occurred",
-    "reload_age": "Try reloading the page"
+    "reload_age": "Try reloading the page",
+    "your_city": "Your city",
+    "city": "City",
+    "your_age": "Your age",
+    "age": "Age",
+    "save": "Save",
+    "your_username": "Your Username",
+    "username": "Username",
+    "avatar": "Avatar",
+    "your_avatar": "Your avatar",
+    "country": "Country",
+    "currency": "Currency"
 }

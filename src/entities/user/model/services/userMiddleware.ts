@@ -15,7 +15,9 @@ startUserMiddleware({
 startUserMiddleware({
   actionCreator: userActions.initApp,
   effect: (_, api) => {
-    const authData = JSON.parse(localStorage.getItem(KEY_STORAGE_AUTH) || "")
+    const key = localStorage.getItem(KEY_STORAGE_AUTH)
+    if (!key) return
+    const authData = JSON.parse(key)
     api.dispatch(userActions.setAuthData(authData))
   }
 })

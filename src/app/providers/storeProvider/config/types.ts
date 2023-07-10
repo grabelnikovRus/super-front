@@ -9,9 +9,8 @@ import {
   type ReducersMapObject,
 } from "@reduxjs/toolkit";
 import { type configureStore } from "@reduxjs/toolkit/dist/configureStore";
-import { type ProfileScheme } from "@entities/profile";
+import { type ProfileScheme } from "@feature/editableProfileCard";
 import { type AxiosInstance } from "axios";
-import { type NavigateOptions, type To } from "react-router-dom";
 
 export interface StateType {
   counter: CounterShema
@@ -39,10 +38,10 @@ export interface StoreWithReducerManager extends ReturnType<typeof configureStor
 
 interface ThunkExtraArgType {
   api: AxiosInstance
-  navigate?: (to: To, options?: NavigateOptions) => void
 }
 
 export interface OptionsCreateAsync<T = string> {
   rejectValue: T
   extra: ThunkExtraArgType
+  state: StateType
 }
