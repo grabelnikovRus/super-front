@@ -17,6 +17,8 @@ export const useReducerManager = (initReducers: ReducerObjType[] | ReducerObjTyp
   const arrayReducers = Array.isArray(initReducers) ? initReducers : [initReducers]
 
   useEffect(() => {
+    if (_PROJECT_ !== "frontend") return;
+
     arrayReducers.forEach((obj) => {
       Object.entries(obj).forEach(([key, reducer]) => {
         dispatch({ type: `init ${key} reducer` })

@@ -20,8 +20,8 @@ const rootReducer: ReducersMapObject<StateType> = {
   user: userReducer
 }
 
-export const createStore = (state = initialState) => {
-  const reducerManager = createReducerManager(rootReducer)
+export const createStore = (state = initialState, initialReducer = rootReducer) => {
+  const reducerManager = createReducerManager(initialReducer)
 
   const store = configureStore({
     reducer: reducerManager.reduce as Reducer<StateType, AnyAction>,
