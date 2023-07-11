@@ -3,6 +3,7 @@ import { MainAsync } from "@page/mainPage";
 import { NotFoundPageAsync } from "@page/notFoundPage";
 import { ProfilePageAsync } from "@page/profilePage/ui/ProfilePageAsync";
 import { type PathRouteProps } from "react-router-dom";
+import { RequiredAuth } from "../ui/RequiredAuth";
 
 export enum RouterPath {
   MAIN = "/",
@@ -19,7 +20,11 @@ export const routerConfig: Record<RouterPath, PathRouteProps> = {
     element: <AboutAsync />,
   },
   [RouterPath.PROFILE]: {
-    element: <ProfilePageAsync />
+    element: (
+    <RequiredAuth>
+      <ProfilePageAsync />
+      </RequiredAuth>
+    )
   },
   [RouterPath.NOT_FOUND]: {
     element: <NotFoundPageAsync />
