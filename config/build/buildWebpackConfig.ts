@@ -20,6 +20,7 @@ export function buildWebpackCongif({
       path: paths.output,
       filename: "bundle.[contenthash].js",
       clean: true,
+      publicPath: "/"
     },
     mode,
     module: {

@@ -9,5 +9,6 @@
     "pass": "Password",
     "check_username": "Check your username or password",
     "logout": "Logout",
-    "profile": "Profile"
+    "profile": "Profile",
+    "articles": "Articles"
 }
