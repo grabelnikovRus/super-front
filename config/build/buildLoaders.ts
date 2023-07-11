@@ -1,3 +1,4 @@
+import ReactRefreshTypeScript from "react-refresh-typescript";
 import { type RuleSetRule } from "webpack";
 import { type BuildOptions } from "./types/config";
 import { buildCssLoader } from "./buildCssLoader";
@@ -18,8 +19,16 @@ export function buildLoaders(mode: BuildOptions["mode"]): RuleSetRule[] {
   const tsLoader = {
     // лоадер применяется только к файлам с .tsx
     test: /\.tsx?$/,
-    use: "ts-loader",
     exclude: /node_modules/,
+    use: [{
+      loader: "ts-loader",
+      options: {
+        getCustomTransformers: () => ({
+          before: [mode === "development" && ReactRefreshTypeScript()].filter(Boolean),
+        }),
+        transpileOnly: mode === "development",
+      },
+    }],
   };
 
   const cssLoader = buildCssLoader(mode === "production")
