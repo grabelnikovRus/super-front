@@ -5,7 +5,6 @@ import { type StateType } from "@app/providers/storeProvider";
 import { styleDecorator } from "@shared/helpers/storybook/styleDecorator";
 import { profileReducer } from "@feature/editableProfileCard";
 import { type ReducersMapObject } from "@reduxjs/toolkit";
-import avatar from "@shared/assest/mock/1655360011_1.jpg"
 
 const meta = {
   title: "page/ProfilePage",
@@ -24,7 +23,9 @@ const profileState = {
   country: "RUS",
   city: "Tomsk",
   username: "admin",
-  avatar
+  avatar:
+    // eslint-disable-next-line max-len
+    "https://w7.pngwing.com/pngs/607/878/png-transparent-avatar-batman-comics-hero-avatars-xmas-giveaway-icon.png"
 }
 
 const state = {
