@@ -1,10 +1,11 @@
 .sidebar {
   position: relative;
   flex-direction: column;
+  flex-shrink: 0;
   background-color: var(--bg-color-inverted);
   width: 200px;
   height: auto;
-  min-height: 100vh;
+  min-height: calc(100vh - var(--height-navbar));
   transition: .3s width;
 
   &_links {
@@ -19,7 +20,7 @@
   &_button {
     position: absolute;
     bottom: 20px;
-    right: -55px;
+    right: -30px;
   }
 
   &_switchers {

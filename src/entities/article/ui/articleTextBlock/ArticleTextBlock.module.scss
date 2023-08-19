@@ -1,0 +1,12 @@
+.block {
+	display: grid;
+    gap: 20px;
+
+    &_title {
+        font: var(--font-l)
+    }
+
+    &_text {
+        font: var(--font-m);
+    }
+}

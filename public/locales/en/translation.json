@@ -10,5 +10,6 @@
     "check_username": "Check your username or password",
     "logout": "Logout",
     "profile": "Profile",
-    "articles": "Articles"
+    "articles": "Articles",
+    "article_not": "This article does not exist"
 }

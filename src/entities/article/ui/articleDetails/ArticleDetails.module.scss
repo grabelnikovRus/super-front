@@ -1,0 +1,35 @@
+.skeleton {
+    &_block {
+        height: 130px;
+    }
+}
+
+.article {
+    display: grid;
+    gap: 15px;
+
+    &_avatar {
+        border-radius: 50%;
+        height: 200px;
+        width: 200px;
+        justify-self: center;
+    }
+
+    &_title {
+        font: var(--font-xl);
+    }
+
+    &_subtitle {
+        font: var(--font-l);
+    }
+
+    &_item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &_icon path {
+        fill: var(--secondary-color);
+    }
+}

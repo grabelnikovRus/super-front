@@ -12,7 +12,7 @@ import { api } from "@shared/api/api";
 
 const initialState: StateType = {
   counter: { value: 0 },
-  user: {}
+  user: { _isInit: false }
 }
 
 const rootReducer: ReducersMapObject<StateType> = {

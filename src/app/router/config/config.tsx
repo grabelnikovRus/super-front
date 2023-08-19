@@ -12,7 +12,7 @@ export enum RouterPath {
   ABOUT = "/about",
   PROFILE = "/profile",
   ARTICLES = "/articles",
-  ARTICLE_DETAILS = "/article-details",
+  ARTICLES_DETAILS = "/articles/:id",
   NOT_FOUND = "*",
 }
 
@@ -37,8 +37,7 @@ export const routerConfig: Record<RouterPath, PathRouteProps> = {
       </RequiredAuth>
     ),
   },
-  [RouterPath.ARTICLE_DETAILS]: {
-    path: `${RouterPath.ARTICLE_DETAILS}:id`,
+  [RouterPath.ARTICLES_DETAILS]: {
     element: (
       <RequiredAuth>
         <ArticleDetailsPage />

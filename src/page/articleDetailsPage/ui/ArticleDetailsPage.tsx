@@ -1,16 +1,13 @@
 import { type FC } from "react";
-import { useTranslation } from "react-i18next";
-import { classNames } from "@shared/helpers/lib"
-import s from "./ArticleDetailsPage.module.scss";
+import { ArticleDetails } from "@entities/article";
+import { useParams } from "react-router-dom";
 
-interface ArticleDetailsPageProps {}
-
-export const ArticleDetailsPage: FC<ArticleDetailsPageProps> = () => {
-  const { t } = useTranslation()
+export const ArticleDetailsPage: FC = () => {
+  const { id } = useParams<{ id: string }>()
 
   return (
-      <div className={classNames(s.articleDetailsPage)}>
-
+      <div>
+        <ArticleDetails id={id} />
       </div>
   );
 }

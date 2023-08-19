@@ -9,16 +9,21 @@ type align = "center" | "left" | "rigth"
 
 interface ArticleProps {
   title?: string | null
-  text?: string | null
+  text?: string | number | null
   theme?: theme
   align?: align
+  className?: {
+    title?: string
+    text?: string
+  }
 }
 
 export const Article: FC<ArticleProps> = ({
   title,
   text,
   theme = "default",
-  align = "left"
+  align = "left",
+  className,
 }) => {
   if (!text && !title) return null;
 
@@ -26,8 +31,12 @@ export const Article: FC<ArticleProps> = ({
     <article className={classNames(s.article, s[align], {
       [s.article__error]: theme === "error",
     })}>
-      {title && <h6 className={s.article_title}>{title}</h6>}
-      {text && <p className={s.article_text}>{text}</p>}
+      {title && (
+        <h6 className={classNames(s.article_title, className?.title)}>
+          {title}
+        </h6>
+      )}
+      {text && <p className={classNames(s.article_text, className?.text)}>{text}</p>}
     </article>
   )
 }
