@@ -18,6 +18,8 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
 
 const state = {
+  counter: { value: 0 },
+  user: { _isInit: true },
   articles: {
     error: "",
     isLoading: false,
@@ -91,6 +93,52 @@ const state = {
           ]
         }
       ]
+    }
+  },
+  articleComments: {
+    isLoading: false,
+    error: undefined,
+    ids: [1, 2, 3],
+    entities: {
+      1: {
+        id: 1,
+        text: "some comment",
+        articleId: "1",
+        userId: 1,
+        user: {
+          id: 1,
+          username: "admin",
+          password: "123",
+          role: "ADMIN",
+          avatar: "https://sun9-1.userapi.com/impg/SWPMaf_MSz9mzptUya0I9x8WWxEt7fwJ4uyD-g/EE4oVaRp3wI.jpg?size=604x604&quality=95&sign=177e4e821c4a6735db31fbeb84de41e2&c_uniq_tag=eunY8ZVj41jFPdcjxK3Tdq7WAayWGntN8dhmi3Hqliw&type=album"
+        }
+      },
+      2: {
+        id: 2,
+        text: "some comment 2",
+        articleId: "1",
+        userId: 2,
+        user: {
+          id: 2,
+          username: "user",
+          password: "123",
+          role: "USER",
+          avatar: "https://cspromogame.ru//storage/upload_images/avatars/1299.jpg"
+        }
+      },
+      3: {
+        id: 3,
+        text: "some comment 3",
+        articleId: "1",
+        userId: 1,
+        user: {
+          id: 1,
+          username: "admin",
+          password: "123",
+          role: "ADMIN",
+          avatar: "https://sun9-1.userapi.com/impg/SWPMaf_MSz9mzptUya0I9x8WWxEt7fwJ4uyD-g/EE4oVaRp3wI.jpg?size=604x604&quality=95&sign=177e4e821c4a6735db31fbeb84de41e2&c_uniq_tag=eunY8ZVj41jFPdcjxK3Tdq7WAayWGntN8dhmi3Hqliw&type=album"
+        }
+      }
     }
   }
 };
