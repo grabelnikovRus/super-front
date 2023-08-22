@@ -89,19 +89,25 @@
       "id": 1,
       "text": "some comment",
       "articleId": "1",
-      "userId": "1"
+      "userId": 1
     },
     {
       "id": 2,
       "text": "some comment 2",
       "articleId": "1",
-      "userId": "1"
+      "userId": 2
+    },
+    {
+      "id": 4,
+      "text": "some comment 44",
+      "articleId": "2",
+      "userId": 1
     },
     {
       "id": 3,
       "text": "some comment 3",
       "articleId": "1",
-      "userId": "1"
+      "userId": 1
     }
   ],
   "users": [
@@ -109,13 +115,15 @@
       "id": 1,
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://sun9-1.userapi.com/impg/SWPMaf_MSz9mzptUya0I9x8WWxEt7fwJ4uyD-g/EE4oVaRp3wI.jpg?size=604x604&quality=95&sign=177e4e821c4a6735db31fbeb84de41e2&c_uniq_tag=eunY8ZVj41jFPdcjxK3Tdq7WAayWGntN8dhmi3Hqliw&type=album"
     },
     {
       "id": 2,
       "username": "user",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://cspromogame.ru//storage/upload_images/avatars/1299.jpg"
     }
   ],
   "profile": {

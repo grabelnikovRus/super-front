@@ -7,7 +7,7 @@ import i18n from "@shared/config/i18n/config"
 export const fetchArticleById =
   createAsyncThunk<ArticleType, string, OptionsCreateAsync>(
     "articles/fetchArticleById",
-    async(articleId, { dispatch, rejectWithValue, extra }) => {
+    async(articleId, { rejectWithValue, extra }) => {
       try {
         const res = await extra.api.get(`/articles/${articleId}`)
 

@@ -12,6 +12,7 @@ import { type UserSchema } from "@entities/user";
 import { type configureStore } from "@reduxjs/toolkit/dist/configureStore";
 import { type ProfileScheme } from "@feature/editableProfileCard";
 import { type ArticleDetailsSchema } from "@entities/article";
+import { type ArticleDetailsCommentsSchema } from "@page/articleDetailsPage";
 
 export interface StateType {
   counter: CounterShema
@@ -20,6 +21,7 @@ export interface StateType {
   login?: LoginSchema
   profile?: ProfileScheme
   articles?: ArticleDetailsSchema
+  articleComments?: ArticleDetailsCommentsSchema
 }
 
 export type KeyStateType = keyof StateType

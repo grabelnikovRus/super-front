@@ -1,0 +1,28 @@
+.comment {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    row-gap: 10px;
+    padding: 5px 15px;
+    border: 1px solid var(--border-color);
+
+    &_head {
+        display: grid;
+        grid-template-columns: 40px auto;
+        column-gap: 10px;
+    }
+
+    &_name {
+        font: var(--font-l);
+    }
+}
+
+.skeleton {
+    &_name {
+        width: 60px;
+        height: 25px;
+    }
+
+    &_text {
+        height: 40px;
+    }
+}

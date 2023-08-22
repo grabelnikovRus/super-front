@@ -15,7 +15,6 @@ export const Skeleton: FC<SkeletonProps> = ({
   borderRadius,
   className
 }) => {
-  console.log(classNames(s.skeleton, className))
   return (
       <div
         className={classNames(s.skeleton, className)}

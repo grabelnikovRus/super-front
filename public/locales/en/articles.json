@@ -1,3 +1,5 @@
 {
-    "articles": "Articles"
+    "articles": "Articles",
+    "comments": "Comments",
+    "no_comment": "No comment"
 }
