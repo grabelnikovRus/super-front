@@ -5,6 +5,7 @@ import { storeDecorator } from "@shared/helpers/storybook/storeDecorator";
 import { articleDetailsReducer } from "@entities/article/model/slice/articleDetailsSlice";
 import { type ReducersMapObject } from "@reduxjs/toolkit";
 import { type StateType } from "@app/providers/storeProvider";
+import { articleCommentsReducer } from "../model/slice/articleCommentsSlice";
 
 const meta = {
   title: "page/ArticleDetailsPage",
@@ -143,7 +144,10 @@ const state = {
   }
 };
 
-const reducer = { articles: articleDetailsReducer }
+const reducer = {
+  articles: articleDetailsReducer,
+  articleComments: articleCommentsReducer
+}
 
 Default.decorators = [
   storeDecorator(state as StateType, reducer as ReducersMapObject<StateType>)

@@ -23,7 +23,7 @@ export const ArticleDetailsPage: FC = () => {
   const { t } = useTranslation("articles");
   const comments = useSelector(getArticleComments.selectAll)
   const error = useSelector(getArticleCommentsError)
-  const isLoading = useSelector(getArticleCommentsIsLOading) ?? true
+  const isLoading = useSelector(getArticleCommentsIsLOading)
   const dispatch = useAppDispatch()
 
   useReducerManager(reducer)
@@ -40,7 +40,7 @@ export const ArticleDetailsPage: FC = () => {
           comments={
             isLoading ? new Array(2).fill({} as unknown as CommentTypes) : comments
           }
-          isLoading={isLoading}
+          isLoading={isLoading === true}
           error={error}
         />
       </div>
