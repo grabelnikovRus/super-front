@@ -1,3 +1,4 @@
+import { type FC, useCallback } from "react"
 import {
   ProfileCard,
   ProfileHeader,
@@ -7,11 +8,11 @@ import {
   udpateProfile
 } from "@feature/editableProfileCard"
 import { useReducerManager } from "@shared/hooks/useReducerManager"
-import { useEffect, type FC, useCallback } from "react"
 import { useProfile } from "../hooks/useProfile"
+import { useInitEffect } from "@shared/hooks/useInitEffect"
+import { validate } from "@shared/helpers/lib/validate/validate"
 
 import s from "./ProfilePage.module.scss"
-import { validate } from "@shared/helpers/lib/validate/validate"
 
 const reducers = { profile: profileReducer }
 
@@ -41,10 +42,7 @@ export const ProfilePage: FC = () => {
     dispatch(udpateProfile())
   }, [])
 
-  useEffect(() => {
-    if (_PROJECT_ !== "frontend") return
-    dispatch(fetchProfile())
-  }, [])
+  useInitEffect(async () => await dispatch(fetchProfile()))
 
   return (
     <div className={s.page}>

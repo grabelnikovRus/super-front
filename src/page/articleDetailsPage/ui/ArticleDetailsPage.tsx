@@ -1,4 +1,4 @@
-import { useEffect, type FC } from "react";
+import { type FC } from "react";
 import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ArticleDetails } from "@entities/article";
@@ -14,6 +14,7 @@ import { fetchComments } from "../model/services/fetchComments";
 import { useAppDispatch } from "@shared/hooks/useAppDispatch";
 
 import s from "./ArticleDetailsPage.module.scss"
+import { useInitEffect } from "@shared/hooks/useInitEffect";
 
 const reducer = { articleComments: articleCommentsReducer }
 
@@ -27,7 +28,7 @@ export const ArticleDetailsPage: FC = () => {
 
   useReducerManager(reducer)
 
-  useEffect(() => {
+  useInitEffect(() => {
     if (id) dispatch(fetchComments(id))
   }, [id])
 

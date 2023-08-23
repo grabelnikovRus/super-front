@@ -1,4 +1,4 @@
-import { useEffect, type FC } from "react";
+import { type FC } from "react";
 import { useSelector } from "react-redux";
 import { classNames } from "@shared/helpers/lib"
 import { useReducerManager } from "@shared/hooks/useReducerManager";
@@ -19,6 +19,7 @@ import s from "./ArticleDetails.module.scss";
 import { ArticleImageBlock } from "../articleImageBlock/ArticleImageBlock";
 import { ArticleCodeBlock } from "../articleCodeBlock/ArticleCodeBlock";
 import { ArticleTextBlock } from "../articleTextBlock/ArticleTextBlock";
+import { useInitEffect } from "@shared/hooks/useInitEffect";
 
 const reducer = { articles: articleDetailsReducer }
 
@@ -100,7 +101,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = ({ id }) => {
 
   useReducerManager(reducer)
 
-  useEffect(() => {
+  useInitEffect(() => {
     if (id) dispatch(fetchArticleById(id))
   }, [id])
 

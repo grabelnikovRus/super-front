@@ -17,9 +17,9 @@ export const CommentList: FC<CommentListProps> = ({ comments, isLoading, error }
   return (
     <div className={s.list}>
         {comments.length && !error
-          ? comments.map((comment) => (
+          ? comments.map((comment, i) => (
             <CommentItem
-              key={comment.id}
+              key={comment.id || i}
               comment={comment}
               isLoading={isLoading}
             />
