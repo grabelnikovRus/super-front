@@ -13,7 +13,9 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const state = {
+  counter: { value: 1 },
   user: {
+    _isInit: true,
     authData: {
       password: "123",
       username: "admin",
