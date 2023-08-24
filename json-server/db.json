@@ -126,14 +126,28 @@
       "avatar": "https://cspromogame.ru//storage/upload_images/avatars/1299.jpg"
     }
   ],
-  "profile": {
-    "name": "Ruslan",
-    "surname": "GrabelnikovRA",
-    "age": "35",
-    "currency": "RUB",
-    "country": "RUS",
-    "city": "Tomsk",
-    "username": "admin",
-    "avatar": "https://w7.pngwing.com/pngs/607/878/png-transparent-avatar-batman-comics-hero-avatars-xmas-giveaway-icon.png"
-  }
+  "profile": [
+    {
+      "id": 1,
+      "name": "Ruslan",
+      "surname": "GrabelnikovRA",
+      "age": "35",
+      "currency": "RUB",
+      "country": "RUS",
+      "city": "Tomsk",
+      "username": "admin",
+      "avatar": "https://w7.pngwing.com/pngs/607/878/png-transparent-avatar-batman-comics-hero-avatars-xmas-giveaway-icon.png"
+    },
+    {
+      "id": 2,
+      "name": "Igor",
+      "surname": "Kur",
+      "age": "34",
+      "currency": "RUB",
+      "country": "RUS",
+      "city": "Abakan",
+      "username": "user",
+      "avatar": "https://cspromogame.ru//storage/upload_images/avatars/1299.jpg"
+    }
+  ]
 }

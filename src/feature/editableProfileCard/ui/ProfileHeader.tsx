@@ -7,6 +7,7 @@ import s from "./ProfileHeader.module.scss"
 interface ProfileHeaderProps {
   onClickBtn: () => void
   onSave: () => void
+  isEdit: boolean
   readonly: boolean | undefined
   isLoading: boolean | undefined
 }
@@ -15,7 +16,8 @@ export const ProfileHeader: FC<ProfileHeaderProps> = ({
   onClickBtn,
   onSave,
   readonly,
-  isLoading
+  isLoading,
+  isEdit
 }) => {
   const { t } = useTranslation("profile")
 
@@ -32,9 +34,16 @@ export const ProfileHeader: FC<ProfileHeaderProps> = ({
           {t("save")}
         </Button>
       )}
-      <Button theme="m" onClick={onClickBtn} className={s.card_btn} disabled={isLoading}>
-        {t(readonly ? "edit" : "cancel_edit")}
-      </Button>
+      {isEdit && (
+        <Button
+          theme="m"
+          onClick={onClickBtn}
+          className={s.card_btn}
+          disabled={isLoading}
+        >
+          {t(readonly ? "edit" : "cancel_edit")}
+        </Button>
+      )}
     </header>
   )
 }

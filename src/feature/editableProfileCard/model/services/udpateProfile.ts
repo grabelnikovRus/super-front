@@ -7,8 +7,11 @@ export const udpateProfile = createAsyncThunk<ProfileType, undefined, OptionsCre
   "profile/udpateProfile",
   async(_, { rejectWithValue, extra, getState }) => {
     const form = getProfileForm(getState())
+
+    if (!form?.id) return rejectWithValue("error")
+
     try {
-      const response = await extra.api.put("/profile", form)
+      const response = await extra.api.put(`/profile/${form.id}`, form)
 
       return response.data
     } catch (e) {

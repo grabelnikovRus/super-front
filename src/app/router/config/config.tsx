@@ -10,7 +10,7 @@ import { ArticlePage } from "@page/articlePage";
 export enum RouterPath {
   MAIN = "/",
   ABOUT = "/about",
-  PROFILE = "/profile",
+  PROFILE = "/profile/:id",
   ARTICLES = "/articles",
   ARTICLES_DETAILS = "/articles/:id",
   NOT_FOUND = "*",

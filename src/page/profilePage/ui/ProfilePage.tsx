@@ -13,17 +13,27 @@ import { useInitEffect } from "@shared/hooks/useInitEffect"
 import { validate } from "@shared/helpers/lib/validate/validate"
 
 import s from "./ProfilePage.module.scss"
+import { useParams } from "react-router-dom"
+import { getAuthData } from "@entities/user"
+import { useSelector } from "react-redux"
 
 const reducers = { profile: profileReducer }
 
 export const ProfilePage: FC = () => {
   const { dispatch, form, readonly, error, isLoading } = useProfile()
+  const { id } = useParams<{ id: string }>()
+
+  const userData = useSelector(getAuthData)
+
+  const canEdit = userData?.id === Number(id)
 
   useReducerManager(reducers);
 
   const onClickEdit = useCallback(
-    () => { dispatch(profileActions.editProfile(!readonly)) }
-    , [readonly]
+    () => {
+      if (canEdit) dispatch(profileActions.editProfile(!readonly))
+    }
+    , [readonly, canEdit]
   )
 
   const onChangeString = useCallback((nameField: string) => (value: string) => {
@@ -42,11 +52,14 @@ export const ProfilePage: FC = () => {
     dispatch(udpateProfile())
   }, [])
 
-  useInitEffect(async () => await dispatch(fetchProfile()))
+  useInitEffect(async () => {
+    if (id) await dispatch(fetchProfile(id))
+  }, [id])
 
   return (
     <div className={s.page}>
       <ProfileHeader
+        isEdit={canEdit}
         onClickBtn={onClickEdit}
         isLoading={isLoading}
         readonly={readonly}

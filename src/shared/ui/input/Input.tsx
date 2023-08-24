@@ -21,6 +21,7 @@ export const Input = memo(({
   autoFocus,
   onChange,
   readOnly,
+  className,
   ...other
 }: InputProps) => {
   const ref = useRef<HTMLInputElement>(null);
@@ -34,7 +35,7 @@ export const Input = memo(({
   }, [ref.current])
 
   return (
-    <div className={s.input_wrapper}>
+    <div className={classNames(s.input_wrapper, className)}>
       <label className={s.input_label}>
         {label && label}
         <input
