@@ -1,14 +1,14 @@
 import { Component, type ErrorInfo, type ReactNode } from "react";
 import { withTranslation, type WithTranslation } from "react-i18next";
 
-import s from "./ErrorBoundary.module.scss"
+import s from "./ErrorBoundary.module.scss";
 
 interface ErrorBoundaryProps extends WithTranslation {
-  children: ReactNode
+  children: ReactNode;
 }
 
 interface ErrorBoundaryState {
-  hasError: boolean
+  hasError: boolean;
 }
 
 class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
@@ -31,11 +31,11 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
         <div className={s.error}>
           <h1>{this.props.t("error_boundary")}</h1>
         </div>
-      )
+      );
     }
 
     return <>{this.props.children}</>;
   }
 }
 
-export const ErrorBoundaryWithTranslation = withTranslation()(ErrorBoundary)
+export const ErrorBoundaryWithTranslation = withTranslation()(ErrorBoundary);

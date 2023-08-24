@@ -1,21 +1,21 @@
-import { type FC } from "react"
-import { classNames } from "@shared/helpers/lib"
+import { type FC } from "react";
+import { classNames } from "@shared/helpers/lib";
 
-import s from "./Article.module.scss"
+import s from "./Article.module.scss";
 
-type theme = "default" | "error"
+type theme = "default" | "error";
 
-type align = "center" | "left" | "rigth"
+type align = "center" | "left" | "rigth";
 
 interface ArticleProps {
-  title?: string | null
-  text?: string | number | null
-  theme?: theme
-  align?: align
+  title?: string | null;
+  text?: string | number | null;
+  theme?: theme;
+  align?: align;
   className?: {
-    title?: string
-    text?: string
-  }
+    title?: string;
+    text?: string;
+  };
 }
 
 export const Article: FC<ArticleProps> = ({
@@ -28,15 +28,15 @@ export const Article: FC<ArticleProps> = ({
   if (!text && !title) return null;
 
   return (
-    <article className={classNames(s.article, s[align], {
-      [s.article__error]: theme === "error",
-    })}>
+    <article
+      className={classNames(s.article, s[align], {
+        [s.article__error]: theme === "error",
+      })}
+    >
       {title && (
-        <h6 className={classNames(s.article_title, className?.title)}>
-          {title}
-        </h6>
+        <h6 className={classNames(s.article_title, className?.title)}>{title}</h6>
       )}
       {text && <p className={classNames(s.article_text, className?.text)}>{text}</p>}
     </article>
-  )
-}
+  );
+};

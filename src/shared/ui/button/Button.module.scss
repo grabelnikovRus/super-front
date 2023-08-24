@@ -7,11 +7,13 @@
   color: var(--primary-color);
 
   &__disabled {
-    opacity: .25;
+    opacity: 0.25;
   }
 }
 
-.m, .l, .xl {
+.m,
+.l,
+.xl {
   background: var(--gray);
 }
 

@@ -1,36 +1,36 @@
 import { type OptionsCreateAsync } from "@app/providers/storeProvider";
 import { type CommentTypes } from "@entities/comment";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { getAuthData } from "@entities/user"
+import { getAuthData } from "@entities/user";
 
 interface sendData {
-  text?: string
-  articleId?: string
+  text?: string;
+  articleId?: string;
 }
 
 export const sendComment = createAsyncThunk<CommentTypes, sendData, OptionsCreateAsync>(
   "articles/sendComment",
-  async({ text, articleId }, { rejectWithValue, getState, extra }) => {
+  async ({ text, articleId }, { rejectWithValue, getState, extra }) => {
     try {
-      const userData = getAuthData(getState())
+      const userData = getAuthData(getState());
 
-      if (!text) return
+      if (!text) return;
 
       if (!articleId || !userData) return rejectWithValue("error");
 
       const res = await extra.api.post("/comments", {
         articleId,
         userId: userData.id,
-        text
-      })
+        text,
+      });
 
       if (!res.data) {
-        throw new Error()
+        throw new Error();
       }
 
-      return res.data
+      return res.data;
     } catch (e) {
-      return rejectWithValue("error")
+      return rejectWithValue("error");
     }
   }
-)
+);

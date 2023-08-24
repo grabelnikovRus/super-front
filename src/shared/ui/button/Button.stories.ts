@@ -21,35 +21,35 @@ export const Default: Story = {
 export const M: Story = {
   args: {
     children: "Кнопка",
-    theme: "m"
+    theme: "m",
   },
 };
 
 export const L: Story = {
   args: {
     children: "Кнопка",
-    theme: "l"
+    theme: "l",
   },
 };
 
 export const Xl: Story = {
   args: {
     children: "Кнопка",
-    theme: "xl"
+    theme: "xl",
   },
 };
 
 export const Outline: Story = {
   args: {
     children: "Кнопка",
-    theme: "outline"
+    theme: "outline",
   },
 };
 
 export const OutlineDark: Story = {
   args: {
     children: "Кнопка",
-    theme: "outline"
+    theme: "outline",
   },
-  decorators: [styleDecorator("dark")]
+  decorators: [styleDecorator("dark")],
 };

@@ -16,38 +16,38 @@ import { type ArticleDetailsCommentsSchema } from "@page/articleDetailsPage";
 import { type AddCommentSchema } from "@feature/addComment";
 
 export interface StateType {
-  counter: CounterShema
-  user: UserSchema
+  counter: CounterShema;
+  user: UserSchema;
   // асинхронные редусеры
-  login?: LoginSchema
-  profile?: ProfileScheme
-  articles?: ArticleDetailsSchema
-  articleComments?: ArticleDetailsCommentsSchema
-  addComment?: AddCommentSchema
+  login?: LoginSchema;
+  profile?: ProfileScheme;
+  articles?: ArticleDetailsSchema;
+  articleComments?: ArticleDetailsCommentsSchema;
+  addComment?: AddCommentSchema;
 }
 
-export type KeyStateType = keyof StateType
+export type KeyStateType = keyof StateType;
 
-export type RootState = ReturnType<typeof createStore>["getState"]
-export type AppDispatch = ReturnType<typeof createStore>["dispatch"]
+export type RootState = ReturnType<typeof createStore>["getState"];
+export type AppDispatch = ReturnType<typeof createStore>["dispatch"];
 
 export interface CreateReducerManagerType {
-  getReducerMap: () => ReducersMapObject<StateType>
-  reduce: (state: StateType, action: AnyAction) => CombinedState<StateType>
-  add: (key: KeyStateType, reducer: Reducer) => void
-  remove: (key: KeyStateType) => void
+  getReducerMap: () => ReducersMapObject<StateType>;
+  reduce: (state: StateType, action: AnyAction) => CombinedState<StateType>;
+  add: (key: KeyStateType, reducer: Reducer) => void;
+  remove: (key: KeyStateType) => void;
 }
 
 export interface StoreWithReducerManager extends ReturnType<typeof configureStore> {
-  reducerManager: CreateReducerManagerType
+  reducerManager: CreateReducerManagerType;
 }
 
 interface ThunkExtraArgType {
-  api: AxiosInstance
+  api: AxiosInstance;
 }
 
 export interface OptionsCreateAsync<T = string> {
-  rejectValue: T
-  extra: ThunkExtraArgType
-  state: StateType
+  rejectValue: T;
+  extra: ThunkExtraArgType;
+  state: StateType;
 }

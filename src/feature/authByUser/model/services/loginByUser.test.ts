@@ -1,8 +1,8 @@
-import { loginByUser } from "./loginByUser"
+import { loginByUser } from "./loginByUser";
 import { userActions } from "@entities/user";
 import { TestAsyncThunk } from "@shared/helpers/test/testAsyncThunk";
 
-const action = new TestAsyncThunk(loginByUser)
+const action = new TestAsyncThunk(loginByUser);
 
 describe("loginByUser", () => {
   //   let dispatch: Dispatch;
@@ -37,21 +37,19 @@ describe("loginByUser", () => {
   test("success login", async () => {
     const userValue = { username: "admin", password: "123", id: 1 };
     action.api.post.mockResolvedValue({ data: userValue });
-    const result = await action.callThunk({ username: "admin", password: "123" })
+    const result = await action.callThunk({ username: "admin", password: "123" });
 
-    expect(action.dispatch).toBeCalledTimes(3)
-    expect(action.dispatch).toHaveBeenCalledWith(
-      userActions.setAuthData(userValue)
-    ) // проверяет с каким аргументом была вызвана функция
-    expect(result.payload).toEqual(userValue)
+    expect(action.dispatch).toBeCalledTimes(3);
+    expect(action.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue)); // проверяет с каким аргументом была вызвана функция
+    expect(result.payload).toEqual(userValue);
   });
 
   test("reject login", async () => {
     const errorValue = { response: { status: 403 } };
     action.api.post.mockRejectedValue(errorValue);
-    const result = await action.callThunk({ username: "", password: "" })
+    const result = await action.callThunk({ username: "", password: "" });
 
     expect(action.dispatch).toBeCalledTimes(2);
-    expect(result.payload).toBe("error")
+    expect(result.payload).toBe("error");
   });
-})
+});

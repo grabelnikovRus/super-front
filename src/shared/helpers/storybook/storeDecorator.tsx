@@ -7,11 +7,9 @@ export const storeDecorator = (
   initialState: StateType,
   initialReducer?: ReducersMapObject<StateType>
 ) => {
-  const store = createStore(initialState, initialReducer)
+  const store = createStore(initialState, initialReducer);
 
   return (story: PartialStoryFn<Renderer, Args>) => (
-    <Provider store={store}>
-        {story()}
-    </Provider>
-  )
-}
+    <Provider store={store}>{story()}</Provider>
+  );
+};

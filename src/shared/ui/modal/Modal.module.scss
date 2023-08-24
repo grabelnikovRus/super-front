@@ -1,35 +1,35 @@
 .modal {
-    &_overlay {
-        position: fixed;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        inset: 0;
-        background-color: rgba($color: black, $alpha: 70%);
-        opacity: 0;
-        transition: .2s opacity;
+  &_overlay {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inset: 0;
+    background-color: rgba($color: black, $alpha: 70%);
+    opacity: 0;
+    transition: 0.2s opacity;
 
-        &__open {
-            opacity: 1;
-        }
+    &__open {
+      opacity: 1;
     }
+  }
 
-    &_content {
-        background-color: var(--gray);
-        padding: 10px;
-        border-radius: 10px;
-        transform: scale(0.3);
-        opacity: 0;
-        transition: .4s all;
+  &_content {
+    background-color: var(--gray);
+    padding: 10px;
+    border-radius: 10px;
+    transform: scale(0.3);
+    opacity: 0;
+    transition: 0.4s all;
 
-        &__open {
-            transform: scale(1);
-            opacity: 1;
-        }
+    &__open {
+      transform: scale(1);
+      opacity: 1;
     }
+  }
 
-    &__close {
-        pointer-events: none;
-        opacity: 0;
-    }
+  &__close {
+    pointer-events: none;
+    opacity: 0;
+  }
 }

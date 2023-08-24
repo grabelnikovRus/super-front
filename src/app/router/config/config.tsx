@@ -28,7 +28,7 @@ export const routerConfig: Record<RouterPath, PathRouteProps> = {
       <RequiredAuth>
         <ProfilePageAsync />
       </RequiredAuth>
-    )
+    ),
   },
   [RouterPath.ARTICLES]: {
     element: (
@@ -45,6 +45,6 @@ export const routerConfig: Record<RouterPath, PathRouteProps> = {
     ),
   },
   [RouterPath.NOT_FOUND]: {
-    element: <NotFoundPageAsync />
-  }
+    element: <NotFoundPageAsync />,
+  },
 };

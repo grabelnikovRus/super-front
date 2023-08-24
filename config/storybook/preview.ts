@@ -1,6 +1,6 @@
 import type { Preview } from "@storybook/react";
 import { styleDecorator } from "@shared/helpers/storybook/styleDecorator";
-import i18n from "../../src/shared/config/i18n/configForStorybook"
+import i18n from "../../src/shared/config/i18n/configForStorybook";
 import { withRouterDecorator } from "@shared/helpers/storybook/withRouterDecorator";
 
 const preview: Preview = {
@@ -18,13 +18,10 @@ const preview: Preview = {
     locale: "en",
     locales: {
       en: "English",
-      ru: "Русский"
-    }
+      ru: "Русский",
+    },
   },
-  decorators: [
-    styleDecorator(),
-    withRouterDecorator
-  ]
+  decorators: [styleDecorator(), withRouterDecorator],
 };
 
 export default preview;

@@ -2,7 +2,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import { DefinePlugin, ProgressPlugin, type WebpackPluginInstance } from "webpack";
-import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 import { type BuildOptions, type BuildPaths } from "./types/config";
 
 export function buildPlugins(
@@ -23,11 +23,11 @@ export function buildPlugins(
     new DefinePlugin({
       _IS_DEV_: isDev,
       _API_: JSON.stringify(apiUrl),
-      _PROJECT_: JSON.stringify(project)
+      _PROJECT_: JSON.stringify(project),
     }),
-  ]
+  ];
 
-  if (isDev) plugins.push(new BundleAnalyzerPlugin(), new ReactRefreshWebpackPlugin())
+  if (isDev) plugins.push(new BundleAnalyzerPlugin(), new ReactRefreshWebpackPlugin());
 
-  return plugins
+  return plugins;
 }

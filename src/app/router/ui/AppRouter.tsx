@@ -8,14 +8,14 @@ import { useSelector } from "react-redux";
 import { Loader } from "@shared/ui";
 
 export const AppRouter: FC = () => {
-  const dispatch = useAppDispatch()
-  const isInit = useSelector(getIsInit)
+  const dispatch = useAppDispatch();
+  const isInit = useSelector(getIsInit);
 
   useEffect(() => {
-    dispatch(userActions.initApp())
-  }, [])
+    dispatch(userActions.initApp());
+  }, []);
 
-  if (!isInit) return <Loader />
+  if (!isInit) return <Loader />;
 
   return (
     <Suspense fallback={<PageLoader />}>

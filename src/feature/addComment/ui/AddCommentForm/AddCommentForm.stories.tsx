@@ -18,15 +18,15 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     text: "comment 1",
-    onSend: () => {}
-  }
+    onSend: () => {},
+  },
 };
 
 const state: Partial<StateType> = {
-  addComment: { text: "" }
-}
+  addComment: { text: "" },
+};
 const reducer = { addComment: addCommentReducer };
 
 Default.decorators = [
-  storeDecorator(state as StateType, reducer as ReducersMapObject<StateType>)
-]
+  storeDecorator(state as StateType, reducer as ReducersMapObject<StateType>),
+];

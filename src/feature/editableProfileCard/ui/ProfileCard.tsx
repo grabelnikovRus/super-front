@@ -1,21 +1,21 @@
-import { type FC } from "react"
-import { useTranslation } from "react-i18next"
-import { Article, Avatar, Input, Loader, Select } from "@shared/ui"
-import { type ProfileScheme } from "../model/types/types"
+import { type FC } from "react";
+import { useTranslation } from "react-i18next";
+import { Article, Avatar, Input, Loader, Select } from "@shared/ui";
+import { type ProfileScheme } from "../model/types/types";
 
-import s from "./ProfileCard.module.scss"
-import { classNames } from "@shared/helpers/lib"
-import { Country, Currency } from "@shared/constants/common"
+import s from "./ProfileCard.module.scss";
+import { classNames } from "@shared/helpers/lib";
+import { Country, Currency } from "@shared/constants/common";
 
 interface ProfileCardProps extends ProfileScheme {
-  onChangeName?: (val: string) => void
-  onChangeSurname?: (val: string) => void
-  onChangeCity?: (val: string) => void
-  onChangeAge?: (val: string) => void
-  onChangeUsername?: (val: string) => void
-  onChangeAvatar?: (val: string) => void
-  onChangeCurrency?: (val: string) => void
-  onChangeCountry?: (val: string) => void
+  onChangeName?: (val: string) => void;
+  onChangeSurname?: (val: string) => void;
+  onChangeCity?: (val: string) => void;
+  onChangeAge?: (val: string) => void;
+  onChangeUsername?: (val: string) => void;
+  onChangeAvatar?: (val: string) => void;
+  onChangeCurrency?: (val: string) => void;
+  onChangeCountry?: (val: string) => void;
 }
 
 export const ProfileCard: FC<ProfileCardProps> = ({
@@ -30,35 +30,37 @@ export const ProfileCard: FC<ProfileCardProps> = ({
   onChangeAvatar,
   onChangeUsername,
   onChangeCurrency,
-  onChangeCountry
+  onChangeCountry,
 }) => {
-  const { t } = useTranslation("profile")
+  const { t } = useTranslation("profile");
 
   if (isLoading) {
     return (
-    <div className={s.card_loading}>
-      <Loader />
-    </div>
-    )
+      <div className={s.card_loading}>
+        <Loader />
+      </div>
+    );
   }
 
   if (error) {
     return (
-    <div className={(s.card)}>
-      <Article
-        title={t("has_error")}
-        text={t("reload_age")}
-        align="center"
-        theme="error"
-      />
-    </div>
-    )
+      <div className={s.card}>
+        <Article
+          title={t("has_error")}
+          text={t("reload_age")}
+          align="center"
+          theme="error"
+        />
+      </div>
+    );
   }
 
   return (
-    <div className={classNames(s.card, {
-      [s.card__editing]: !readonly
-    })}>
+    <div
+      className={classNames(s.card, {
+        [s.card__editing]: !readonly,
+      })}
+    >
       <Avatar src={form?.avatar} />
       <Input
         value={form?.surname}
@@ -93,18 +95,20 @@ export const ProfileCard: FC<ProfileCardProps> = ({
         defaultValue={Currency[form?.currency as Currency]}
         onChange={onChangeCurrency}
         readonly={readonly}
-        options={
-          Object.entries(Currency).map(([key, val]) => ({ value: key, content: val }))
-        }
+        options={Object.entries(Currency).map(([key, val]) => ({
+          value: key,
+          content: val,
+        }))}
       />
       <Select
         label={t("country") || ""}
         defaultValue={form?.country}
         onChange={onChangeCountry}
         readonly={readonly}
-        options={
-          Object.entries(Country).map(([key, val]) => ({ value: key, content: val }))
-        }
+        options={Object.entries(Country).map(([key, val]) => ({
+          value: key,
+          content: val,
+        }))}
       />
       <Input
         value={form?.username}
@@ -121,5 +125,5 @@ export const ProfileCard: FC<ProfileCardProps> = ({
         onChange={onChangeAvatar}
       />
     </div>
-  )
-}
+  );
+};

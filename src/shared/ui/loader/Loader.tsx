@@ -1,5 +1,5 @@
-import { type FC } from "react"
+import { type FC } from "react";
 
-import s from "./Loader.module.scss"
+import s from "./Loader.module.scss";
 
-export const Loader: FC = () => <span className={s.loader} />
+export const Loader: FC = () => <span className={s.loader} />;

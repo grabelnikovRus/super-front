@@ -4,11 +4,11 @@ import { Article } from "@shared/ui";
 
 import s from "./ArticleImageBlock.module.scss";
 
-type ArticleImageBlockProps = Omit<ArticleImageBlockType, "type" | "id">
+type ArticleImageBlockProps = Omit<ArticleImageBlockType, "type" | "id">;
 
 export const ArticleImageBlock: FC<ArticleImageBlockProps> = ({ title, src }) => (
   <div className={s.block}>
-    <img src={src} loading="lazy" alt={title} className={s.img}/>
-    <Article text={title} align="center"/>
+    <img src={src} loading="lazy" alt={title} className={s.img} />
+    <Article text={title} align="center" />
   </div>
 );

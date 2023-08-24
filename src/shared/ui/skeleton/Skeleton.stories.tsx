@@ -15,8 +15,8 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     width: "100%",
-    height: "200px"
-  }
+    height: "200px",
+  },
 };
 
 export const Circle: Story = {
@@ -24,22 +24,22 @@ export const Circle: Story = {
     borderRadius: "50%",
     height: "200px",
     width: "200px",
-  }
+  },
 };
 
 export const DefaultDark: Story = {
   args: {
     width: "100%",
-    height: "200px"
-  }
+    height: "200px",
+  },
 };
-DefaultDark.decorators = [styleDecorator("dark")]
+DefaultDark.decorators = [styleDecorator("dark")];
 
 export const CircleDark: Story = {
   args: {
     borderRadius: "50%",
     height: "200px",
     width: "200px",
-  }
+  },
 };
-CircleDark.decorators = [styleDecorator("dark")]
+CircleDark.decorators = [styleDecorator("dark")];

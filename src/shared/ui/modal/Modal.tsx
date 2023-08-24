@@ -1,57 +1,50 @@
-import {
-  type FC,
-  type MouseEvent,
-  useState,
-  useEffect,
-  useRef,
-} from "react"
-import { classNames } from "@shared/helpers/lib"
-import { Portal } from "../portal/Portal"
+import { type FC, type MouseEvent, useState, useEffect, useRef } from "react";
+import { classNames } from "@shared/helpers/lib";
+import { Portal } from "../portal/Portal";
 
-import s from "./Modal.module.scss"
+import s from "./Modal.module.scss";
 
 interface ModalProps {
-  isOpen: boolean
-  onClose: () => void
-  containerMount?: HTMLElement
+  isOpen: boolean;
+  onClose: () => void;
+  containerMount?: HTMLElement;
 }
 
-const DELAY_MODAL = 300
+const DELAY_MODAL = 300;
 
-export const Modal: FC<ModalProps> = ({
-  children,
-  isOpen,
-  onClose,
-  containerMount
-}) => {
-  const [openModal, setOpenModal] = useState(false)
-  const timer = useRef<ReturnType<typeof setTimeout>>()
+export const Modal: FC<ModalProps> = ({ children, isOpen, onClose, containerMount }) => {
+  const [openModal, setOpenModal] = useState(false);
+  const timer = useRef<ReturnType<typeof setTimeout>>();
 
-  const onClickContent = (e: MouseEvent<HTMLDivElement>) => { e.stopPropagation(); }
+  const onClickContent = (e: MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+  };
 
   const onClickOverlay = () => {
     setOpenModal(false);
     timer.current = setTimeout(() => {
       onClose();
-    }, DELAY_MODAL)
-  }
+    }, DELAY_MODAL);
+  };
 
   const onKeyDown = (e: KeyboardEvent) => {
-    if (e.key === "Escape") onClickOverlay()
-  }
+    if (e.key === "Escape") onClickOverlay();
+  };
 
   useEffect(() => {
     if (isOpen) {
-      timer.current = setTimeout(() => { setOpenModal(true); }, DELAY_MODAL)
-      document.addEventListener("keydown", onKeyDown)
+      timer.current = setTimeout(() => {
+        setOpenModal(true);
+      }, DELAY_MODAL);
+      document.addEventListener("keydown", onKeyDown);
     }
     return () => {
-      clearTimeout(timer.current)
-      document.removeEventListener("keydown", onKeyDown)
-    }
-  }, [isOpen])
+      clearTimeout(timer.current);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isOpen]);
 
-  if (!isOpen) return null
+  if (!isOpen) return null;
 
   return (
     <Portal container={containerMount}>
@@ -59,7 +52,7 @@ export const Modal: FC<ModalProps> = ({
         <div
           onClick={onClickOverlay}
           className={classNames(s.modal_overlay, {
-            [s.modal_overlay__open]: openModal
+            [s.modal_overlay__open]: openModal,
           })}
         >
           <div
@@ -73,5 +66,5 @@ export const Modal: FC<ModalProps> = ({
         </div>
       </div>
     </Portal>
-  )
-}
+  );
+};

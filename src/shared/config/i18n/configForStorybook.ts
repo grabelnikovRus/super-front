@@ -8,16 +8,17 @@ const supportedLngs = ["en", "ru"];
 
 const resources = ns.reduce((acc: Record<string, ResourceLanguage>, n) => {
   supportedLngs.forEach((lng) => {
-    if (acc[lng] === undefined) acc[lng] = {}
+    if (acc[lng] === undefined) acc[lng] = {};
     acc[lng] = {
       ...acc[lng],
-      [n]: require(`../../../../public/locales/${lng}/${n}.json`)
-    }
-  })
-  return acc
-}, {})
+      [n]: require(`../../../../public/locales/${lng}/${n}.json`),
+    };
+  });
+  return acc;
+}, {});
 
-i18n.use(initReactI18next)
+i18n
+  .use(initReactI18next)
   .use(LanguageDetector)
   .use(Backend)
   .init({

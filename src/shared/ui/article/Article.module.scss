@@ -1,7 +1,7 @@
 .article {
   &_title {
     color: var(--primary-color);
-    font: var(--font-l)
+    font: var(--font-l);
   }
 
   &_text {
@@ -12,7 +12,7 @@
     .article_title {
       color: var(--error-color);
     }
-    
+
     .article_text {
       color: var(--error-color);
     }
@@ -38,5 +38,4 @@
       text-align: center;
     }
   }
-} 
-
+}

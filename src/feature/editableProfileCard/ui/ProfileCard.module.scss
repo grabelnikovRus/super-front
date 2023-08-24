@@ -1,20 +1,20 @@
 .card {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 500px;
-    padding: 0 30px;
-    border: 1px solid transparent;
-    opacity: .9;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  padding: 0 30px;
+  border: 1px solid transparent;
+  opacity: 0.9;
 
-    &_loading {
-        margin-top: 150px;
-        align-items: center;
-    }
+  &_loading {
+    margin-top: 150px;
+    align-items: center;
+  }
 
-    &__editing {
-        border-color: var(--secondary-color);
-        border-radius: 7px;
-        opacity: 1;
-    }
+  &__editing {
+    border-color: var(--secondary-color);
+    border-radius: 7px;
+    opacity: 1;
+  }
 }

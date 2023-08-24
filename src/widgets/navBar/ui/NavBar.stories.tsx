@@ -20,8 +20,8 @@ const state = {
       password: "123",
       username: "admin",
       id: 1,
-    }
-  }
-}
+    },
+  },
+};
 export const Default: Story = {};
-Default.decorators = [storeDecorator(state as StateType)]
+Default.decorators = [storeDecorator(state as StateType)];

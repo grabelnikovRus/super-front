@@ -1,3 +1,3 @@
 export interface CounterShema {
-  value: number
+  value: number;
 }

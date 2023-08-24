@@ -1,5 +1,5 @@
 import { type FC } from "react";
 
-const SvgrMock: FC = () => (<div />)
+const SvgrMock: FC = () => <div />;
 
-export default SvgrMock
+export default SvgrMock;

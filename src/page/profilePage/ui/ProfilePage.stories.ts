@@ -25,8 +25,8 @@ const profileState = {
   username: "admin",
   avatar:
     // eslint-disable-next-line max-len
-    "https://w7.pngwing.com/pngs/607/878/png-transparent-avatar-batman-comics-hero-avatars-xmas-giveaway-icon.png"
-}
+    "https://w7.pngwing.com/pngs/607/878/png-transparent-avatar-batman-comics-hero-avatars-xmas-giveaway-icon.png",
+};
 
 const state = {
   profile: {
@@ -34,11 +34,11 @@ const state = {
     data: profileState,
     readonly: true,
     isLoading: false,
-    error: ""
-  }
-}
+    error: "",
+  },
+};
 
-const reducer = { profile: profileReducer }
+const reducer = { profile: profileReducer };
 
 export const Default: Story = {
   decorators: [
@@ -46,6 +46,6 @@ export const Default: Story = {
       state as unknown as StateType,
       reducer as ReducersMapObject<StateType>
     ),
-    styleDecorator("dark")
-  ]
+    styleDecorator("dark"),
+  ],
 };

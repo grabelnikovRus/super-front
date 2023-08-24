@@ -6,7 +6,7 @@
   width: 200px;
   height: auto;
   min-height: calc(100vh - var(--height-navbar));
-  transition: .3s width;
+  transition: 0.3s width;
 
   &_links {
     display: flex;

@@ -17,4 +17,4 @@ export const buildCssLoader = (isProd: boolean) => ({
     },
     "sass-loader", // Компилирует Sass в CSS
   ],
-})
+});

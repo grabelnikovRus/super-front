@@ -1,14 +1,14 @@
 .auth {
-    min-width: 400px;
-    background-color: var(--bg-color-inverted);
-    padding: 10px;
-    border-radius: 5px;
+  min-width: 400px;
+  background-color: var(--bg-color-inverted);
+  padding: 10px;
+  border-radius: 5px;
 
-    &_btn {
-        margin-top: 10px;
-    }
+  &_btn {
+    margin-top: 10px;
+  }
 
-    &_error {
-        height: 24px;
-    }
+  &_error {
+    height: 24px;
+  }
 }

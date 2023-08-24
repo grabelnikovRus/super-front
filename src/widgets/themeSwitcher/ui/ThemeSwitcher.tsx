@@ -15,4 +15,4 @@ export const ThemeSwitcher: FC = () => {
   );
 };
 
-export const ThemeSwitcherMemo = memo(ThemeSwitcher)
+export const ThemeSwitcherMemo = memo(ThemeSwitcher);

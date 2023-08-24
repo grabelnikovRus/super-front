@@ -15,6 +15,6 @@ export const Default: Story = {
   args: {
     label: "Пароль",
     placeholder: "Введите пароль",
-    value: "value"
+    value: "value",
   },
 };

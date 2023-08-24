@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Avatar } from "./Avatar";
 
-import ImgAvata from "../../assest/mock/1655360011_1.jpg"
+import ImgAvata from "../../assest/mock/1655360011_1.jpg";
 
 const meta = {
   title: "shared/Avatar",
@@ -22,6 +22,6 @@ export const L: Story = {
 export const S: Story = {
   args: {
     src: ImgAvata,
-    theme: "s"
+    theme: "s",
   },
 };

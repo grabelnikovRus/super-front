@@ -7,7 +7,7 @@ import { classNames } from "@shared/helpers/lib";
 type ThemeLink = "default" | "border";
 
 interface AppLinkProps extends LinkProps {
-  theme?: ThemeLink
+  theme?: ThemeLink;
 }
 
 export const AppLink: FC<AppLinkProps> = ({

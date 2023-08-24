@@ -1,15 +1,11 @@
-import { type FC } from "react"
+import { type FC } from "react";
 
-import { useTranslation } from "react-i18next"
+import { useTranslation } from "react-i18next";
 
-import s from "./NotFoundPage.module.scss"
+import s from "./NotFoundPage.module.scss";
 
 export const NotFoundPage: FC = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
-  return (
-    <div className={s.page}>
-      {t("not_found_page")}
-    </div>
-  )
-}
+  return <div className={s.page}>{t("not_found_page")}</div>;
+};

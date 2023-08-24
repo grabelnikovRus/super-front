@@ -1,1 +1,1 @@
-export { ErrorBoundaryWithTranslation as ErrorBoundary } from "./ui/ErrorBoundary"
+export { ErrorBoundaryWithTranslation as ErrorBoundary } from "./ui/ErrorBoundary";

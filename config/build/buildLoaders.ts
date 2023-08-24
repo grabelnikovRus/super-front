@@ -20,18 +20,20 @@ export function buildLoaders(mode: BuildOptions["mode"]): RuleSetRule[] {
     // лоадер применяется только к файлам с .tsx
     test: /\.tsx?$/,
     exclude: /node_modules/,
-    use: [{
-      loader: "ts-loader",
-      options: {
-        getCustomTransformers: () => ({
-          before: [mode === "development" && ReactRefreshTypeScript()].filter(Boolean),
-        }),
-        transpileOnly: mode === "development",
+    use: [
+      {
+        loader: "ts-loader",
+        options: {
+          getCustomTransformers: () => ({
+            before: [mode === "development" && ReactRefreshTypeScript()].filter(Boolean),
+          }),
+          transpileOnly: mode === "development",
+        },
       },
-    }],
+    ],
   };
 
-  const cssLoader = buildCssLoader(mode === "production")
+  const cssLoader = buildCssLoader(mode === "production");
 
   // важен порядок лоадеров
   return [svgLoader, fileLoader, tsLoader, cssLoader];

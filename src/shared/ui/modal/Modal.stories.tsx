@@ -24,7 +24,7 @@ export const Default: Story = {
   args: {
     isOpen: true,
     onClose: () => {},
-    children
+    children,
   },
 };
 
@@ -32,7 +32,7 @@ export const Dark: Story = {
   args: {
     isOpen: true,
     onClose: () => {},
-    children
+    children,
   },
 };
-Dark.decorators = [styleDecorator("dark")]
+Dark.decorators = [styleDecorator("dark")];

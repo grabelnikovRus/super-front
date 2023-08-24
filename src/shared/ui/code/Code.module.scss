@@ -1,21 +1,21 @@
 .code {
-	position: relative;
-    width: 100%;
-    padding: 18px 32px;
-    background-color: var(--code-bg);
-    border: 1px solid var(--border-color);
+  position: relative;
+  width: 100%;
+  padding: 18px 32px;
+  background-color: var(--code-bg);
+  border: 1px solid var(--border-color);
 
-    &_copy {
-        position: absolute;
-        right: 20px;
-        top: 20px;
-        padding: 5px;
-        stroke: var(--primary-color);
+  &_copy {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    padding: 5px;
+    stroke: var(--primary-color);
 
-        &:hover {
-            opacity: 0.8;
-            fill-opacity: 0.8;
-            stroke-opacity: 0.8;
-        }
+    &:hover {
+      opacity: 0.8;
+      fill-opacity: 0.8;
+      stroke-opacity: 0.8;
     }
+  }
 }

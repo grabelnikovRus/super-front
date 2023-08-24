@@ -9,39 +9,35 @@ import { useAppDispatch } from "@shared/hooks/useAppDispatch";
 import s from "./NavBar.module.scss";
 
 interface NavBarProps {
-  className?: string
+  className?: string;
 }
 
 export const NavBar: FC<NavBarProps> = () => {
-  const [openAuthModal, setOpenAuthModal] = useState(false)
-  const dispatch = useAppDispatch()
-  const authData = useSelector(getAuthData)
-  const { t } = useTranslation()
+  const [openAuthModal, setOpenAuthModal] = useState(false);
+  const dispatch = useAppDispatch();
+  const authData = useSelector(getAuthData);
+  const { t } = useTranslation();
 
   const toggleAuthModal = useCallback(() => {
     setOpenAuthModal((prev) => !prev);
-  }, [])
+  }, []);
 
   const onClickBtn = useCallback(() => {
     if (authData) dispatch(userActions.logout());
     else setOpenAuthModal(true);
-  }, [openAuthModal, authData])
+  }, [openAuthModal, authData]);
 
   useEffect(() => {
-    if (authData) setOpenAuthModal(false)
-  }, [authData])
+    if (authData) setOpenAuthModal(false);
+  }, [authData]);
 
   return (
     <div className={s.navbar}>
       <div className={s.navbar__links}>
-        <Button
-          theme="outline"
-          className={s.navbar__link}
-          onClick={onClickBtn}
-        >
+        <Button theme="outline" className={s.navbar__link} onClick={onClickBtn}>
           {t(authData ? "logout" : "sign_in")}
         </Button>
-        <LoginModal isOpen={openAuthModal} onClose={toggleAuthModal}/>
+        <LoginModal isOpen={openAuthModal} onClose={toggleAuthModal} />
       </div>
     </div>
   );

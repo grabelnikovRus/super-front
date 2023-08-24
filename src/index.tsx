@@ -12,7 +12,7 @@ render(
   <BrowserRouter>
     <StoreProvider>
       <ThemeProvider>
-        <Suspense fallback={<PageLoader appLoad/>}>
+        <Suspense fallback={<PageLoader appLoad />}>
           <ErrorBoundary>
             <App />
           </ErrorBoundary>

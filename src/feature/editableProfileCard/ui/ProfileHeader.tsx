@@ -1,15 +1,15 @@
-import { type FC } from "react"
-import { useTranslation } from "react-i18next"
-import { Article, Button } from "@shared/ui"
+import { type FC } from "react";
+import { useTranslation } from "react-i18next";
+import { Article, Button } from "@shared/ui";
 
-import s from "./ProfileHeader.module.scss"
+import s from "./ProfileHeader.module.scss";
 
 interface ProfileHeaderProps {
-  onClickBtn: () => void
-  onSave: () => void
-  isEdit: boolean
-  readonly: boolean | undefined
-  isLoading: boolean | undefined
+  onClickBtn: () => void;
+  onSave: () => void;
+  isEdit: boolean;
+  readonly: boolean | undefined;
+  isLoading: boolean | undefined;
 }
 
 export const ProfileHeader: FC<ProfileHeaderProps> = ({
@@ -17,20 +17,15 @@ export const ProfileHeader: FC<ProfileHeaderProps> = ({
   onSave,
   readonly,
   isLoading,
-  isEdit
+  isEdit,
 }) => {
-  const { t } = useTranslation("profile")
+  const { t } = useTranslation("profile");
 
   return (
     <header className={s.header}>
       <Article title={t("profile") || ""} />
       {!readonly && (
-        <Button
-          theme="m"
-          onClick={onSave}
-          className={s.card_btn}
-          disabled={isLoading}
-        >
+        <Button theme="m" onClick={onSave} className={s.card_btn} disabled={isLoading}>
           {t("save")}
         </Button>
       )}
@@ -45,5 +40,5 @@ export const ProfileHeader: FC<ProfileHeaderProps> = ({
         </Button>
       )}
     </header>
-  )
-}
+  );
+};

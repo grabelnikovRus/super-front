@@ -12,18 +12,19 @@
       "@widgets/*": ["src/widgets/*"],
       "@shared/*": ["src/shared/*"],
       "@entities/*": ["src/entities/*"],
-      "@feature/*": ["src/feature/*"],
+      "@feature/*": ["src/feature/*"]
     },
     "allowJs": true, // компилятор обрабатывает не только ts, но js
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true, // позволяет импортировать без import * as 
+    "allowSyntheticDefaultImports": true, // позволяет импортировать без import * as
     "esModuleInterop": true, // для привычных импортов import
     "strict": true
   },
   "ts-node": {
-    "compilerOptions": { // эти параметры являются переопределениями, используемыми только узлом ts
+    "compilerOptions": {
+      // эти параметры являются переопределениями, используемыми только узлом ts
       "module": "commonjs", // для привычных импортов import
-      "strictNullChecks": true,
+      "strictNullChecks": true
     }
   },
   "include": [
@@ -33,6 +34,6 @@
     "./src/**/*.ts",
     "./.eslintrc.js",
     "./babel.config.js",
-    "./webpack.config.ts",
-  ],
+    "./webpack.config.ts"
+  ]
 }

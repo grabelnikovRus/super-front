@@ -1,15 +1,15 @@
 {
-    "main": "Главная",
-    "about_us": "О нас",
-    "language": "RU",
-    "not_found_page": "Такой страницы не существует",
-    "error_boundary": "Извините произошла ошибка",
-    "sign_in": "Войти",
-    "login": "Логин",
-    "pass": "Пароль",
-    "check_username": "Проверьте логин или пароль",
-    "logout": "Выйти",
-    "profile": "Профиль",
-    "articles": "Статьи",
-    "article_not": "Такой статьи не существует"
+  "main": "Главная",
+  "about_us": "О нас",
+  "language": "RU",
+  "not_found_page": "Такой страницы не существует",
+  "error_boundary": "Извините произошла ошибка",
+  "sign_in": "Войти",
+  "login": "Логин",
+  "pass": "Пароль",
+  "check_username": "Проверьте логин или пароль",
+  "logout": "Выйти",
+  "profile": "Профиль",
+  "articles": "Статьи",
+  "article_not": "Такой статьи не существует"
 }

@@ -1,7 +1,7 @@
 {
-    "articles": "Articles",
-    "comments": "Comments",
-    "no_comment": "No comment",
-    "enter_message": "Enter your message",
-    "send": "Send"
+  "articles": "Articles",
+  "comments": "Comments",
+  "no_comment": "No comment",
+  "enter_message": "Enter your message",
+  "send": "Send"
 }

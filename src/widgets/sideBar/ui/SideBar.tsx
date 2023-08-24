@@ -23,9 +23,9 @@ export const SideBar: FC = () => {
       })}
     >
       <div className={s.sidebar_links}>
-        {configSideBar.map((item) =>
-          (<SideBarItem item={item} collapsed={collapsed} key={item.title} />)
-        )}
+        {configSideBar.map((item) => (
+          <SideBarItem item={item} collapsed={collapsed} key={item.title} />
+        ))}
       </div>
       <Button
         onClick={onToggle}

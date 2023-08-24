@@ -14,9 +14,11 @@ export const ThemeProvider: FC = ({ children }) => {
   };
 
   useEffect(() => {
-    document.body.classList.add(theme)
-    return () => { document.body.classList.remove(theme) }
-  }, [theme])
+    document.body.classList.add(theme);
+    return () => {
+      document.body.classList.remove(theme);
+    };
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>

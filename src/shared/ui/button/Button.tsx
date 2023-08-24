@@ -4,7 +4,7 @@ import s from "./Button.module.scss";
 import { classNames } from "@shared/helpers/lib";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  theme?: "default" | "m" | "l" | "xl" | "outline"
+  theme?: "default" | "m" | "l" | "xl" | "outline";
 }
 
 export const Button: FC<ButtonProps> = ({

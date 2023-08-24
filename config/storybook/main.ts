@@ -1,6 +1,6 @@
 import type { StorybookConfig } from "@storybook/react-webpack5";
 import { buildCssLoader } from "../build/buildCssLoader";
-import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin"
+import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import { buildSvgLoader } from "../../config/build/buildSvgLOader";
 import { type Configuration, DefinePlugin } from "webpack";
 
@@ -27,7 +27,8 @@ const config: StorybookConfig = {
       config.module.rules = config.module.rules.map((rule) => {
         if (
           rule !== "..." &&
-          rule.test instanceof RegExp && rule.test.toString().includes("svg")
+          rule.test instanceof RegExp &&
+          rule.test.toString().includes("svg")
         ) {
           return { ...rule, exclude: /\.svg$/i };
         }
@@ -39,13 +40,15 @@ const config: StorybookConfig = {
       config.module.rules.push(buildSvgLoader());
     }
 
-    config.plugins?.push(new DefinePlugin({
-      _IS_DEV_: false,
-      _API_: "/dist/",
-      _PROJECT_: JSON.stringify("storybook")
-    }))
+    config.plugins?.push(
+      new DefinePlugin({
+        _IS_DEV_: false,
+        _API_: "/dist/",
+        _PROJECT_: JSON.stringify("storybook"),
+      })
+    );
 
     return config;
-  }
+  },
 };
 export default config;

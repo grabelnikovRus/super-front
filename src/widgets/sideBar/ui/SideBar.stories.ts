@@ -15,5 +15,5 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
 
 export const Dark: Story = {
-  decorators: [styleDecorator("dark")]
+  decorators: [styleDecorator("dark")],
 };

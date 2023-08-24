@@ -5,32 +5,27 @@ import { MemoryRouter } from "react-router-dom";
 import { type StateType, createStore } from "@app/providers/storeProvider";
 import { type DeepPartial } from "@reduxjs/toolkit";
 
-import config from "../../config/i18n/configForTest"
+import config from "../../config/i18n/configForTest";
 import { Provider } from "react-redux";
 
 interface renderComponentoptionsTupe {
-  router?: string | string[]
-  initalState?: DeepPartial<StateType>
+  router?: string | string[];
+  initalState?: DeepPartial<StateType>;
 }
 
 export const renderComponent = (
   MyComponent: ReactElement<any, string | JSXElementConstructor<any>>,
   options: renderComponentoptionsTupe = {}
 ) => {
-  const {
-    router = "/",
-    initalState = {}
-  } = options;
+  const { router = "/", initalState = {} } = options;
 
-  const store = createStore(initalState as StateType)
+  const store = createStore(initalState as StateType);
 
   render(
     <MemoryRouter initialEntries={typeof router === "string" ? [router] : router}>
       <Provider store={store}>
-        <I18nextProvider i18n={config} >
-          {MyComponent}
-        </I18nextProvider>
+        <I18nextProvider i18n={config}>{MyComponent}</I18nextProvider>
       </Provider>
     </MemoryRouter>
-  )
-}
+  );
+};

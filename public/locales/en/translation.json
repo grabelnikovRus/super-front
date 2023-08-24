@@ -1,15 +1,15 @@
 {
-    "main": "Main",
-    "language": "EN",
-    "about_us": "About Us",
-    "not_found_page": "Not Found Page",
-    "error_boundary": "Sorry An Error Has Occurred",
-    "sign_in": "Sign In",
-    "login": "Login",
-    "pass": "Password",
-    "check_username": "Check your username or password",
-    "logout": "Logout",
-    "profile": "Profile",
-    "articles": "Articles",
-    "article_not": "This article does not exist"
+  "main": "Main",
+  "language": "EN",
+  "about_us": "About Us",
+  "not_found_page": "Not Found Page",
+  "error_boundary": "Sorry An Error Has Occurred",
+  "sign_in": "Sign In",
+  "login": "Login",
+  "pass": "Password",
+  "check_username": "Check your username or password",
+  "logout": "Logout",
+  "profile": "Profile",
+  "articles": "Articles",
+  "article_not": "This article does not exist"
 }

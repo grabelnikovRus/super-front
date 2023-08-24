@@ -4,12 +4,12 @@ export const KEY_THEME = "theme";
 export enum Currency {
   RUB = "RUB",
   EUR = "EUR",
-  USD = "USD"
+  USD = "USD",
 }
 
 export enum Country {
   KZ = "Kazakhstan",
   RUS = "Russia",
   BLR = "Belarus",
-  KRG = "Kyrgyzstan"
+  KRG = "Kyrgyzstan",
 }

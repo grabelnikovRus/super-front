@@ -16,4 +16,4 @@ const LangSwitcher: FC = () => {
   );
 };
 
-export const LangSwitcherMemo = memo(LangSwitcher)
+export const LangSwitcherMemo = memo(LangSwitcher);

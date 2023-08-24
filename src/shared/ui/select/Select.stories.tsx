@@ -21,7 +21,7 @@ export const Default: Story = {
       { value: 3, content: "12345" },
       { value: 4, content: "1234567" },
       { value: 5, content: "12345678" },
-      { value: 6, content: "1234567890" }
-    ]
+      { value: 6, content: "1234567890" },
+    ],
   },
 };
