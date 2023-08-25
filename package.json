@@ -25,6 +25,9 @@
     "storybook:build": "storybook build -c ./config/storybook",
     "prepare": "husky install"
   },
+  "lint-staged": {
+    "**/*": "prettier --check --ignore-unknown"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -72,6 +75,7 @@
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
     "json-server": "^0.17.3",
+    "lint-staged": "^14.0.1",
     "loki": "^0.32.0",
     "mini-css-extract-plugin": "^2.7.6",
     "prettier": "2.8.8",
