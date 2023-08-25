@@ -16,7 +16,7 @@ describe("fetchProfile", () => {
 
   test("get profile data", async () => {
     action.api.get.mockResolvedValue({ data: form });
-    const result = await action.callThunk(undefined);
+    const result = await action.callThunk("1");
 
     expect(result.meta.requestStatus).toBe("fulfilled");
     expect(action.api.get).toHaveBeenCalled();
@@ -26,7 +26,7 @@ describe("fetchProfile", () => {
 
   test("get profile error", async () => {
     action.api.get.mockRejectedValue({ response: { status: 404 } });
-    const result = await action.callThunk(undefined);
+    const result = await action.callThunk("1");
 
     expect(result.meta.requestStatus).toBe("rejected");
     expect(action.api.get).toHaveBeenCalled();
