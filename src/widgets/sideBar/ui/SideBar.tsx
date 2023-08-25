@@ -3,13 +3,16 @@ import { classNames } from "@shared/helpers/lib";
 import { Button } from "@shared/ui";
 import { ThemeSwitcher } from "@widgets/themeSwitcher";
 import { LangSwitcher } from "@widgets/langSwitcher";
-import { configSideBar } from "../config/config";
+import { getSideBarItems } from "../model/selectors/getSideBarItems";
 import { SideBarItemMemo as SideBarItem } from "./SideBarItem";
 
 import s from "./SideBar.module.scss";
+import { useSelector } from "react-redux";
 
 export const SideBar: FC = () => {
   const [collapsed, setCollapsed] = useState(false);
+
+  const sideBarItems = useSelector(getSideBarItems);
 
   const onToggle = () => {
     setCollapsed((prev) => !prev);
@@ -23,7 +26,7 @@ export const SideBar: FC = () => {
       })}
     >
       <div className={s.sidebar_links}>
-        {configSideBar.map((item) => (
+        {sideBarItems.map((item) => (
           <SideBarItem item={item} collapsed={collapsed} key={item.title} />
         ))}
       </div>

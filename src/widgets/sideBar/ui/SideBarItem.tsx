@@ -2,7 +2,7 @@ import { memo, type FC } from "react";
 import s from "./SideBarItem.module.scss";
 import { AppLink } from "@shared/ui";
 import { classNames } from "@shared/helpers/lib";
-import { type SideBarItemsType } from "../config/config";
+import { type SideBarItemsType } from "../model/types";
 import { useTranslation } from "react-i18next";
 
 interface SideBarItemProps {
