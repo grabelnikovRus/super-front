@@ -5,6 +5,7 @@ import { type StateType } from "@app/providers/storeProvider";
 import { styleDecorator } from "@shared/helpers/storybook/styleDecorator";
 import { profileReducer } from "@feature/editableProfileCard";
 import { type ReducersMapObject } from "@reduxjs/toolkit";
+import { userReducer } from "@entities/user";
 
 const meta = {
   title: "page/ProfilePage",
@@ -18,9 +19,8 @@ type Story = StoryObj<typeof meta>;
 const profileState = {
   name: "Ruslan",
   surname: "GrabelnikovR",
-  age: "35",
-  currency: "RUB",
-  country: "RUS",
+  age: 35,
+  id: 1,
   city: "Tomsk",
   username: "admin",
   avatar:
@@ -28,7 +28,15 @@ const profileState = {
     "https://w7.pngwing.com/pngs/607/878/png-transparent-avatar-batman-comics-hero-avatars-xmas-giveaway-icon.png",
 };
 
-const state = {
+const state: Partial<StateType> = {
+  user: {
+    _isInit: true,
+    authData: {
+      id: 1,
+      username: "Ram",
+      role: "USER"
+    }
+  },
   profile: {
     form: profileState,
     data: profileState,
@@ -38,12 +46,15 @@ const state = {
   },
 };
 
-const reducer = { profile: profileReducer };
+const reducer = { 
+  profile: profileReducer,
+  user: userReducer
+};
 
 export const Default: Story = {
   decorators: [
     storeDecorator(
-      state as unknown as StateType,
+      state as StateType,
       reducer as ReducersMapObject<StateType>
     ),
     styleDecorator("dark"),

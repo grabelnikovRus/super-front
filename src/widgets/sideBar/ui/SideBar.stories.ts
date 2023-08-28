@@ -2,6 +2,10 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { SideBar } from "./SideBar";
 import { styleDecorator } from "@shared/helpers/storybook/styleDecorator";
+import { storeDecorator } from "@shared/helpers/storybook/storeDecorator";
+import { type StateType } from "@app/providers/storeProvider";
+import { type ReducersMapObject } from "@reduxjs/toolkit";
+import { userReducer } from "@entities/user";
 
 const meta = {
   title: "widgets/SideBar",
@@ -12,8 +16,27 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+const state: Partial<StateType> = {
+  user: {
+    _isInit: true,
+    authData: {
+      id: 1,
+      username: "Ram",
+      role: "USER"
+    }
+  },
+}
 
-export const Dark: Story = {
-  decorators: [styleDecorator("dark")],
-};
+const reducer = { user: userReducer };
+
+const decorators = [
+  storeDecorator(
+    state as StateType,
+    reducer as ReducersMapObject<StateType>
+  ),
+  styleDecorator("dark"),
+]
+
+export const Default: Story = { decorators };
+
+export const Dark: Story = { decorators };

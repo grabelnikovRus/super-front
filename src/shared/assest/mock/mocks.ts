@@ -1,4 +1,4 @@
-import { type ArticleType } from "../model/types/article";
+import { type ArticleType } from "../../../entities/article/model/types/article";
 
 export const articleMock : ArticleType = 
   {
