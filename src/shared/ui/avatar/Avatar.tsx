@@ -7,7 +7,7 @@ interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
   theme?: "l" | "m" | "s";
 }
 
-export const Avatar: FC<AvatarProps> = ({ src, theme = "l", ...rest }) => {
+export const Avatar: FC<AvatarProps> = ({ src, theme = "l", className, ...rest }) => {
   if (!src) return null;
-  return <img className={classNames(s.avatar, s[theme])} src={src} {...rest} />;
+  return <img className={classNames(s.avatar, s[theme], className)} src={src} {...rest} />;
 };

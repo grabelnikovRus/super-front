@@ -1,3 +1,5 @@
+import { type UserType } from "../../../user";
+
 type ArticleBaseBlockType = "IMAGE" | "TEXT" | "CODE";
 
 interface ArticleBaseBlock {
@@ -24,6 +26,8 @@ export interface ArticleImageBlockType extends ArticleBaseBlock {
 
 type ArticleThemeType = "IT" | "SCIENCE" | "ECONOMY";
 
+export type ArticleViewType = "big" | "small"
+
 export type ArticleBlocksTypes =
   | ArticleTextBlockType
   | ArticleCodeBlockType
@@ -33,6 +37,7 @@ export interface ArticleType {
   id: number;
   title: string;
   subtitle: string;
+  user: UserType,
   img: string;
   views: number;
   createdAt: string;
