@@ -14,6 +14,7 @@ import { type ProfileScheme } from "@feature/editableProfileCard";
 import { type ArticleDetailsSchema } from "@entities/article";
 import { type ArticleDetailsCommentsSchema } from "@page/articleDetailsPage";
 import { type AddCommentSchema } from "@feature/addComment";
+import { type ArticlePageSchema } from "@page/articlePage";
 
 export interface StateType {
   counter: CounterShema;
@@ -24,6 +25,7 @@ export interface StateType {
   articles?: ArticleDetailsSchema;
   articleComments?: ArticleDetailsCommentsSchema;
   addComment?: AddCommentSchema;
+  articlePage?: ArticlePageSchema
 }
 
 export type KeyStateType = keyof StateType;

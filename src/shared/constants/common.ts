@@ -1,4 +1,5 @@
 export const KEY_STORAGE_AUTH = "AUTH";
+export const KEY_STORAGE_VIEW = "VIEW";
 export const KEY_THEME = "theme";
 
 export enum Currency {

@@ -1,0 +1,14 @@
+.switcher {
+    display: flex;
+    column-gap: 10px;
+
+    &_btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .active {
+        fill: red;
+    }
+}

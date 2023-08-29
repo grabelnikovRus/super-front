@@ -69,11 +69,13 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
             </span>
             <h6 className={s.item_title}>{title}</h6>
          </footer>
-         <div className={s.item_buttons}>
-            <AppLink to={path} theme="border">
-               {t("read_more")}
-            </AppLink>
-         </div>
+         {articleView === "big" && (
+            <div className={s.item_buttons}>
+               <AppLink to={path} theme="border">
+                  {t("read_more")}
+               </AppLink>
+            </div>)
+         }
       </WrapperListItem>
    );
 }
