@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { type StateType } from "@app/providers/storeProvider";
 import { NavBar } from "./NavBar";
 import { storeDecorator } from "@shared/helpers/storybook/storeDecorator";
+import { userReducer } from "@entities/user";
+import { type ReducersMapObject } from "@reduxjs/toolkit";
 
 const meta = {
   title: "widgets/NavBar",
@@ -23,5 +25,9 @@ const state = {
     },
   },
 };
+
+const reducer = { user: userReducer }
 export const Default: Story = {};
-Default.decorators = [storeDecorator(state as StateType)];
+Default.decorators = [
+  storeDecorator(state as unknown as StateType, reducer as ReducersMapObject<StateType>)
+];

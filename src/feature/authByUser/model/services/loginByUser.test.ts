@@ -1,5 +1,5 @@
 import { loginByUser } from "./loginByUser";
-import { userActions } from "@entities/user";
+import { type UserType, userActions } from "@entities/user";
 import { TestAsyncThunk } from "@shared/helpers/test/testAsyncThunk";
 
 const action = new TestAsyncThunk(loginByUser);
@@ -35,7 +35,7 @@ describe("loginByUser", () => {
   //   });
 
   test("success login", async () => {
-    const userValue = { username: "admin", password: "123", id: 1 };
+    const userValue: UserType = { username: "admin", id: 1, role: "ADMIN" };
     action.api.post.mockResolvedValue({ data: userValue });
     const result = await action.callThunk({ username: "admin", password: "123" });
 
