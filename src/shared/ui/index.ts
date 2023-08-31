@@ -9,3 +9,4 @@ export { Avatar } from "./avatar/Avatar";
 export { SelectMemo as Select } from "./select/Select";
 export { Skeleton } from "./skeleton/Skeleton";
 export { Code } from "./code/Code";
+export { OnScrollMemo as OnScroll } from "./onscroll/OnScroll";

@@ -12,9 +12,12 @@ const initialState = articleAdapter.getInitialState<ArticlePageSchema>({
   isLoading: false,
   error: undefined,
   view: "small",
+  limit: 0,
+  page: 1,
+  hasMore: true,
   ids: [],
-  entities: {}
-})
+  entities: {},
+});
 
 export const getArticlePage = articleAdapter.getSelectors<StateType>(
   (state) => state.articlePage || articleAdapter.getInitialState()
@@ -25,28 +28,35 @@ export const articlePageSlice = createSlice({
   initialState,
   reducers: {
     setView: (state, action: PayloadAction<ArticleViewType>) => {
-        state.view = action.payload
+      state.view = action.payload;
+      state.limit = action.payload === "big" ? 4 : 9;
     },
-    init: () => {}
+    setPage: (state, action: PayloadAction<number>) => {
+      state.page = action.payload;
+    },
+    init: () => {},
   },
   extraReducers: ({ addCase }) => {
     addCase(fetchArticlePage.pending, (state, action) => {
-        state.isLoading = true
-        state.error = undefined
-    })
+      state.isLoading = true;
+      state.error = undefined;
+    });
     addCase(fetchArticlePage.fulfilled, (state, action: PayloadAction<ArticleType[]>) => {
-        state.isLoading = false
-        state.error = undefined
-        articleAdapter.setAll(state, action.payload)
-    })
+      state.isLoading = false;
+      state.error = undefined;
+      if (!action.payload || action.payload.length === 0) {
+        state.hasMore = false;
+        return
+      }
+      state.hasMore = true;
+      articleAdapter.addMany(state, action.payload);
+    });
     addCase(fetchArticlePage.rejected, (state, action) => {
-        state.isLoading = false
-        state.error = action.payload
-    })
+      state.isLoading = false;
+      state.error = action.payload;
+    });
   },
 });
 
-export const { 
-    actions: articlePageActions, 
-    reducer: articlePageReducer 
-} = articlePageSlice;
+export const { actions: articlePageActions, reducer: articlePageReducer } =
+  articlePageSlice;

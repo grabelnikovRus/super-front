@@ -77,4 +77,4 @@ export const articleMock : ArticleType =
     ]
   };
 
-export const articlesMock = new Array(9).fill(null).map((_, i) => ({...articleMock, id: i + 1}))
+export const articlesMock = new Array(3).fill(null).map((_, i) => ({...articleMock, id: i + 1}))

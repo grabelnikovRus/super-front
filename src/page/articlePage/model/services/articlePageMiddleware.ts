@@ -13,11 +13,12 @@ startArticlePageMiddleware({
 });
 
 startArticlePageMiddleware({
-    actionCreator: articlePageActions.init,
-    effect: (_, { dispatch }) => {
-      const view = localStorage.getItem(KEY_STORAGE_VIEW);
-      console.log(view)
-      if (!view) return
-      dispatch(articlePageActions.setView(JSON.parse(view) as ArticleViewType))
-    },
+  actionCreator: articlePageActions.init,
+  effect: (_, { dispatch }) => {
+    const view = localStorage.getItem(KEY_STORAGE_VIEW) as ArticleViewType | null;
+
+    if (!view) return;
+
+    dispatch(articlePageActions.setView(JSON.parse(view)));
+  },
 });
