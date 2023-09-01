@@ -13,7 +13,7 @@ export const fetchNextArticlePage = createAsyncThunk<
   undefined,
   OptionsCreateAsync
 >(
-  "articlePage/fetchArticlePage",
+  "articlePage/fetchNextArticlePage",
   async (_, { rejectWithValue, extra, dispatch, getState }) => {
     const limit = getArticlePageLimit(getState());
     const numPage = getArticleNumPage(getState());
