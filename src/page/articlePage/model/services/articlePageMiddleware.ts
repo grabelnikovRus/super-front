@@ -2,8 +2,9 @@ import { createListenerMiddleware } from "@reduxjs/toolkit";
 import { articlePageActions } from "../slice/articlePageSlice";
 import { KEY_STORAGE_VIEW } from "@shared/constants/common";
 import { type ArticleViewType } from "@entities/article";
+import { type StateType } from "@app/providers/storeProvider";
 
-export const articlePageMiddleware = createListenerMiddleware();
+export const articlePageMiddleware = createListenerMiddleware<StateType>();
 export const startArticlePageMiddleware = articlePageMiddleware.startListening;
 startArticlePageMiddleware({
   actionCreator: articlePageActions.setView,

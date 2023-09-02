@@ -8,7 +8,6 @@ import {
 } from "../model/slice/articlePageSlice";
 import { useSelector } from "react-redux";
 import { useInitEffect } from "@shared/hooks/useInitEffect";
-import { fetchArticlePage } from "../model/services/fetchArticlePage";
 import { useAppDispatch } from "@shared/hooks/useAppDispatch";
 import ListIcon from "@shared/assest/icon/list.svg";
 import TileIcon from "@shared/assest/icon/tile.svg";
@@ -22,6 +21,7 @@ import { type ViewType, ViewSwitcher } from "@feature/viewSwitcher";
 import s from "./ArticlePage.module.scss";
 import { OnScroll } from "@shared/ui";
 import { fetchNextArticlePage } from "../model/services/fetchNextArticlePage";
+import { initArticlePage } from "../model/services/initArticlesPage";
 
 const reducer = { articlePage: articlePageReducer };
 
@@ -41,7 +41,7 @@ const views: ViewType[] = [
 export const ArticlePage: FC = () => {
   const dispatch = useAppDispatch();
 
-  useReducerManager(reducer);
+  useReducerManager(reducer, false);
 
   const articles = useSelector(getArticlePage.selectAll);
   const error = useSelector(getArticlePageError);
@@ -53,8 +53,7 @@ export const ArticlePage: FC = () => {
   }, []);
 
   useInitEffect(async () => {
-    dispatch(articlePageActions.init());
-    await dispatch(fetchArticlePage());
+    dispatch(initArticlePage())
   }, []);
 
   console.log(error);
@@ -66,6 +65,11 @@ export const ArticlePage: FC = () => {
         currentActive={view}
       />
       <ArticleList articles={articles} articleView={view} isLoading={isLoading} />
+      {/* <ScrollRestoration
+        getKey={(location) => {
+          return location.pathname;
+        }}
+      /> */}
       {!isLoading && <OnScroll cb={onLoanNextPart} />}
     </div>
   );

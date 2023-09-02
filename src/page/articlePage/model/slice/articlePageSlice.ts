@@ -3,6 +3,7 @@ import { type StateType } from "@app/providers/storeProvider";
 import { type ArticlePageSchema } from "../types";
 import { type ArticleViewType, type ArticleType } from "@entities/article";
 import { fetchArticlePage } from "../services/fetchArticlePage";
+import { fetchNextArticlePage } from "../services/fetchNextArticlePage";
 
 const articleAdapter = createEntityAdapter<ArticleType>({
   selectId: (comment) => comment.id,
@@ -17,6 +18,7 @@ const initialState = articleAdapter.getInitialState<ArticlePageSchema>({
   hasMore: true,
   ids: [],
   entities: {},
+  _isInit: false
 });
 
 export const getArticlePage = articleAdapter.getSelectors<StateType>(
@@ -34,14 +36,32 @@ export const articlePageSlice = createSlice({
     setPage: (state, action: PayloadAction<number>) => {
       state.page = action.payload;
     },
-    init: () => {},
+    init: (state) => {
+      state._isInit = true
+    },
   },
   extraReducers: ({ addCase }) => {
-    addCase(fetchArticlePage.pending, (state, action) => {
+    addCase(fetchArticlePage.pending, (state) => {
       state.isLoading = true;
       state.error = undefined;
     });
     addCase(fetchArticlePage.fulfilled, (state, action: PayloadAction<ArticleType[]>) => {
+      state.isLoading = false;
+      state.error = undefined;
+      console.log(action)
+      state.hasMore = true;
+      articleAdapter.setAll(state, action.payload);
+    });
+    addCase(fetchArticlePage.rejected, (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    });
+
+    addCase(fetchNextArticlePage.pending, (state) => {
+      state.isLoading = true;
+      state.error = undefined;
+    });
+    addCase(fetchNextArticlePage.fulfilled, (state, action: PayloadAction<ArticleType[]>) => {
       state.isLoading = false;
       state.error = undefined;
       if (!action.payload || action.payload.length === 0) {
@@ -51,7 +71,7 @@ export const articlePageSlice = createSlice({
       state.hasMore = true;
       articleAdapter.addMany(state, action.payload);
     });
-    addCase(fetchArticlePage.rejected, (state, action) => {
+    addCase(fetchNextArticlePage.rejected, (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
     });

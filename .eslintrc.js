@@ -38,5 +38,6 @@ module.exports = {
     "react/display-name": "off",
     "linebreak-style": "off",
     "@typescript-eslint/no-dynamic-delete": "off",
+    "@typescript-eslint/no-invalid-void-type": "off"
   },
 };

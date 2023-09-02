@@ -11,7 +11,7 @@ type ReducerObjType = {
   [key in KeyStateType]?: Reducer;
 };
 
-export const useReducerManager = (initReducers: ReducerObjType[] | ReducerObjType) => {
+export const useReducerManager = (initReducers: ReducerObjType[] | ReducerObjType, remove = true) => {
   const store = useStore() as StoreWithReducerManager;
   const dispatch = useAppDispatch();
   const arrayReducers = Array.isArray(initReducers) ? initReducers : [initReducers];
@@ -26,6 +26,8 @@ export const useReducerManager = (initReducers: ReducerObjType[] | ReducerObjTyp
       });
     });
     return () => {
+      if (!remove) return;
+
       arrayReducers.forEach((obj) => {
         Object.entries(obj).forEach(([key, reducer]) => {
           dispatch({ type: `destroy ${key} reducer` });
