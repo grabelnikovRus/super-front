@@ -6,6 +6,7 @@ import { getIsInit, userActions } from "@entities/user";
 import { useAppDispatch } from "@shared/hooks/useAppDispatch";
 import { useSelector } from "react-redux";
 import { Loader } from "@shared/ui";
+import { SaveScroll } from "@widgets/saveScroll";
 
 export const AppRouter: FC = () => {
   const dispatch = useAppDispatch();
@@ -24,7 +25,7 @@ export const AppRouter: FC = () => {
           <Route
             path={path}
             key={path}
-            element={<div className="content">{element}</div>}
+            element={<SaveScroll className="content">{element}</SaveScroll>}
           />
         ))}
       </Routes>

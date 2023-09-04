@@ -15,10 +15,13 @@ import { type ArticleDetailsSchema } from "@entities/article";
 import { type ArticleDetailsCommentsSchema } from "@page/articleDetailsPage";
 import { type AddCommentSchema } from "@feature/addComment";
 import { type ArticlePageSchema } from "@page/articlePage";
+import { type ScrollScheme } from "@widgets/saveScroll";
 
 export interface StateType {
   counter: CounterShema;
   user: UserSchema;
+  scroll: ScrollScheme
+
   // асинхронные редусеры
   login?: LoginSchema;
   profile?: ProfileScheme;

@@ -103,7 +103,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = ({ id }) => {
   const error = useSelector(getArticlesError);
   const data = useSelector(getArticlesData);
 
-  useReducerManager(reducer);
+  useReducerManager(reducer, false);
 
   useInitEffect(() => {
     if (id) dispatch(fetchArticleById(id));

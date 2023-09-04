@@ -1,10 +1,10 @@
 import { useRef, type FC, useEffect, memo } from "react";
 
-interface OnScrollProps {
+interface LoadingOnScrollProps {
   cb: () => void;
 }
 
-const OnScroll: FC<OnScrollProps> = ({ cb }) => {
+const LoadingOnScroll: FC<LoadingOnScrollProps> = ({ cb }) => {
   const target = useRef<HTMLDivElement>(null);
   const scrollAreaElement = document.querySelector(".content");
 
@@ -31,4 +31,4 @@ const OnScroll: FC<OnScrollProps> = ({ cb }) => {
   return <div ref={target} />;
 };
 
-export const OnScrollMemo = memo(OnScroll);
+export const LoadingOnScrollMemo = memo(LoadingOnScroll);

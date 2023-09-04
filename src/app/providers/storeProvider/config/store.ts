@@ -10,15 +10,18 @@ import { userReducer, userMiddleware } from "@entities/user";
 import { createReducerManager } from "./reducerManager";
 import { api } from "@shared/api/api";
 import { articlePageMiddleware } from "@page/articlePage";
+import { scrollReducer } from "@widgets/saveScroll";
 
 const initialState: StateType = {
   counter: { value: 0 },
   user: { _isInit: false },
+  scroll: {}
 };
 
 const rootReducer: ReducersMapObject<StateType> = {
   counter: counterReducer,
   user: userReducer,
+  scroll: scrollReducer
 };
 
 export const createStore = (state = initialState, initialReducer = rootReducer) => {

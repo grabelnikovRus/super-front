@@ -19,7 +19,7 @@ import {
 import { type ViewType, ViewSwitcher } from "@feature/viewSwitcher";
 
 import s from "./ArticlePage.module.scss";
-import { OnScroll } from "@shared/ui";
+import { LoadingOnScroll } from "@shared/ui";
 import { fetchNextArticlePage } from "../model/services/fetchNextArticlePage";
 import { initArticlePage } from "../model/services/initArticlesPage";
 
@@ -70,7 +70,7 @@ export const ArticlePage: FC = () => {
           return location.pathname;
         }}
       /> */}
-      {!isLoading && <OnScroll cb={onLoanNextPart} />}
+      {!isLoading && <LoadingOnScroll cb={onLoanNextPart} />}
     </div>
   );
 };
