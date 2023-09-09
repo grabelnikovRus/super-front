@@ -9,8 +9,9 @@ import { counterReducer } from "@entities/counter";
 import { userReducer, userMiddleware } from "@entities/user";
 import { createReducerManager } from "./reducerManager";
 import { api } from "@shared/api/api";
-import { articlePageMiddleware } from "@page/articlePage";
 import { scrollReducer } from "@widgets/saveScroll";
+import { filterMiddleware } from "@feature/filters";
+
 
 const initialState: StateType = {
   counter: { value: 0 },
@@ -36,7 +37,7 @@ export const createStore = (state = initialState, initialReducer = rootReducer) 
         thunk: {
           extraArgument: { api },
         },
-      }).concat(userMiddleware.middleware, articlePageMiddleware.middleware),
+      }).concat(userMiddleware.middleware, filterMiddleware.middleware),
   });
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment

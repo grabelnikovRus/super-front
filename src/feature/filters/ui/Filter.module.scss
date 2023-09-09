@@ -1,0 +1,8 @@
+.filter {
+    display: grid;
+
+    &_switcher {
+        display: flex;
+        justify-content: flex-end;
+    }
+}

@@ -1,8 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { type OptionsCreateAsync } from "@app/providers/storeProvider";
-import { getArticlePageIsInit } from "../selectors";
 import { fetchArticlePage } from "./fetchArticlePage";
-import { articlePageActions } from "../slice/articlePageSlice";
+import { getArticlePageIsInit } from "../selectors";
 
 export const initArticlePage = createAsyncThunk<
   void,
@@ -15,7 +14,6 @@ export const initArticlePage = createAsyncThunk<
 
     if (isInit) return;
 
-    dispatch(articlePageActions.init());
-    await dispatch(fetchArticlePage());
+    await dispatch(fetchArticlePage({}));
   }
 );

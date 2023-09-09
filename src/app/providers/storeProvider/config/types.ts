@@ -16,6 +16,7 @@ import { type ArticleDetailsCommentsSchema } from "@page/articleDetailsPage";
 import { type AddCommentSchema } from "@feature/addComment";
 import { type ArticlePageSchema } from "@page/articlePage";
 import { type ScrollScheme } from "@widgets/saveScroll";
+import { type FilterScheme } from "@feature/filters";
 
 export interface StateType {
   counter: CounterShema;
@@ -29,6 +30,7 @@ export interface StateType {
   articleComments?: ArticleDetailsCommentsSchema;
   addComment?: AddCommentSchema;
   articlePage?: ArticlePageSchema
+  filter?: FilterScheme
 }
 
 export type KeyStateType = keyof StateType;

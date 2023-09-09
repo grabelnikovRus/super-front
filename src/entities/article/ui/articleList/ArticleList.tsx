@@ -1,8 +1,9 @@
 import { type FC } from "react";
 import { classNames } from "@shared/helpers/lib";
-import { type ArticleViewType, type ArticleType } from "../../model/types/article";
+import { type ArticleType } from "../../model/types/article";
 import { ArticleListItem } from "../articleListItem/ArticleListItem";
 import { ArticleListItemSkeleton } from "../articleListItem/ArticleListItemSkeleton";
+import { type ArticleViewType } from "@feature/filters/model/types";
 
 import s from "./ArticleList.module.scss";
 

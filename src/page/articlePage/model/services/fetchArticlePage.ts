@@ -1,16 +1,21 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { type OptionsCreateAsync } from "@app/providers/storeProvider";
 import { type ArticleType } from "@entities/article";
-import { getArticleNumPage, getArticlePageLimit } from "../selectors";
+import { getArticleNumPage } from "../selectors";
+import { getFilterLimit } from "@feature/filters";
+
+interface FetchArticlePageProps {
+  replace?: boolean
+}
 
 export const fetchArticlePage = createAsyncThunk<
   ArticleType[],
-  undefined,
+  FetchArticlePageProps,
   OptionsCreateAsync
 >(
   "articlePage/fetchArticlePage",
-  async (_, { rejectWithValue, extra, getState }) => {
-    const limit = getArticlePageLimit(getState());
+  async ({ replace } = {}, { rejectWithValue, extra, getState }) => {
+    const limit = getFilterLimit(getState());
     const numPage = getArticleNumPage(getState());
 
     try {

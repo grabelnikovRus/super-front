@@ -18,7 +18,11 @@ interface ViewSwitcherProps {
     currentActive?: string
 }
 
-export const ViewSwitcher: FC<ViewSwitcherProps> = ({ arrayRender, className, currentActive }) => {
+export const ViewSwitcher: FC<ViewSwitcherProps> = ({ 
+    arrayRender, 
+    className, 
+    currentActive 
+}) => {
     const dispatch = useAppDispatch()
 
     const onClick = useCallback(

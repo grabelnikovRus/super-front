@@ -3,10 +3,10 @@ import { type OptionsCreateAsync } from "@app/providers/storeProvider";
 import { type ArticleType } from "@entities/article";
 import { 
     getArticleNumPage, 
-    getArticlePageLimit, 
     getArticlePageHasMore 
 } from "../selectors";
 import { articlePageActions } from "../slice/articlePageSlice";
+import { getFilterIsInit } from "@feature/filters";
 
 export const fetchNextArticlePage = createAsyncThunk<
   ArticleType[],
@@ -15,7 +15,7 @@ export const fetchNextArticlePage = createAsyncThunk<
 >(
   "articlePage/fetchNextArticlePage",
   async (_, { rejectWithValue, extra, dispatch, getState }) => {
-    const limit = getArticlePageLimit(getState());
+    const limit = getFilterIsInit(getState());
     const numPage = getArticleNumPage(getState());
     const hasMore = getArticlePageHasMore(getState());
 
