@@ -6,7 +6,7 @@ import {
     getArticlePageHasMore 
 } from "../selectors";
 import { articlePageActions } from "../slice/articlePageSlice";
-import { getFilterIsInit } from "@feature/filters";
+import { getFilterLimit } from "@feature/filters";
 
 export const fetchNextArticlePage = createAsyncThunk<
   ArticleType[],
@@ -15,7 +15,7 @@ export const fetchNextArticlePage = createAsyncThunk<
 >(
   "articlePage/fetchNextArticlePage",
   async (_, { rejectWithValue, extra, dispatch, getState }) => {
-    const limit = getFilterIsInit(getState());
+    const limit = getFilterLimit(getState());
     const numPage = getArticleNumPage(getState());
     const hasMore = getArticlePageHasMore(getState());
 

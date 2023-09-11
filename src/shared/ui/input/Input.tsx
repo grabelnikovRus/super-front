@@ -16,7 +16,7 @@ interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChan
 
 export const Input = memo(
   ({
-    label,
+    label = "",
     type = "text",
     autoFocus,
     onChange,

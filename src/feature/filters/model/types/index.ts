@@ -1,8 +1,8 @@
 export type ArticleViewType = "big" | "small"
 
-type OrderSortType = "desc" | "asc"
+export type OrderSortType = "desc" | "asc"
 
-type SortType = "createdAt" | "title" | "views"
+export type SortType = "createdAt" | "title" | "views"
 
 export interface FilterScheme {
     view: ArticleViewType

@@ -1,5 +1,10 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { type ArticleViewType, type FilterScheme } from "../types";
+import { 
+  type SortType, 
+  type ArticleViewType, 
+  type FilterScheme, 
+  type OrderSortType 
+} from "../types";
 
 const initialState: FilterScheme ={ 
     view: "small",
@@ -16,6 +21,12 @@ export const filterSlice = createSlice({
     setView: (state, action: PayloadAction<ArticleViewType>) => {
       state.view = action.payload;
       state.limit = action.payload === "big" ? 4 : 9;
+    },
+    setSort: (state, action: PayloadAction<SortType>) => {
+      state.sort = action.payload
+    },
+    setOrder: (state, action: PayloadAction<OrderSortType>) => {
+      state.order = action.payload
     },
     init: () => {},
   },

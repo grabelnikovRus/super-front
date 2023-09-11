@@ -15,8 +15,13 @@ import {
 import { LoadingOnScroll } from "@shared/ui";
 import { fetchNextArticlePage } from "../model/services/fetchNextArticlePage";
 import { initArticlePage } from "../model/services/initArticlesPage";
-import { Filter } from "@feature/filters";
-import { getFilterView } from "@feature/filters/model/selectors";
+import { 
+  Filter, 
+  getFilterOrder,  
+  getFilterView,
+  getFilterSearch,
+  getFilterSort
+} from "@feature/filters";
 
 import s from "./ArticlePage.module.scss";
 
@@ -31,6 +36,9 @@ export const ArticlePage: FC = () => {
   const error = useSelector(getArticlePageError);
   const isLoading = useSelector(getArticlePageIsLoading);
   const view = useSelector(getFilterView);
+  const order = useSelector(getFilterOrder)
+  const sort = useSelector(getFilterSort)
+  const search = useSelector(getFilterSearch)
 
   const onLoanNextPart = useCallback(async () => {
     dispatch(fetchNextArticlePage())
@@ -41,8 +49,8 @@ export const ArticlePage: FC = () => {
   }, []);
 
   useEffect(() => {
-
-  }, [])
+    console.log(123)
+  }, [order, sort, search])
 
   console.log(error);
   return (

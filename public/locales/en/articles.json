@@ -4,5 +4,11 @@
   "no_comment": "No comment",
   "enter_message": "Enter your message",
   "send": "Send",
-  "read_more": "Read more..."
+  "read_more": "Read more...",
+  "by_date": "By Date",
+  "by_views": "By Views",
+  "by_title": "By Title",
+  "ascending": "Ascending",
+  "descending": "Descending",
+  "search": "Search"
 }
