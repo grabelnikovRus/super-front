@@ -1,29 +1,32 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { type FC, memo, useMemo, useState, useRef, useEffect, useCallback } from "react";
+import { memo, useMemo, useState, useRef, useEffect, useCallback } from "react";
 
 import s from "./Select.module.scss";
 import { classNames } from "@shared/helpers/lib";
 
-interface OptionsSelect {
-  value: string | number;
+export interface OptionsSelect<T> {
+  value: T;
   content: string;
 }
 
-interface SelectProps {
+interface SelectProps<T extends string> {
   label?: string;
-  defaultValue?: string | number;
-  options: OptionsSelect[];
-  onChange?: (value: string) => void;
+  defaultValue?: T;
+  options: Array<OptionsSelect<T>>;
+  onChange?: (value: T) => void;
   readonly?: boolean;
+  className?: string
 }
 
-const Select: FC<SelectProps> = ({
-  defaultValue,
-  label,
-  options,
-  onChange,
-  readonly,
-}) => {
+const Select = <T extends string>(props: SelectProps<T>) => {
+  const {
+    defaultValue,
+    label,
+    options,
+    onChange,
+    readonly,
+    className
+  } = props;
   const [isFocus, setIsFocus] = useState<boolean>(false);
   const [value, setValue] = useState(defaultValue || "");
 
@@ -39,9 +42,9 @@ const Select: FC<SelectProps> = ({
   };
 
   const onClickValue = useCallback(
-    (value: OptionsSelect["value"]) => () => {
+    (value: OptionsSelect<T>["value"]) => () => {
       setValue(value);
-      onChange?.(String(value));
+      onChange?.(value);
     },
     []
   );
@@ -69,7 +72,7 @@ const Select: FC<SelectProps> = ({
   }, [isFocus]);
 
   return (
-    <div className={s.input_wrapper}>
+    <div className={classNames(s.input_wrapper, className)}>
       {label && (
         <label htmlFor={label} className={s.root_label}>
           {label}
@@ -94,4 +97,4 @@ const Select: FC<SelectProps> = ({
   );
 };
 
-export const SelectMemo = memo(Select);
+export const SelectMemo = memo(Select) as typeof Select;
