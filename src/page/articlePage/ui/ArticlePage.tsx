@@ -10,6 +10,7 @@ import { useInitEffect } from "@shared/hooks/useInitEffect";
 import { useAppDispatch } from "@shared/hooks/useAppDispatch";
 import {
   getArticlePageError,
+  getArticlePageHasMore,
   getArticlePageIsLoading,
 } from "../model/selectors";
 import { LoadingOnScroll } from "@shared/ui";
@@ -20,12 +21,17 @@ import {
   getFilterOrder,  
   getFilterView,
   getFilterSearch,
-  getFilterSort
+  getFilterSort,
+  filterReducer,
 } from "@feature/filters";
+import { fetchArticlePage } from "../model/services/fetchArticlePage";
 
 import s from "./ArticlePage.module.scss";
 
-const reducer = { articlePage: articlePageReducer };
+const reducer = { 
+  articlePage: articlePageReducer,
+  filter: filterReducer
+};
 
 export const ArticlePage: FC = () => {
   const dispatch = useAppDispatch();
@@ -39,6 +45,7 @@ export const ArticlePage: FC = () => {
   const order = useSelector(getFilterOrder)
   const sort = useSelector(getFilterSort)
   const search = useSelector(getFilterSearch)
+  const hasMore = useSelector(getArticlePageHasMore);
 
   const onLoanNextPart = useCallback(async () => {
     dispatch(fetchNextArticlePage())
@@ -49,7 +56,8 @@ export const ArticlePage: FC = () => {
   }, []);
 
   useEffect(() => {
-    console.log(123)
+
+     dispatch(fetchArticlePage({ replace: true }))
   }, [order, sort, search])
 
   console.log(error);
@@ -57,7 +65,7 @@ export const ArticlePage: FC = () => {
     <div className={s.page}>
       <Filter />
       <ArticleList articles={articles} articleView={view} isLoading={isLoading} />
-      {!isLoading && <LoadingOnScroll cb={onLoanNextPart} />}
+      {!isLoading && hasMore && <LoadingOnScroll cb={onLoanNextPart} />}
     </div>
   );
 };

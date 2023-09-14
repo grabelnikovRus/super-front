@@ -2,12 +2,10 @@ import { useCallback, type FC, useMemo } from "react"
 import { ViewSwitcher, type ViewType } from "@entities/viewSwitcher";
 import ListIcon from "@shared/assest/icon/list.svg";
 import TileIcon from "@shared/assest/icon/tile.svg";
-import { filterActions, filterReducer } from "../model/slice/filterSlice";
+import { filterActions } from "../model/slice/filterSlice";
 import { useSelector } from "react-redux";
 import { getFilterView } from "../model/selectors";
-import { useReducerManager } from "@shared/hooks/useReducerManager";
 import { useAppDispatch } from "@shared/hooks/useAppDispatch";
-import { useInitEffect } from "@shared/hooks/useInitEffect";
 import { Input, type OptionsSelect, Select } from "@shared/ui";
 import { type OrderSortType, type SortType } from "../model/types";
 import { useTranslation } from "react-i18next";
@@ -27,16 +25,10 @@ const views: ViewType[] = [
     },
   ];
 
-const reducer = { filter: filterReducer }
-
 export const Filter: FC = () => {
     const dispatch = useAppDispatch()
     const view = useSelector(getFilterView)
     const { t, i18n } = useTranslation("articles")
-
-    useReducerManager(reducer, false)
-
-    useInitEffect(() => { dispatch(filterActions.init()) }, [])
 
     const optionsSelectSort: Array<OptionsSelect<SortType>> = useMemo(() => ([
         { value: "createdAt", content: t("by_date")},

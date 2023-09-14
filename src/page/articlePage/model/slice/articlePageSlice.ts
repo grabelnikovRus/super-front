@@ -40,7 +40,10 @@ export const articlePageSlice = createSlice({
       state.error = undefined;
       if (action.meta.arg.replace) articleAdapter.removeAll(state)
     });
-    addCase(fetchArticlePage.fulfilled, (state, action: PayloadAction<ArticleType[]>) => {
+    addCase(fetchArticlePage.fulfilled, (
+      state, 
+      action: PayloadAction<ArticleType[]>
+    ) => {
       state.isLoading = false;
       state.error = undefined;
       state.hasMore = true;

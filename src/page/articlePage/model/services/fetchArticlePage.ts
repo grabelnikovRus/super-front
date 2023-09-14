@@ -2,7 +2,8 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { type OptionsCreateAsync } from "@app/providers/storeProvider";
 import { type ArticleType } from "@entities/article";
 import { getArticleNumPage } from "../selectors";
-import { getFilterLimit } from "@feature/filters";
+import { getFilterLimit, getFilterOrder, getFilterSort } from "@feature/filters";
+import { articlePageActions } from "../slice/articlePageSlice";
 
 interface FetchArticlePageProps {
   replace?: boolean
@@ -14,9 +15,16 @@ export const fetchArticlePage = createAsyncThunk<
   OptionsCreateAsync
 >(
   "articlePage/fetchArticlePage",
-  async ({ replace } = {}, { rejectWithValue, extra, getState }) => {
+  async ({ replace }, { dispatch, rejectWithValue, extra, getState }) => {
     const limit = getFilterLimit(getState());
-    const numPage = getArticleNumPage(getState());
+    let numPage = getArticleNumPage(getState());
+    const order = getFilterOrder(getState())
+    const sort = getFilterSort(getState())
+
+    if (replace) {
+      numPage = 1
+      dispatch(articlePageActions.setPage(numPage))
+    }
 
     try {
       const res = await extra.api.get("/articles", {
@@ -24,6 +32,8 @@ export const fetchArticlePage = createAsyncThunk<
           _expand: "user",
           _limit: limit,
           _page: numPage,
+          _order: order,
+          _sort: sort,
         },
       });
 
