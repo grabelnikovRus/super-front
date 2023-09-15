@@ -1,6 +1,6 @@
 import { ArticleList } from "@entities/article";
 import { useReducerManager } from "@shared/hooks/useReducerManager";
-import { type FC, useCallback, useEffect } from "react";
+import { type FC, useCallback, useEffect, useMemo } from "react";
 import {
   articlePageReducer,
   getArticlePage,
@@ -33,6 +33,17 @@ const reducer = {
   filter: filterReducer
 };
 
+const getIsFetch = (kitString: string) => {
+  let a = kitString
+
+  return function(cache: string) {
+    const isFetch = cache !== a
+    console.log({a, cache})
+    if (isFetch) a = cache
+    return isFetch
+  }
+}
+
 export const ArticlePage: FC = () => {
   const dispatch = useAppDispatch();
 
@@ -47,6 +58,8 @@ export const ArticlePage: FC = () => {
   const search = useSelector(getFilterSearch)
   const hasMore = useSelector(getArticlePageHasMore);
 
+  const isFetch = useMemo(() => getIsFetch(order + sort + search), [])
+
   const onLoanNextPart = useCallback(async () => {
     dispatch(fetchNextArticlePage())
   }, []);
@@ -56,8 +69,8 @@ export const ArticlePage: FC = () => {
   }, []);
 
   useEffect(() => {
-
-     dispatch(fetchArticlePage({ replace: true }))
+    if (!isFetch(order + sort + search)) return
+    dispatch(fetchArticlePage({ replace: true }))
   }, [order, sort, search])
 
   console.log(error);

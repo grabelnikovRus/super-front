@@ -12,7 +12,7 @@ const articleAdapter = createEntityAdapter<ArticleType>({
 const initialState = articleAdapter.getInitialState<ArticlePageSchema>({
   isLoading: false,
   error: undefined,
-  page: 1,
+  page: 0,
   hasMore: true,
   ids: [],
   entities: {},

@@ -1,7 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { type OptionsCreateAsync } from "@app/providers/storeProvider";
 import { type ArticleType } from "@entities/article";
-import { getArticleNumPage } from "../selectors";
 import { getFilterLimit, getFilterOrder, getFilterSort } from "@feature/filters";
 import { articlePageActions } from "../slice/articlePageSlice";
 
@@ -17,13 +16,14 @@ export const fetchArticlePage = createAsyncThunk<
   "articlePage/fetchArticlePage",
   async ({ replace }, { dispatch, rejectWithValue, extra, getState }) => {
     const limit = getFilterLimit(getState());
-    let numPage = getArticleNumPage(getState());
     const order = getFilterOrder(getState())
     const sort = getFilterSort(getState())
+    const numPage = 1
 
     if (replace) {
-      numPage = 1
       dispatch(articlePageActions.setPage(numPage))
+    } else {
+      dispatch(articlePageActions.setPage(numPage + 1))
     }
 
     try {

@@ -17,8 +17,6 @@ export const fetchNextArticlePage = createAsyncThunk<
     const order = getFilterOrder(getState())
     const sort = getFilterSort(getState())
 
-    const newNumPage = numPage + 1;
-
     try {
       const res = await extra.api.get("/articles", {
         params: {
@@ -30,7 +28,7 @@ export const fetchNextArticlePage = createAsyncThunk<
         },
       });
 
-      dispatch(articlePageActions.setPage(newNumPage));
+      dispatch(articlePageActions.setPage(numPage + 1));
 
       return res.data;
     } catch (e) {
