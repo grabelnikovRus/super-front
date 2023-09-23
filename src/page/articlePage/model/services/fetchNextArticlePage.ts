@@ -3,7 +3,12 @@ import { type OptionsCreateAsync } from "@app/providers/storeProvider";
 import { type ArticleType } from "@entities/article";
 import { getArticleNumPage } from "../selectors";
 import { articlePageActions } from "../slice/articlePageSlice";
-import { getFilterLimit, getFilterOrder, getFilterSort } from "@feature/filters";
+import { 
+  getFilterLimit, 
+  getFilterOrder, 
+  getFilterSearch, 
+  getFilterSort 
+} from "@feature/filters";
 
 export const fetchNextArticlePage = createAsyncThunk<
   ArticleType[],
@@ -16,6 +21,7 @@ export const fetchNextArticlePage = createAsyncThunk<
     const limit = getFilterLimit(getState());
     const order = getFilterOrder(getState())
     const sort = getFilterSort(getState())
+    const search = getFilterSearch(getState())
 
     try {
       const res = await extra.api.get("/articles", {
@@ -25,6 +31,7 @@ export const fetchNextArticlePage = createAsyncThunk<
           _page: numPage,
           _order: order,
           _sort: sort,
+          q: search
         },
       });
 

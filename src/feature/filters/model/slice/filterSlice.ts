@@ -28,6 +28,9 @@ export const filterSlice = createSlice({
     setOrder: (state, action: PayloadAction<OrderSortType>) => {
       state.order = action.payload
     },
+    setSeatch: (state, action: PayloadAction<string>) => {
+      state.search = action.payload
+    },
     init: () => {},
   },
 });

@@ -45,6 +45,10 @@ export const Filter: FC = () => {
         dispatch(action(value))
     }, [])
 
+    const onChangeInput = useCallback((action) => (value: string) => {
+        dispatch(action(value))
+    }, [])
+
     return (
         <div className={s.filter}>
             <Select<SortType>
@@ -68,6 +72,7 @@ export const Filter: FC = () => {
                 className={s.filter_search}
                 label={t("search") || ""}
                 placeholder={t("search") || ""}
+                onChange={onChangeInput(filterActions.setSeatch)}
             />
         </div>
     )
