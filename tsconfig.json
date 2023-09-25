@@ -3,7 +3,7 @@
     "outDir": "./dist/", // куда идет сборка, но у нас собирает вебпак
     "noImplicitAny": true,
     "module": "ESNext",
-    "target": "es5", // в какую версию компилировать
+    "target": "es2015", // в какую версию компилировать
     "jsx": "react-jsx", // "react-jsx" чтобы не импортировать в файл tsx React
     "baseUrl": "./", // для абсолютных импортов
     "paths": {

@@ -3,7 +3,8 @@ import {
   type SortType, 
   type ArticleViewType, 
   type FilterScheme, 
-  type OrderSortType 
+  type OrderSortType,
+  type OmitFilterScheme
 } from "../types";
 
 const initialState: FilterScheme ={ 
@@ -31,7 +32,12 @@ export const filterSlice = createSlice({
     setSeatch: (state, action: PayloadAction<string>) => {
       state.search = action.payload
     },
-    init: () => {},
+    init: (state, action: PayloadAction<OmitFilterScheme>) => {
+      const params = action.payload
+      state.sort = params.sort
+      state.order = params.order
+      state.search = params.search
+    },
   },
 });
 

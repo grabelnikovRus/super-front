@@ -1,10 +1,15 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { type OptionsCreateAsync } from "@app/providers/storeProvider";
 import { type ArticleType } from "@entities/article";
-import { getFilterLimit, getFilterOrder, getFilterSearch, getFilterSort } from "@feature/filters";
+import { 
+  getFilterLimit, 
+  getFilterOrder, 
+  getFilterSearch, 
+  getFilterSort 
+} from "@feature/filters";
 import { articlePageActions } from "../slice/articlePageSlice";
 
-interface FetchArticlePageProps {
+export interface FetchArticlePageProps {
   replace?: boolean
 }
 

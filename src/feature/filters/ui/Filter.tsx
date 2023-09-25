@@ -7,10 +7,12 @@ import { useSelector } from "react-redux";
 import { getFilterView } from "../model/selectors";
 import { useAppDispatch } from "@shared/hooks/useAppDispatch";
 import { Input, type OptionsSelect, Select } from "@shared/ui";
-import { type OrderSortType, type SortType } from "../model/types";
+import { type OmitFilterScheme, type OrderSortType, type SortType } from "../model/types";
 import { useTranslation } from "react-i18next";
 
 import s from "./Filter.module.scss"
+
+interface FilterProps extends OmitFilterScheme {}
 
 const views: ViewType[] = [
     {
@@ -25,7 +27,7 @@ const views: ViewType[] = [
     },
   ];
 
-export const Filter: FC = () => {
+export const Filter: FC<FilterProps> = ({ search, order, sort }) => {
     const dispatch = useAppDispatch()
     const view = useSelector(getFilterView)
     const { t, i18n } = useTranslation("articles")
@@ -54,13 +56,13 @@ export const Filter: FC = () => {
             <Select<SortType>
                 className={s.filter_sort}
                 options={optionsSelectSort} 
-                defaultValue="title"
+                defaultValue={sort}
                 onChange={onChangeSelect(filterActions.setSort)}
             />
             <Select<OrderSortType>
                 className={s.filter_order}
                 options={optionsSelectOrder}
-                defaultValue="asc"
+                defaultValue={order}
                 onChange={onChangeSelect(filterActions.setOrder)}
             />
             <ViewSwitcher
@@ -73,6 +75,7 @@ export const Filter: FC = () => {
                 label={t("search") || ""}
                 placeholder={t("search") || ""}
                 onChange={onChangeInput(filterActions.setSeatch)}
+                defaultValue={search}
             />
         </div>
     )

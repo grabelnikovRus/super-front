@@ -11,3 +11,5 @@ export interface FilterScheme {
     sort: SortType
     limit: number;
 }
+
+export type OmitFilterScheme = Omit<FilterScheme, "limit" | "view">

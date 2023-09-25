@@ -1,6 +1,6 @@
 import { ArticleList } from "@entities/article";
 import { useReducerManager } from "@shared/hooks/useReducerManager";
-import { type FC, useCallback, useEffect, useMemo } from "react";
+import { type FC, useEffect, useMemo } from "react";
 import {
   articlePageReducer,
   getArticlePage,
@@ -8,6 +8,7 @@ import {
 import { useSelector } from "react-redux";
 import { useInitEffect } from "@shared/hooks/useInitEffect";
 import { useAppDispatch } from "@shared/hooks/useAppDispatch";
+import { useDebounce } from "@shared/hooks/useDebounce"
 import {
   getArticlePageError,
   getArticlePageHasMore,
@@ -15,7 +16,7 @@ import {
 } from "../model/selectors";
 import { LoadingOnScroll } from "@shared/ui";
 import { fetchNextArticlePage } from "../model/services/fetchNextArticlePage";
-import { initArticlePage } from "../model/services/initArticlesPage";
+import {  initArticlePage } from "../model/services/initArticlesPage";
 import { 
   Filter, 
   getFilterOrder,  
@@ -24,9 +25,14 @@ import {
   getFilterSort,
   filterReducer,
 } from "@feature/filters";
-import { fetchArticlePage } from "../model/services/fetchArticlePage";
+import { 
+  type FetchArticlePageProps, 
+  fetchArticlePage 
+} from "../model/services/fetchArticlePage";
 
 import s from "./ArticlePage.module.scss";
+import { addQueryParams } from "@shared/helpers/lib/addQueryParams/addQueryParams";
+import { useSearchParams } from "react-router-dom";
 
 const reducer = { 
   articlePage: articlePageReducer,
@@ -34,12 +40,12 @@ const reducer = {
 };
 
 const getIsFetch = (kitString: string) => {
-  let a = kitString
+  let cache = kitString
 
-  return function(cache: string) {
-    const isFetch = cache !== a
-    console.log({a, cache})
-    if (isFetch) a = cache
+  return function(params: string) {
+    const isFetch = params !== cache
+
+    if (isFetch) cache = params
     return isFetch
   }
 }
@@ -48,6 +54,8 @@ export const ArticlePage: FC = () => {
   const dispatch = useAppDispatch();
 
   useReducerManager(reducer, false);
+
+  const [ searchParams ] = useSearchParams()
 
   const articles = useSelector(getArticlePage.selectAll);
   const error = useSelector(getArticlePageError);
@@ -60,25 +68,31 @@ export const ArticlePage: FC = () => {
 
   const isFetch = useMemo(() => getIsFetch(order + sort + search), [])
 
-  const onLoanNextPart = useCallback(async () => {
-    dispatch(fetchNextArticlePage())
-  }, []);
+  const fetchArticlePageDebounce = useDebounce<FetchArticlePageProps>(
+    async () => await dispatch(fetchArticlePage({ replace: true })), 400
+  )
 
+  const fetchNextArticlePageDebounce = useDebounce(
+    async () =>  await dispatch(fetchNextArticlePage()), 400
+  )
   useInitEffect(async () => {
-    dispatch(initArticlePage())
+    dispatch(initArticlePage(searchParams))
   }, []);
 
   useEffect(() => {
+    addQueryParams({ order, sort, search });
+  
     if (!isFetch(order + sort + search)) return
-    dispatch(fetchArticlePage({ replace: true }))
+  
+    fetchArticlePageDebounce()
   }, [order, sort, search])
-
+  
   console.log(error);
   return (
     <div className={s.page}>
-      <Filter />
+      <Filter search={search} order={order} sort={sort} />
       <ArticleList articles={articles} articleView={view} isLoading={isLoading} />
-      {!isLoading && hasMore && <LoadingOnScroll cb={onLoanNextPart} />}
+      {!isLoading && hasMore && <LoadingOnScroll cb={fetchNextArticlePageDebounce} />}
     </div>
   );
 };
