@@ -1,0 +1,19 @@
+.tabs {
+	display: flex;
+    gap: 8px;
+
+    &_item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 6px 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        color: var(--secondary-color);
+        cursor: pointer;
+    }
+
+    &_item__active {
+        background-color: var(--bg-color-inverted);
+    }
+}
