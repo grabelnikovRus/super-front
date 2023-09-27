@@ -1,4 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { type ArticleThemeType } from "@entities/article";
 import { 
   type SortType, 
   type ArticleViewType, 
@@ -13,6 +14,7 @@ const initialState: FilterScheme ={
     sort: "createdAt",
     limit: 0,
     order: "asc",
+    type: "IT"
 }
 
 export const filterSlice = createSlice({
@@ -31,6 +33,9 @@ export const filterSlice = createSlice({
     },
     setSeatch: (state, action: PayloadAction<string>) => {
       state.search = action.payload
+    },
+    setType: (state, action: PayloadAction<ArticleThemeType>) => {
+      state.type = action.payload
     },
     init: (state, action: PayloadAction<OmitFilterScheme>) => {
       const params = action.payload

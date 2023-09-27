@@ -5,7 +5,8 @@ import {
   getFilterLimit, 
   getFilterOrder, 
   getFilterSearch, 
-  getFilterSort 
+  getFilterSort, 
+  getType
 } from "@feature/filters";
 import { articlePageActions } from "../slice/articlePageSlice";
 
@@ -24,6 +25,7 @@ export const fetchArticlePage = createAsyncThunk<
     const order = getFilterOrder(getState())
     const sort = getFilterSort(getState())
     const search = getFilterSearch(getState())
+    const type = getType(getState())
     const numPage = 1
 
     if (replace) {
@@ -40,7 +42,8 @@ export const fetchArticlePage = createAsyncThunk<
           _page: numPage,
           _order: order,
           _sort: sort,
-          q: search
+          q: search,
+          type_like: type
         },
       });
 

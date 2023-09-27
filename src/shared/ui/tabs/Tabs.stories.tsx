@@ -14,12 +14,11 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     tabs: [
-      { content: "tab 1", value: "1" },
-      { content: "tab 2", value: "2" },
-      { content: "tab 3", value: "3" },
-      { content: "tab 4", value: "4" },
+      { content: "tab 1", value: "IT" },
+      { content: "tab 2", value: "SCIENCE" },
+      { content: "tab 3", value: "ECONOMY" },
     ],
-    defaultValue: ["3"],
+    defaultValue: "SCIENCE",
     toggleTab: (item) => { console.log(item) }
   }
 };

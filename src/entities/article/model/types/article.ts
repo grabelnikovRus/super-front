@@ -24,7 +24,7 @@ export interface ArticleImageBlockType extends ArticleBaseBlock {
   src: string;
 }
 
-type ArticleThemeType = "IT" | "SCIENCE" | "ECONOMY";
+export type ArticleThemeType = "IT" | "SCIENCE" | "ECONOMY";
 
 export type ArticleBlocksTypes =
   | ArticleTextBlockType

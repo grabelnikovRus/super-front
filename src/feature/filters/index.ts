@@ -7,6 +7,7 @@ export {
     getFilterOrder,
     getFilterSort, 
     getFilterSearch, 
-    getFilterView 
+    getFilterView,
+    getType
 } from "./model/selectors"
 export type { OrderSortType, SortType } from "./model/types"

@@ -7,7 +7,8 @@ import {
   getFilterLimit, 
   getFilterOrder, 
   getFilterSearch, 
-  getFilterSort 
+  getFilterSort, 
+  getType
 } from "@feature/filters";
 
 export const fetchNextArticlePage = createAsyncThunk<
@@ -22,6 +23,7 @@ export const fetchNextArticlePage = createAsyncThunk<
     const order = getFilterOrder(getState())
     const sort = getFilterSort(getState())
     const search = getFilterSearch(getState())
+    const type = getType(getState())
 
     try {
       const res = await extra.api.get("/articles", {
@@ -31,7 +33,8 @@ export const fetchNextArticlePage = createAsyncThunk<
           _page: numPage,
           _order: order,
           _sort: sort,
-          q: search
+          q: search,
+          type_like: type
         },
       });
 

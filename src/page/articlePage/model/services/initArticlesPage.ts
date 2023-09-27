@@ -17,7 +17,8 @@ export const initArticlePage = createAsyncThunk<
     const obj: OmitFilterScheme = {
       sort: "createdAt",
       order: "asc",
-      search: ""
+      search: "",
+      type: "IT"
     }
 
     for (const [key, value] of searchParams) {

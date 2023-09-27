@@ -9,5 +9,5 @@ export { Avatar } from "./avatar/Avatar";
 export { SelectMemo as Select, type OptionsSelect } from "./select/Select";
 export { Skeleton } from "./skeleton/Skeleton";
 export { Code } from "./code/Code";
-export { Tabs } from "./tabs/Tabs"
+export { Tabs, type TansItem } from "./tabs/Tabs"
 export { LoadingOnScrollMemo as LoadingOnScroll } from "./onscroll/OnScroll";

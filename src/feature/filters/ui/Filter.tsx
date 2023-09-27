@@ -6,9 +6,10 @@ import { filterActions } from "../model/slice/filterSlice";
 import { useSelector } from "react-redux";
 import { getFilterView } from "../model/selectors";
 import { useAppDispatch } from "@shared/hooks/useAppDispatch";
-import { Input, type OptionsSelect, Select } from "@shared/ui";
+import { Input, type OptionsSelect, Select, Tabs, type TansItem } from "@shared/ui";
 import { type OmitFilterScheme, type OrderSortType, type SortType } from "../model/types";
 import { useTranslation } from "react-i18next";
+import { type ArticleThemeType } from "@entities/article";
 
 import s from "./Filter.module.scss"
 
@@ -26,6 +27,12 @@ const views: ViewType[] = [
       name: "big",
     },
   ];
+
+const tabs: Array<TansItem<ArticleThemeType>> = [
+    { value: "IT", content: "IT"},
+    { value: "SCIENCE", content: "SCIENCE" },
+    { value: "ECONOMY", content: "ECONOMY"},
+]
 
 export const Filter: FC<FilterProps> = ({ search, order, sort }) => {
     const dispatch = useAppDispatch()
@@ -49,6 +56,10 @@ export const Filter: FC<FilterProps> = ({ search, order, sort }) => {
 
     const onChangeInput = useCallback((action) => (value: string) => {
         dispatch(action(value))
+    }, [])
+
+    const onChangeType = useCallback((value: ArticleThemeType) => {
+        dispatch(filterActions.setType(value))
     }, [])
 
     return (
@@ -76,6 +87,12 @@ export const Filter: FC<FilterProps> = ({ search, order, sort }) => {
                 placeholder={t("search") || ""}
                 onChange={onChangeInput(filterActions.setSeatch)}
                 defaultValue={search}
+            />
+            <Tabs<ArticleThemeType>
+                className={s.filter_tabs}
+                tabs={tabs} 
+                defaultValue={"IT"} 
+                toggleTab={onChangeType}
             />
         </div>
     )

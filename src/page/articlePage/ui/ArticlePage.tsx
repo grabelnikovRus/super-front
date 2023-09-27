@@ -24,6 +24,7 @@ import {
   getFilterSearch,
   getFilterSort,
   filterReducer,
+  getType,
 } from "@feature/filters";
 import { 
   type FetchArticlePageProps, 
@@ -64,6 +65,7 @@ export const ArticlePage: FC = () => {
   const order = useSelector(getFilterOrder)
   const sort = useSelector(getFilterSort)
   const search = useSelector(getFilterSearch)
+  const type = useSelector(getType);
   const hasMore = useSelector(getArticlePageHasMore);
 
   const isFetch = useMemo(() => getIsFetch(order + sort + search), [])
@@ -75,22 +77,23 @@ export const ArticlePage: FC = () => {
   const fetchNextArticlePageDebounce = useDebounce(
     async () =>  await dispatch(fetchNextArticlePage()), 400
   )
+
   useInitEffect(async () => {
     dispatch(initArticlePage(searchParams))
   }, []);
 
   useEffect(() => {
-    addQueryParams({ order, sort, search });
+    addQueryParams({ order, sort, search, type });
   
-    if (!isFetch(order + sort + search)) return
+    if (!isFetch(order + sort + search + type)) return
   
     fetchArticlePageDebounce()
-  }, [order, sort, search])
+  }, [order, sort, search, type])
   
   console.log(error);
   return (
     <div className={s.page}>
-      <Filter search={search} order={order} sort={sort} />
+      <Filter search={search} order={order} sort={sort} type={type}/>
       <ArticleList articles={articles} articleView={view} isLoading={isLoading} />
       {!isLoading && hasMore && <LoadingOnScroll cb={fetchNextArticlePageDebounce} />}
     </div>
