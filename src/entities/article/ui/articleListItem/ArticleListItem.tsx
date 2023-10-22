@@ -1,4 +1,9 @@
-import { type HTMLAttributes, type FC, useMemo } from "react";
+import { 
+   type HTMLAttributes, 
+   type FC, 
+   useMemo, 
+   type HTMLAttributeAnchorTarget 
+} from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "@shared/helpers/lib"
 import { 
@@ -23,12 +28,19 @@ interface ArticleListItemProps {
 interface WrapperListItemProps extends HTMLAttributes<HTMLDivElement> {
    articleView: ArticleViewType
    to: To;
+   target?: HTMLAttributeAnchorTarget | undefined
 }
 
-const WrapperListItem: FC<WrapperListItemProps> = ({ children, articleView, to }) => (
+const WrapperListItem: FC<WrapperListItemProps> = ({ children, articleView, to, target }) => (
   articleView === "big" 
    ? <div className={classNames(s.item, s[articleView])}>{children}</div>
-   : <AppLink to={to} className={classNames(s.item, s[articleView])}>{children}</AppLink>
+   : <AppLink 
+      to={to} 
+      target={target} 
+      className={classNames(s.item, s[articleView])}
+   >
+      {children}
+   </AppLink>
 )
 
 export const ArticleListItem: FC<ArticleListItemProps> = ({
@@ -51,7 +63,8 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
    return (
       <WrapperListItem 
          to={path} 
-         articleView={articleView} 
+         articleView={articleView}
+         target="_blank"
          {...bindHover}
       >
          <header className={s.item_picture}>
@@ -71,7 +84,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
          </footer>
          {articleView === "big" && (
             <div className={s.item_buttons}>
-               <AppLink to={path} theme="border">
+               <AppLink to={path} target="_blank" theme="border">
                   {t("read_more")}
                </AppLink>
             </div>)
