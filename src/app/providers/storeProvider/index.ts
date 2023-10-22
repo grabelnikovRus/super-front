@@ -7,4 +7,5 @@ export {
   type StoreWithReducerManager,
   type KeyStateType,
   type OptionsCreateAsync,
+  type ReducerList
 } from "./config/types";

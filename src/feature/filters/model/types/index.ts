@@ -1,6 +1,5 @@
 import { type ArticleThemeType } from "@entities/article"
-
-export type ArticleViewType = "big" | "small"
+import { type ArticleViewType } from "@entities/article/model/types/article"
 
 export type OrderSortType = "desc" | "asc"
 

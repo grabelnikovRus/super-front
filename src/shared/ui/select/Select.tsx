@@ -9,7 +9,7 @@ export interface OptionsSelect<T> {
   content: string;
 }
 
-interface SelectProps<T extends string> {
+interface SelectProps<T extends string | number> {
   label?: string;
   defaultValue?: T;
   options: Array<OptionsSelect<T>>;
@@ -18,7 +18,7 @@ interface SelectProps<T extends string> {
   className?: string
 }
 
-const Select = <T extends string>(props: SelectProps<T>) => {
+const Select = <T extends string | number>(props: SelectProps<T>) => {
   const {
     defaultValue,
     label,

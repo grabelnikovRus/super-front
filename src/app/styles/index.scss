@@ -20,3 +20,18 @@ body {
     padding: 20px 20px 20px 35px;
   }
 }
+
+*::-webkit-scrollbar {
+  width: 8px;               /* ширина всей полосы прокрутки */
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--bg-color-inverted);        /* цвет зоны отслеживания */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);    /* цвет бегунка */
+  border-radius: 20px;       /* округлось бегунка */
+  border: 3px solid var(--border-color);  /* отступ вокруг бегунка */
+}

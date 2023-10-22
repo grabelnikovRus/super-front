@@ -1,6 +1,6 @@
 import { type CommentTypes } from "@entities/comment";
 import { createSlice, createEntityAdapter, type PayloadAction } from "@reduxjs/toolkit";
-import { type ArticleDetailsCommentsSchema } from "../types";
+import { type ArticleDetailsCommentsSchema } from "../types/ArticleDetailsComments";
 import { type StateType } from "@app/providers/storeProvider";
 import { fetchComments } from "../services/fetchComments";
 
@@ -15,7 +15,7 @@ const initialState: ArticleDetailsCommentsSchema = {
 };
 
 export const getArticleComments = commentAdapter.getSelectors<StateType>(
-  (state) => state.articleComments || commentAdapter.getInitialState()
+  (state) => state.articleDetailsPage?.articleComments || commentAdapter.getInitialState()
 );
 
 export const articleComments = createSlice({

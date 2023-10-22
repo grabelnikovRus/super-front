@@ -1,9 +1,8 @@
 import { type FC } from "react";
 import { classNames } from "@shared/helpers/lib";
-import { type ArticleType } from "../../model/types/article";
+import { type ArticleViewType, type ArticleType } from "../../model/types/article";
 import { ArticleListItem } from "../articleListItem/ArticleListItem";
 import { ArticleListItemSkeleton } from "../articleListItem/ArticleListItemSkeleton";
-import { type ArticleViewType } from "@feature/filters/model/types";
 
 import s from "./ArticleList.module.scss";
 
@@ -11,18 +10,20 @@ interface ArticleListProps {
   articles: ArticleType[];
   isLoading: boolean;
   articleView: ArticleViewType;
+  className?: string
 }
 
 export const ArticleList: FC<ArticleListProps> = ({
   articles,
   articleView,
   isLoading,
+  className,
 }) => {
   if (articles.length === 0 && !isLoading) return null;
 
   return (
     <div
-      className={classNames(s.list, {
+      className={classNames(s.list, className, {
         [s.list__big]: articleView === "big",
       })}
     >

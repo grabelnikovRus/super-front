@@ -1,6 +1,16 @@
 .page {
-  &_title_comments {
+  &_title {
     margin: 15px 0;
     font: var(--font-xl);
+  }
+
+  &_recommend {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    a {
+      flex-shrink: 0;
+    }
   }
 }

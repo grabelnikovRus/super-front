@@ -8,12 +8,12 @@ import { type StateType } from "@app/providers/storeProvider";
 const state: DeepPartial<StateType> = {
   articlePage: {
     isLoading: false,
-    view: "big",
-    limit: 4,
+    error: "",
     hasMore: true,
     page: 1,
     ids: [],
-    entities: {}
+    entities: {},
+    _isInit: true
   }
 }
 

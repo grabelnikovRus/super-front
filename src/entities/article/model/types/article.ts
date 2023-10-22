@@ -2,6 +2,8 @@ import { type UserType } from "../../../user";
 
 type ArticleBaseBlockType = "IMAGE" | "TEXT" | "CODE";
 
+export type ArticleViewType = "big" | "small"
+
 interface ArticleBaseBlock {
   id: number;
   type: ArticleBaseBlockType;

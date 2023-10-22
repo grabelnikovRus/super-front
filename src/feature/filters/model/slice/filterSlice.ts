@@ -1,8 +1,7 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { type ArticleThemeType } from "@entities/article";
+import { type ArticleViewType, type ArticleThemeType } from "@entities/article";
 import { 
   type SortType, 
-  type ArticleViewType, 
   type FilterScheme, 
   type OrderSortType,
   type OmitFilterScheme

@@ -34,7 +34,7 @@ const tabs: Array<TansItem<ArticleThemeType>> = [
     { value: "ECONOMY", content: "ECONOMY"},
 ]
 
-export const Filter: FC<FilterProps> = ({ search, order, sort }) => {
+export const Filter: FC<FilterProps> = ({ search, order, sort, type }) => {
     const dispatch = useAppDispatch()
     const view = useSelector(getFilterView)
     const { t, i18n } = useTranslation("articles")
@@ -91,7 +91,7 @@ export const Filter: FC<FilterProps> = ({ search, order, sort }) => {
             <Tabs<ArticleThemeType>
                 className={s.filter_tabs}
                 tabs={tabs} 
-                defaultValue={"IT"} 
+                defaultValue={type} 
                 toggleTab={onChangeType}
             />
         </div>

@@ -1,8 +1,9 @@
 import { createListenerMiddleware } from "@reduxjs/toolkit";
 import { KEY_STORAGE_VIEW } from "@shared/constants/common";
-import { type ArticleViewType } from "../types";
+
 import { type StateType } from "@app/providers/storeProvider";
 import { filterActions } from "../slice/filterSlice";
+import { type ArticleViewType } from "@entities/article";
 
 export const filterMiddleware = createListenerMiddleware<StateType>();
 

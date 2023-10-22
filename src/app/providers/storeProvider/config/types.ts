@@ -12,7 +12,7 @@ import { type UserSchema } from "@entities/user";
 import { type configureStore } from "@reduxjs/toolkit/dist/configureStore";
 import { type ProfileScheme } from "@feature/editableProfileCard";
 import { type ArticleDetailsSchema } from "@entities/article";
-import { type ArticleDetailsCommentsSchema } from "@page/articleDetailsPage";
+import { type ArticleDetailsPageScheme } from "@page/articleDetailsPage";
 import { type AddCommentSchema } from "@feature/addComment";
 import { type ArticlePageSchema } from "@page/articlePage";
 import { type ScrollScheme } from "@widgets/saveScroll";
@@ -27,7 +27,7 @@ export interface StateType {
   login?: LoginSchema;
   profile?: ProfileScheme;
   articles?: ArticleDetailsSchema;
-  articleComments?: ArticleDetailsCommentsSchema;
+  articleDetailsPage?: ArticleDetailsPageScheme
   addComment?: AddCommentSchema;
   articlePage?: ArticlePageSchema
   filter?: FilterScheme
@@ -57,4 +57,8 @@ export interface OptionsCreateAsync<T = string> {
   rejectValue: T;
   extra: ThunkExtraArgType;
   state: StateType;
+}
+
+export type ReducerList = {
+  [name in KeyStateType]?: Reducer<NonNullable<StateType[name]>>
 }

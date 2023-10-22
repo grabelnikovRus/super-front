@@ -14,8 +14,12 @@ interface TabsProps<T> {
    className?: string
 }
 
-export const Tabs = <T extends string>(props: TabsProps<T>) => {
-   const { tabs, defaultValue, toggleTab, className } = props;
+export const Tabs = <T extends string>({ 
+   tabs, 
+   defaultValue, 
+   toggleTab, 
+   className,
+}: TabsProps<T>) => {
 
    const [ activeTab, setActiveTab] = useState<T>(defaultValue)
 
