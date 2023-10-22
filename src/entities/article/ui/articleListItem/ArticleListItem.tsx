@@ -23,29 +23,36 @@ import { type To } from "react-router-dom";
 interface ArticleListItemProps {
    article: ArticleType
    articleView: ArticleViewType
+   target?: HTMLAttributeAnchorTarget
 }
 
 interface WrapperListItemProps extends HTMLAttributes<HTMLDivElement> {
    articleView: ArticleViewType
    to: To;
-   target?: HTMLAttributeAnchorTarget | undefined
+   target?: HTMLAttributeAnchorTarget
 }
 
-const WrapperListItem: FC<WrapperListItemProps> = ({ children, articleView, to, target }) => (
+const WrapperListItem: FC<WrapperListItemProps> = ({ 
+  children, 
+  articleView, 
+  to, 
+  target 
+}) => (
   articleView === "big" 
    ? <div className={classNames(s.item, s[articleView])}>{children}</div>
    : <AppLink 
       to={to} 
       target={target} 
       className={classNames(s.item, s[articleView])}
-   >
+     >
       {children}
-   </AppLink>
+     </AppLink>
 )
 
 export const ArticleListItem: FC<ArticleListItemProps> = ({
    article,
-   articleView
+   articleView,
+   target,
 }) => {
    const { t } = useTranslation("articles")
    const [ isHover, bindHover] = useHover()
@@ -64,7 +71,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
       <WrapperListItem 
          to={path} 
          articleView={articleView}
-         target="_blank"
+         target={target}
          {...bindHover}
       >
          <header className={s.item_picture}>
@@ -84,7 +91,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
          </footer>
          {articleView === "big" && (
             <div className={s.item_buttons}>
-               <AppLink to={path} target="_blank" theme="border">
+               <AppLink to={path} target={target} theme="border">
                   {t("read_more")}
                </AppLink>
             </div>)

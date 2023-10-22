@@ -78,6 +78,7 @@ export const ArticleDetailsPage: FC = () => {
           isLoading={isLoadingRecommend} 
           articles={recommendList} 
           articleView="small"
+          target="_self"
           className={s.page_recommend}
         /> 
         : <div>{errorRecommend}</div>

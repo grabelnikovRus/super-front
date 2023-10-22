@@ -94,7 +94,12 @@ export const ArticlePage: FC = () => {
   return (
     <div className={s.page}>
       <Filter search={search} order={order} sort={sort} type={type}/>
-      <ArticleList articles={articles} articleView={view} isLoading={isLoading} />
+      <ArticleList 
+        articles={articles} 
+        articleView={view}
+        isLoading={isLoading} 
+        target="_blank"
+      />
       {!isLoading && hasMore && <LoadingOnScroll cb={fetchNextArticlePageDebounce} />}
     </div>
   );
