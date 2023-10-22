@@ -1,5 +1,5 @@
 export interface UserType {
-  id: number;
+  id: string;
   username: string;
   role: "ADMIN" | "USER"
   avatar?: string;

@@ -2,14 +2,14 @@ import { type ArticleType } from "../../../entities/article/model/types/article"
 
 export const articleMock : ArticleType = 
   {
-    "id": 1,
+    "id": "1",
     "title": "Javascript news",
     "subtitle": "Что нового в JS за 2022 год?",
     "img": "https://logos-world.net/wp-content/uploads/2023/02/JavaScript-Symbol.png",
     "views": 1022,
     "createdAt": "26.02.2022",
     user: {
-      "id": 1,
+      "id": "1",
       "username": "admin",
       "role": "ADMIN",
       "avatar": "https://sun9-1.userapi.com/impg/SWPMaf_MSz9mzptUya0I9x8WWxEt7fwJ4uyD-g/EE4oVaRp3wI.jpg?size=604x604&quality=95&sign=177e4e821c4a6735db31fbeb84de41e2&c_uniq_tag=eunY8ZVj41jFPdcjxK3Tdq7WAayWGntN8dhmi3Hqliw&type=album"
@@ -17,7 +17,7 @@ export const articleMock : ArticleType =
     "type": ["IT"],
     "blocks": [
       {
-        "id": 1,
+        "id": "1",
         "type": "TEXT",
         "title": "Заголовок этого блока",
         "paragraphs": [
@@ -27,12 +27,12 @@ export const articleMock : ArticleType =
         ]
       },
       {
-        "id": 4,
+        "id": "4",
         "type": "CODE",
         "code": "<!DOCTYPE html>\n<html>\n  <body>\n    <p id=\"hello\"></p>\n\n    <script>\n      document.getElementById(\"hello\").innerHTML = \"Hello, world!\";\n    </script>\n  </body>\n</html>;"
       },
       {
-        "id": 5,
+        "id": "5",
         "type": "TEXT",
         "title": "Заголовок этого блока",
         "paragraphs": [
@@ -41,18 +41,18 @@ export const articleMock : ArticleType =
         ]
       },
       {
-        "id": 2,
+        "id": "2",
         "type": "IMAGE",
         "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
         "title": "Рисунок 1 - скриншот сайта"
       },
       {
-        "id": 3,
+        "id": "3",
         "type": "CODE",
         "code": "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);"
       },
       {
-        "id": 7,
+        "id": "7",
         "type": "TEXT",
         "title": "Заголовок этого блока",
         "paragraphs": [
@@ -61,13 +61,13 @@ export const articleMock : ArticleType =
         ]
       },
       {
-        "id": 8,
+        "id": "8",
         "type": "IMAGE",
         "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
         "title": "Рисунок 1 - скриншот сайта"
       },
       {
-        "id": 9,
+        "id": "9",
         "type": "TEXT",
         "title": "Заголовок этого блока",
         "paragraphs": [
@@ -77,4 +77,4 @@ export const articleMock : ArticleType =
     ]
   };
 
-export const articlesMock = new Array(3).fill(null).map((_, i) => ({...articleMock, id: i + 1}))
+export const articlesMock = new Array(3).fill(null).map((_, i) => ({...articleMock, id: (i + 1).toString()}))

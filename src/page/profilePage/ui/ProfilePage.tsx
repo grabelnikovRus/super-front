@@ -25,7 +25,7 @@ export const ProfilePage: FC = () => {
 
   const userData = useSelector(getAuthData);
 
-  const canEdit = userData?.id === Number(id);
+  const canEdit = userData?.id === id;
 
   useReducerManager(reducers);
 

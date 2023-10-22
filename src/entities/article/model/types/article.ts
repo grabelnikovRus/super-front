@@ -5,7 +5,7 @@ type ArticleBaseBlockType = "IMAGE" | "TEXT" | "CODE";
 export type ArticleViewType = "big" | "small"
 
 interface ArticleBaseBlock {
-  id: number;
+  id: string;
   type: ArticleBaseBlockType;
 }
 
@@ -34,10 +34,11 @@ export type ArticleBlocksTypes =
   | ArticleImageBlockType;
 
 export interface ArticleType {
-  id: number;
+  id: string;
   title: string;
   subtitle: string;
   user: UserType,
+  userId?: string
   img: string;
   views: number;
   createdAt: string;

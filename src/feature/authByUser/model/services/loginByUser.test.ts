@@ -35,7 +35,7 @@ describe("loginByUser", () => {
   //   });
 
   test("success login", async () => {
-    const userValue: UserType = { username: "admin", id: 1, role: "ADMIN" };
+    const userValue: UserType = { username: "admin", id: "1", role: "ADMIN" };
     action.api.post.mockResolvedValue({ data: userValue });
     const result = await action.callThunk({ username: "admin", password: "123" });
 

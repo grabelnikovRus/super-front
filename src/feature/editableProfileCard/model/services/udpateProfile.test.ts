@@ -4,7 +4,7 @@ import { type ProfileType } from "../types/types";
 import { udpateProfile } from "./udpateProfile";
 
 const form: ProfileType = {
-  id: 1,
+  id: "1",
   name: "Ruslan",
   age: 33,
   currency: Currency.RUB,

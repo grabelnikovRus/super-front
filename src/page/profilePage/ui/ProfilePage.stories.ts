@@ -20,7 +20,7 @@ const profileState = {
   name: "Ruslan",
   surname: "GrabelnikovR",
   age: 35,
-  id: 1,
+  id: "1",
   city: "Tomsk",
   username: "admin",
   avatar:
@@ -32,7 +32,7 @@ const state: Partial<StateType> = {
   user: {
     _isInit: true,
     authData: {
-      id: 1,
+      id: "1",
       username: "Ram",
       role: "USER"
     }

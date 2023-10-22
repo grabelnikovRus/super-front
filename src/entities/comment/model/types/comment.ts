@@ -1,9 +1,9 @@
 import { type UserType } from "../../../user/model/types/userSchema";
 
 export interface CommentTypes {
-  id: number;
+  id: string;
   user: UserType;
   text: string;
   articleId: string
-  userId: number
+  userId: string
 }

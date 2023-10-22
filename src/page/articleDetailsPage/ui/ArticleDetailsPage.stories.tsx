@@ -42,7 +42,7 @@ const state: StateType = {
       ],
       entities: {
         "1": {
-          id: 1,
+          id: "1",
           title: "Javascript news",
           subtitle: "Что нового в JS за 2022 год?",
           img: "https://logos-world.net/wp-content/uploads/2023/02/JavaScript-Symbol.png",
@@ -53,7 +53,7 @@ const state: StateType = {
           ],
           blocks: [
             {
-              id: 1,
+              id: "1",
               type: "TEXT",
               title: "Заголовок этого блока",
               paragraphs: [
@@ -63,18 +63,18 @@ const state: StateType = {
               ]
             },
             {
-              id: 4,
+              id: "4",
               type: "CODE",
               code: '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;'
             },
             {
-              id: 8,
+              id: "8",
               type: "IMAGE",
               src: "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
               title: "Рисунок 1 - скриншот сайта"
             },
             {
-              id: 9,
+              id: "9",
               type: "TEXT",
               title: "Заголовок этого блока",
               paragraphs: [
@@ -83,14 +83,14 @@ const state: StateType = {
             }
           ],
           user: {
-            id: 1,
+            id: "1",
             username: "admin",
             role: "ADMIN",
             avatar: "https://sun9-1.userapi.com/impg/SWPMaf_MSz9mzptUya0I9x8WWxEt7fwJ4uyD-g/EE4oVaRp3wI.jpg?size=604x604&quality=95&sign=177e4e821c4a6735db31fbeb84de41e2&c_uniq_tag=eunY8ZVj41jFPdcjxK3Tdq7WAayWGntN8dhmi3Hqliw&type=album"
           }
         },
         "2": {
-          id: 2,
+          id: "2",
           title: "Python news",
           subtitle: "Что нового в JS за 2022 год?",
           img: "https://img.freepik.com/free-icon/snakes_318-368381.jpg?w=2000",
@@ -101,7 +101,7 @@ const state: StateType = {
           ],
           blocks: [
             {
-              id: 1,
+              id: "1",
               type: "TEXT",
               title: "Заголовок этого блока",
               paragraphs: [
@@ -112,14 +112,14 @@ const state: StateType = {
             }
           ],
           user: {
-            id: 1,
+            id: "1",
             username: "admin",
             role: "ADMIN",
             avatar: "https://sun9-1.userapi.com/impg/SWPMaf_MSz9mzptUya0I9x8WWxEt7fwJ4uyD-g/EE4oVaRp3wI.jpg?size=604x604&quality=95&sign=177e4e821c4a6735db31fbeb84de41e2&c_uniq_tag=eunY8ZVj41jFPdcjxK3Tdq7WAayWGntN8dhmi3Hqliw&type=album"
           }
         },
         "3": {
-          id: 3,
+          id: "3",
           title: "Kotlin news",
           subtitle: "Что нового в JS за 2022 год?",
           img: "https://kotlinlang.org/assets/images/twitter/general.png",
@@ -130,7 +130,7 @@ const state: StateType = {
           ],
           blocks: [
             {
-              id: 1,
+              id: "1",
               type: "TEXT",
               title: "Заголовок этого блока",
               paragraphs: [
@@ -140,12 +140,12 @@ const state: StateType = {
               ]
             },
             {
-              id: 4,
+              id: "4",
               type: "CODE",
               code: '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;'
             },
             {
-              id: 5,
+              id: "5",
               type: "TEXT",
               title: "Заголовок этого блока",
               paragraphs: [
@@ -154,13 +154,13 @@ const state: StateType = {
               ]
             },
             {
-              id: 8,
+              id: "8",
               type: "IMAGE",
               src: "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
               title: "Рисунок 1 - скриншот сайта"
             },
             {
-              id: 9,
+              id: "9",
               type: "TEXT",
               title: "Заголовок этого блока",
               paragraphs: [
@@ -169,14 +169,14 @@ const state: StateType = {
             }
           ],
           user: {
-            id: 1,
+            id: "1",
             username: "admin",
             role: "ADMIN",
             avatar: "https://sun9-1.userapi.com/impg/SWPMaf_MSz9mzptUya0I9x8WWxEt7fwJ4uyD-g/EE4oVaRp3wI.jpg?size=604x604&quality=95&sign=177e4e821c4a6735db31fbeb84de41e2&c_uniq_tag=eunY8ZVj41jFPdcjxK3Tdq7WAayWGntN8dhmi3Hqliw&type=album"
           }
         },
         "4": {
-          id: 4,
+          id: "4",
           title: "Javascript news",
           subtitle: "Что нового в JS за 2022 год?",
           img: "https://logos-world.net/wp-content/uploads/2023/02/JavaScript-Symbol.png",
@@ -187,7 +187,7 @@ const state: StateType = {
           ],
           blocks: [
             {
-              id: 1,
+              id: "1",
               type: "TEXT",
               title: "Заголовок этого блока",
               paragraphs: [
@@ -197,18 +197,18 @@ const state: StateType = {
               ]
             },
             {
-              id: 4,
+              id: "4",
               type: "CODE",
               code: '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;'
             },
             {
-              id: 8,
+              id: "8",
               type: "IMAGE",
               src: "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
               title: "Рисунок 1 - скриншот сайта"
             },
             {
-              id: 9,
+              id: "9",
               type: "TEXT",
               title: "Заголовок этого блока",
               paragraphs: [
@@ -217,7 +217,7 @@ const state: StateType = {
             }
           ],
           user: {
-            id: 1,
+            id: "1",
             username: "admin",
             role: "ADMIN",
             avatar: "https://sun9-1.userapi.com/impg/SWPMaf_MSz9mzptUya0I9x8WWxEt7fwJ4uyD-g/EE4oVaRp3wI.jpg?size=604x604&quality=95&sign=177e4e821c4a6735db31fbeb84de41e2&c_uniq_tag=eunY8ZVj41jFPdcjxK3Tdq7WAayWGntN8dhmi3Hqliw&type=album"
@@ -232,12 +232,12 @@ const state: StateType = {
       ids: [1, 2, 3],
       entities: {
         "1": {
-          id: 1,
+          id: "1",
           text: "some comment",
           articleId: "1",
-          userId: 1,
+          userId: "1",
           user: {
-            id: 1,
+            id: "1",
             username: "admin",
             role: "ADMIN",
             avatar:
@@ -245,24 +245,24 @@ const state: StateType = {
           },
         },
         "2": {
-          id: 2,
+          id: "2",
           text: "some comment 2",
           articleId: "1",
-          userId: 2,
+          userId: "2",
           user: {
-            id: 2,
+            id: "2",
             username: "user",
             role: "USER",
             avatar: "https://cspromogame.ru//storage/upload_images/avatars/1299.jpg",
           },
         },
         "3": {
-          id: 3,
+          id: "3",
           text: "some comment 3",
           articleId: "1",
-          userId: 1,
+          userId: "1",
           user: {
-            id: 1,
+            id: "1",
             username: "admin",
             role: "ADMIN",
             avatar:

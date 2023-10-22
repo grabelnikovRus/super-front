@@ -20,7 +20,7 @@ const state: Partial<StateType> = {
   user: {
     _isInit: true,
     authData: {
-      id: 1,
+      id: "1",
       username: "Ram",
       role: "USER"
     }
