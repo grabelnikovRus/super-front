@@ -11,5 +11,6 @@
   "logout": "Logout",
   "profile": "Profile",
   "articles": "Articles",
-  "article_not": "This article does not exist"
+  "article_not": "This article does not exist",
+  "create": "Create Article"
 }

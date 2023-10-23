@@ -36,6 +36,7 @@ import {
 import s from "./ArticleDetailsPage.module.scss";
 import { articleDetailsPageReducer } from "../model/slice";
 import { type ReducerList } from "@app/providers/storeProvider";
+import { ArticleDetailsPageHeader } from "./ArticleDetailsPageHeader";
 
 const reducer: ReducerList = { 
   articleDetailsPage: articleDetailsPageReducer
@@ -71,6 +72,7 @@ export const ArticleDetailsPage: FC = () => {
 
   return (
     <>
+      <ArticleDetailsPageHeader id={id}/>
       <ArticleDetails id={id} />
       <h3 className={s.page_title}>{t("recommend")}</h3>
       {!errorRecommend ? 

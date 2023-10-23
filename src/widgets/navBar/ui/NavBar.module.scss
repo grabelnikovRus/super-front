@@ -9,12 +9,22 @@
   &__links {
     display: grid;
     grid-auto-flow: column;
+    column-gap: 15px;
     align-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min-content, 1fr));
     margin-left: auto;
+    color: var(--secondary-color);
   }
 
   &__link {
     color: var(--secondary-color);
+  }
+
+  &__create {
+    composes: navbar__link;
+    width: max-content;
+    padding: 6px 16px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 3px;
   }
 }

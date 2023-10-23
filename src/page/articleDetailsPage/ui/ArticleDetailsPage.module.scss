@@ -5,9 +5,8 @@
   }
 
   &_recommend {
+    overflow: auto hidden;
     flex-wrap: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
 
     a {
       flex-shrink: 0;

@@ -24,7 +24,7 @@ import { useInitEffect } from "@shared/hooks/useInitEffect";
 const reducer = { articles: articleDetailsReducer };
 
 interface ArticleDetailsProps {
-  id: string | undefined;
+  id?: string;
 }
 
 const renderBlocks = ({ type, id, ...rest }: ArticleBlocksTypes) => {

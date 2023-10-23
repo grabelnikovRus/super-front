@@ -1,10 +1,11 @@
 import { useState, type FC, useCallback, useEffect } from "react";
-import { Button } from "@shared/ui";
+import { AppLink, Button } from "@shared/ui";
 import { useTranslation } from "react-i18next";
 import { LoginModal } from "@feature/authByUser";
 import { useSelector } from "react-redux";
 import { getAuthData, userActions } from "@entities/user";
 import { useAppDispatch } from "@shared/hooks/useAppDispatch";
+import { RouterPath } from "@app/router/config/config"
 
 import s from "./NavBar.module.scss";
 
@@ -34,6 +35,13 @@ export const NavBar: FC<NavBarProps> = () => {
   return (
     <div className={s.navbar}>
       <div className={s.navbar__links}>
+        {authData && 
+          <AppLink 
+            to={RouterPath.ARTICLES_CREATE}  
+            className={s.navbar__create} >
+              {t("create")}
+          </AppLink>
+        }
         <Button theme="outline" className={s.navbar__link} onClick={onClickBtn}>
           {t(authData ? "logout" : "sign_in")}
         </Button>

@@ -6,13 +6,16 @@ import { type PathRouteProps } from "react-router-dom";
 import { RequiredAuth } from "../ui/RequiredAuth";
 import { ArticleDetailsPage } from "@page/articleDetailsPage";
 import { ArticlePage } from "@page/articlePage";
+import { ArticleDetailsEditPage } from "@page/articleDetailsEditPage";
 
 export enum RouterPath {
   MAIN = "/",
   ABOUT = "/about",
   PROFILE = "/profile/:id",
   ARTICLES = "/articles",
+  ARTICLES_CREATE = "/articles/create",
   ARTICLES_DETAILS = "/articles/:id",
+  ARTICLES_DETAILS_EDIT = "/articles/:id/edit",
   NOT_FOUND = "*",
 }
 
@@ -37,10 +40,24 @@ export const routerConfig: Record<RouterPath, PathRouteProps> = {
       </RequiredAuth>
     ),
   },
+  [RouterPath.ARTICLES_CREATE]: {
+    element: (
+      <RequiredAuth>
+        <ArticleDetailsEditPage />
+      </RequiredAuth>
+    ),
+  },
   [RouterPath.ARTICLES_DETAILS]: {
     element: (
       <RequiredAuth>
         <ArticleDetailsPage />
+      </RequiredAuth>
+    ),
+  },
+  [RouterPath.ARTICLES_DETAILS_EDIT]: {
+    element: (
+      <RequiredAuth>
+        <ArticleDetailsEditPage />
       </RequiredAuth>
     ),
   },
