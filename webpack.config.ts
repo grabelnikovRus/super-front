@@ -18,8 +18,10 @@ export default (env: BuildEnv) => {
     paths: {
       src: path.resolve(__dirname, "./src"),
       entry: path.resolve(__dirname, "./src/index.tsx"),
-      output: path.resolve(__dirname, "./build"),
+      output: path.resolve(__dirname, "./build"), // куда будет помещена сборка
       html: path.resolve(__dirname, "./public/html.html"),
+      locales: path.resolve(__dirname, "./public/locales"), // откуда `copy-webpack-plugin` скопирует locales
+      buildLocales: path.resolve(__dirname, "./build/locales"), // куда `copy-webpack-plugin` скопирует locales
     },
   });
 

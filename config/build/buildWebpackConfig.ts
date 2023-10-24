@@ -27,7 +27,7 @@ export function buildWebpackCongif({
       rules: buildLoaders(mode),
     },
     resolve: buildResolvers(paths.src),
-    plugins: buildPlugins(paths.html, isDev, apiUrl, project),
+    plugins: buildPlugins(paths, isDev, apiUrl, project),
     devServer: isDev ? buildDevSrver(port) : undefined,
     devtool: isDev ? "inline-source-map" : false,
   };
