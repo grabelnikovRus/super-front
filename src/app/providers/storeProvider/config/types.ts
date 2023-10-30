@@ -17,6 +17,7 @@ import { type AddCommentSchema } from "@feature/addComment";
 import { type ArticlePageSchema } from "@page/articlePage";
 import { type ScrollScheme } from "@widgets/saveScroll";
 import { type FilterScheme } from "@feature/filters";
+import { type ReactWindowPageSchema } from "@page/reactWindowPage";
 
 export interface StateType {
   counter: CounterShema;
@@ -30,6 +31,7 @@ export interface StateType {
   articleDetailsPage?: ArticleDetailsPageScheme
   addComment?: AddCommentSchema;
   articlePage?: ArticlePageSchema
+  reactWindowPage?: ReactWindowPageSchema
   filter?: FilterScheme
 }
 

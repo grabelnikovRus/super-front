@@ -7,6 +7,7 @@ import { RequiredAuth } from "../ui/RequiredAuth";
 import { ArticleDetailsPage } from "@page/articleDetailsPage";
 import { ArticlePage } from "@page/articlePage";
 import { ArticleDetailsEditPage } from "@page/articleDetailsEditPage";
+import { ReactWindowPage } from "@page/reactWindowPage";
 
 export enum RouterPath {
   MAIN = "/",
@@ -16,6 +17,7 @@ export enum RouterPath {
   ARTICLES_CREATE = "/articles/create",
   ARTICLES_DETAILS = "/articles/:id",
   ARTICLES_DETAILS_EDIT = "/articles/:id/edit",
+  REACT_WINDOW = "react-window",
   NOT_FOUND = "*",
 }
 
@@ -58,6 +60,13 @@ export const routerConfig: Record<RouterPath, PathRouteProps> = {
     element: (
       <RequiredAuth>
         <ArticleDetailsEditPage />
+      </RequiredAuth>
+    ),
+  },
+  [RouterPath.REACT_WINDOW]: {
+    element: (
+      <RequiredAuth>
+        <ReactWindowPage />
       </RequiredAuth>
     ),
   },
