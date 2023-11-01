@@ -9,7 +9,7 @@ const articleReactWindowAdapter = createEntityAdapter<ArticleType>({
 });
 
 const initialState = articleReactWindowAdapter.getInitialState<ReactWindowPageSchema>({
-    isLoading: false,
+    isLoading: true,
     error: undefined,
     page: 1,
     hasMore: true,

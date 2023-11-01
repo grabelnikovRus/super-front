@@ -32,6 +32,11 @@ export const getSideBarItems = createSelector(getAuthData, (authData) => {
         path: RouterPath.ARTICLES,
         title: "articles",
         Icon: Articles,
+      },
+      {
+        path: RouterPath.REACT_WINDOW,
+        title: "react-window",
+        Icon: Articles,
       }
     );
 

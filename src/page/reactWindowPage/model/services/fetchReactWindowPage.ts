@@ -10,10 +10,9 @@ export const fetchReactWindowPage = createAsyncThunk<
   void,
   OptionsCreateAsync
 >(
-  "articlePage/fetchArticlePage",
+  "articlePage/fetchReactWindowPage",
   async (_, { rejectWithValue, extra, dispatch, getState }) => {
     const page = getReactWindowPageNumber(getState());
-console.log(page)
     try {
       const res = await extra.api.get("/articles", {
         params: {

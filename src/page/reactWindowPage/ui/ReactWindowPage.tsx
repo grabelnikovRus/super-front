@@ -30,7 +30,9 @@ export const ReactWindowPage: FC = () => {
   const isLoading = useSelector(getReactWindowPageIsLoading);
   const hasNextPage = useSelector(getReactWindowPageHasMore)
 
-  const loadMoreItems = isLoading ? () => {} : async () => await dispatch(fetchReactWindowPage());
+  const loadMoreItems = isLoading 
+    ? () => {} 
+    : async () => await dispatch(fetchReactWindowPage());
   const itemCount = hasNextPage ? articles.length + 1 : articles.length;
   const isItemLoaded = (index: number) => !hasNextPage || index < articles.length;
 

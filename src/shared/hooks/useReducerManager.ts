@@ -11,7 +11,10 @@ type ReducerObjType = {
   [key in KeyStateType]?: Reducer;
 };
 
-export const useReducerManager = (initReducers: ReducerObjType[] | ReducerObjType, remove = true) => {
+export const useReducerManager = (
+  initReducers: ReducerObjType[] | ReducerObjType, 
+  remove = true
+) => {
   const store = useStore() as StoreWithReducerManager;
   const dispatch = useAppDispatch();
   const arrayReducers = Array.isArray(initReducers) ? initReducers : [initReducers];
