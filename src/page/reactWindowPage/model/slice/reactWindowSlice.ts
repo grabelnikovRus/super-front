@@ -15,6 +15,7 @@ const initialState = articleReactWindowAdapter.getInitialState<ReactWindowPageSc
     hasMore: true,
     ids: [],
     entities: {},
+    scroll: 0
 });
 
 export const getItemReactWindowPage = 
@@ -28,6 +29,9 @@ export const reactWindowPageSlice = createSlice({
       setPage: (state, action: PayloadAction<number>) => {
         state.page = action.payload;
       },
+      saveScroll: (state, action: PayloadAction<number>) => {
+        state.scroll = action.payload;
+      }
     },
     extraReducers: ({ addCase }) => {
       addCase(fetchReactWindowPage.pending, (state) => {

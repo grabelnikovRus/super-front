@@ -6,3 +6,5 @@ export const getReactWindowPageHasMore = (state: StateType) =>
     state.reactWindowPage?.hasMore ?? true;
 export const getReactWindowPageNumber = (state: StateType) => 
     state.reactWindowPage?.page ?? 1;
+export const getReactWindowPageScroll = (state: StateType) => 
+    state.reactWindowPage?.scroll;

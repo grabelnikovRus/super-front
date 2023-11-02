@@ -6,4 +6,5 @@ export interface ReactWindowPageSchema extends EntityState<ArticleType> {
   error?: string;
   page: number;
   hasMore: boolean;
+  scroll: number
 }

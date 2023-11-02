@@ -1,0 +1,11 @@
+.page {
+  &__skeletons {
+    display: grid;
+    grid-template-rows: repeat(2, max-content);
+    row-gap: 35px;
+  }
+}
+
+:global(.main div.content) {
+  padding: 0 0 0 35px;
+}
