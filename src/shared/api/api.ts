@@ -1,4 +1,4 @@
-import { KEY_STORAGE_AUTH } from "@shared/constants/common";
+import { KEY_STORAGE_AUTH } from "../constants/common";
 import axios from "axios";
 
 export const api = axios.create({

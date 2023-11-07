@@ -2,7 +2,7 @@ import { type FC } from "react";
 
 import s from "./AppLink.module.scss";
 import { Link, type LinkProps } from "react-router-dom";
-import { classNames } from "@shared/helpers/lib";
+import { classNames } from "../../helpers/lib";
 
 type ThemeLink = "default" | "border";
 

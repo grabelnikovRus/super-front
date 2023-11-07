@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { classNames } from "@shared/helpers/lib"
+import { classNames } from "../../helpers/lib"
 import s from "./Tabs.module.scss";
 
 export interface TansItem<T> {

@@ -1,7 +1,7 @@
 import { type ButtonHTMLAttributes, type FC } from "react";
 
 import s from "./Button.module.scss";
-import { classNames } from "@shared/helpers/lib";
+import { classNames } from "../../helpers/lib";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: "default" | "m" | "l" | "xl" | "outline";

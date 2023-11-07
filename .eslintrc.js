@@ -16,7 +16,10 @@ module.exports = {
     sourceType: "module",
     project: "./tsconfig.json",
   },
-  plugins: ["react"],
+  plugins: [
+    "react",
+    "plugin-grabelnikov"
+  ],
   rules: {
     quotes: ["error", "double", { avoidEscape: true }],
     "max-len": [
@@ -38,6 +41,7 @@ module.exports = {
     "react/display-name": "off",
     "linebreak-style": "off",
     "@typescript-eslint/no-dynamic-delete": "off",
-    "@typescript-eslint/no-invalid-void-type": "off"
+    "@typescript-eslint/no-invalid-void-type": "off",
+    "plugin-grabelnikov/path-check-in-fsd": "error"
   },
 };

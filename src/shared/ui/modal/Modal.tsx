@@ -1,5 +1,5 @@
 import { type FC, type MouseEvent, useState, useEffect, useRef } from "react";
-import { classNames } from "@shared/helpers/lib";
+import { classNames } from "../../helpers/lib";
 import { Portal } from "../portal/Portal";
 
 import s from "./Modal.module.scss";

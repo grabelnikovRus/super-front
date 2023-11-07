@@ -1,7 +1,7 @@
 import { type ImgHTMLAttributes, type FC } from "react";
 
 import s from "./Avatar.module.scss";
-import { classNames } from "@shared/helpers/lib";
+import { classNames } from "../../helpers/lib";
 
 interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
   theme?: "l" | "m" | "s";

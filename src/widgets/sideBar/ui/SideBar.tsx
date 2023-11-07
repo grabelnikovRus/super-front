@@ -1,8 +1,8 @@
 import { type FC, useState } from "react";
 import { classNames } from "@shared/helpers/lib";
 import { Button } from "@shared/ui";
-import { ThemeSwitcher } from "@widgets/themeSwitcher";
-import { LangSwitcher } from "@widgets/langSwitcher";
+import { ThemeSwitcher } from "../../themeSwitcher";
+import { LangSwitcher } from "../../langSwitcher";
 import { getSideBarItems } from "../model/selectors/getSideBarItems";
 import { SideBarItemMemo as SideBarItem } from "./SideBarItem";
 

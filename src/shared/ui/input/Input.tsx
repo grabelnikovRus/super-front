@@ -7,7 +7,7 @@ import {
 } from "react";
 
 import s from "./Input.module.scss";
-import { classNames } from "@shared/helpers/lib";
+import { classNames } from "../../helpers/lib";
 
 interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChange"> {
   onChange?: (value: string) => void;

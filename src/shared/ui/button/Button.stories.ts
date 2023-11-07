@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "./Button";
-import { styleDecorator } from "@shared/helpers/storybook/styleDecorator";
+import { styleDecorator } from "../../helpers/storybook/styleDecorator";
 
 const meta = {
   title: "shared/Button",

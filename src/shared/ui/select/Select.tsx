@@ -2,7 +2,7 @@
 import { memo, useMemo, useState, useRef, useEffect, useCallback } from "react";
 
 import s from "./Select.module.scss";
-import { classNames } from "@shared/helpers/lib";
+import { classNames } from "../../helpers/lib";
 
 export interface OptionsSelect<T> {
   value: T;

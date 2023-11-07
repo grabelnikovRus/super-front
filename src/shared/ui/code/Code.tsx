@@ -1,7 +1,7 @@
 import { useCallback, type FC } from "react";
-import { classNames } from "@shared/helpers/lib";
+import { classNames } from "../../helpers/lib";
 import { Button } from "../button/Button";
-import Copy from "@shared/assest/icon/copy.svg";
+import Copy from "../../assest/icon/copy.svg";
 
 import s from "./Code.module.scss";
 
