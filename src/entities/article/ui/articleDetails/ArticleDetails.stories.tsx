@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { storeDecorator } from "@shared/helpers/storybook/storeDecorator";
 import { ArticleDetails } from "./ArticleDetails";
-import { type StateType } from "@app/providers/storeProvider";
+import { type ReducerList, type StateType } from "@app/providers/storeProvider";
 import { type ReducersMapObject } from "@reduxjs/toolkit";
 import { articleDetailsReducer } from "../../model/slice/articleDetailsSlice";
 
@@ -21,6 +21,13 @@ export const Default: Story = {
 };
 
 const state = {
+  user: { 
+    authData: {
+      id: "1",
+      username: "Ruslan",
+      role: "ADMIN"
+    }
+  }, 
   articles: {
     error: "",
     isLoading: false,
@@ -95,7 +102,7 @@ const state = {
     },
   },
 };
-const reducer = { articles: articleDetailsReducer };
+const reducer: ReducerList = { articles: articleDetailsReducer };
 Default.decorators = [
   storeDecorator(state as StateType, reducer as ReducersMapObject<StateType>),
 ];

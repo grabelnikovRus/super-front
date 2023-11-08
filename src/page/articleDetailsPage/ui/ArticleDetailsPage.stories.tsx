@@ -9,6 +9,7 @@ import { articleMock } from "@shared/assest/mock/mocks";
 import { addCommentReducer } from "@feature/addComment";
 import { Suspense } from "react";
 import { articleDetailsPageReducer } from "../model/slice";
+import { userReducer } from "@entities/user";
 
 const meta = {
   title: "page/ArticleDetailsPage",
@@ -23,7 +24,14 @@ export const Default: Story = {};
 
 const state: StateType = {
   counter: { value: 0 },
-  user: { _isInit: true },
+  user: {
+    authData: {
+      id: "1",
+      username: "Ruslan",
+      role: "ADMIN",
+    },
+    _isInit: true
+  },
   scroll: {
     "/": 300,
   },
@@ -278,14 +286,17 @@ const state: StateType = {
 };
 
 const reducer: ReducerList = {
+  user: userReducer,
   articles: articleDetailsReducer,
   articleDetailsPage: articleDetailsPageReducer,
   addComment: addCommentReducer
 };
 
 Default.decorators = [
-  (S) => <Suspense fallback={<div>Load</div>}>
-    {S()}
-  </Suspense>, // ленивая подгрузка для асинхронного компонента
+  (S) => (
+    <Suspense fallback={<div>Load</div>}>
+      {S()}
+    </Suspense>
+  ), // ленивая подгрузка для асинхронного компонента
   storeDecorator(state , reducer as ReducersMapObject<StateType>),
 ];
