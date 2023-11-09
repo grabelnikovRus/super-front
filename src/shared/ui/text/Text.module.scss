@@ -1,4 +1,4 @@
-.article {
+.root {
   &_title {
     color: var(--primary-color);
     font: var(--font-l);
@@ -8,33 +8,49 @@
     color: var(--secondary-color);
   }
 
+  &_s {
+    font: var(--font-s);
+  }
+
+  &_m {
+    font: var(--font-m);
+  }
+
+  &_l {
+    font: var(--font-l);
+  }
+
+  &_xl {
+    font: var(--font-xl);
+  }
+
   &__error {
-    .article_title {
+    .root_title {
       color: var(--error-color);
     }
 
-    .article_text {
+    .root_text {
       color: var(--error-color);
     }
   }
 
   &.left {
-    .article_title,
-    .article_text {
+    .root_title,
+    .roote_text {
       text-align: left;
     }
   }
 
   &.rigth {
-    .article_title,
-    .article_text {
+    .root_title,
+    .root_text {
       text-align: right;
     }
   }
 
   &.center {
-    .article_title,
-    .article_text {
+    .root_title,
+    .root_text {
       text-align: center;
     }
   }

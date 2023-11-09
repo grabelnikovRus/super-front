@@ -1,6 +1,6 @@
 import { type FC } from "react";
 import { useTranslation } from "react-i18next";
-import { Article, Button } from "@shared/ui";
+import { Text, Button } from "@shared/ui";
 
 import s from "./ProfileHeader.module.scss";
 
@@ -23,7 +23,7 @@ export const ProfileHeader: FC<ProfileHeaderProps> = ({
 
   return (
     <header className={s.header}>
-      <Article title={t("profile") || ""} />
+      <Text title={t("profile") || ""} />
       {!readonly && (
         <Button theme="m" onClick={onSave} className={s.card_btn} disabled={isLoading}>
           {t("save")}

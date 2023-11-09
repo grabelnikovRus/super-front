@@ -5,7 +5,7 @@ import { useReducerManager } from "@shared/hooks/useReducerManager";
 import { articleDetailsReducer } from "../../model/slice/articleDetailsSlice";
 import { useAppDispatch } from "@shared/hooks/useAppDispatch";
 import { fetchArticleById } from "../../model/services/fetchArticleById";
-import { Article, Avatar, Button, Skeleton } from "@shared/ui";
+import { Text, Avatar, Button, Skeleton } from "@shared/ui";
 import { type ArticleBlocksTypes, type ArticleType } from "../../model/types/article";
 import Eye from "@shared/assest/icon/eye.svg";
 import Calendar from "@shared/assest/icon/clarity_date.svg";
@@ -63,7 +63,7 @@ const renderArticle = (
   }
 
   if (error) {
-    content = <Article theme="error" title={error} align="center" />;
+    content = <Text theme="error" title={error} align="center" />;
   }
 
   if (data) {
@@ -73,7 +73,7 @@ const renderArticle = (
         <div className={s.article_avatar}>
           <Avatar src={img} />
         </div>
-        <Article
+        <Text
           title={title}
           text={subtitle}
           className={{
@@ -83,11 +83,11 @@ const renderArticle = (
         />
         <div className={s.article_item}>
           <Eye className={s.article_icon} />
-          <Article text={views} />
+          <Text text={views} />
         </div>
         <div className={s.article_item}>
           <Calendar className={s.article_icon} />
-          <Article text={createdAt} />
+          <Text text={createdAt} />
         </div>
         {data.blocks.map(renderBlocks)}
       </div>

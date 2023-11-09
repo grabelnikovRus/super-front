@@ -21,13 +21,6 @@ export const Default: Story = {
 };
 
 const state = {
-  user: { 
-    authData: {
-      id: "1",
-      username: "Ruslan",
-      role: "ADMIN"
-    }
-  }, 
   articles: {
     error: "",
     isLoading: false,

@@ -1,6 +1,6 @@
 import { type FC } from "react";
 import { useTranslation } from "react-i18next";
-import { Article, Avatar, Input, Loader, Select } from "@shared/ui";
+import { Text, Avatar, Input, Loader, Select } from "@shared/ui";
 import { type ProfileScheme } from "../model/types/types";
 
 import s from "./ProfileCard.module.scss";
@@ -45,7 +45,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
   if (error) {
     return (
       <div className={s.card}>
-        <Article
+        <Text
           title={t("has_error")}
           text={t("reload_age")}
           align="center"

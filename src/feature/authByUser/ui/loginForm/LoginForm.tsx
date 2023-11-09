@@ -1,6 +1,6 @@
 import { type FC, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { Button, Input, Article } from "@shared/ui";
+import { Button, Input, Text } from "@shared/ui";
 import { loginActions, loginReducer } from "../../model/slice/loginSlice";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "@shared/hooks/useAppDispatch";
@@ -38,7 +38,7 @@ export const LoginForm: FC = () => {
   return (
     <div className={s.auth}>
       <div className={s.auth_error}>
-        <Article theme="error" text={error} />
+        <Text theme="error" text={error} />
       </div>
       <Input
         label={t("login") || ""}

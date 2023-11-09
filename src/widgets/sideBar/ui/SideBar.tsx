@@ -19,7 +19,7 @@ export const SideBar: FC = () => {
   };
 
   return (
-    <div
+    <aside
       data-testid="sidebar"
       className={classNames(s.sidebar, {
         [s.sidebar__collapsed]: collapsed,
@@ -42,6 +42,6 @@ export const SideBar: FC = () => {
         <ThemeSwitcher />
         <LangSwitcher />
       </div>
-    </div>
+    </aside>
   );
 };
