@@ -1,6 +1,6 @@
 import { type FC } from "react";
 import { useTranslation } from "react-i18next";
-import { Text, Avatar, Input, Loader, Select } from "@shared/ui";
+import { Text, Avatar, Input, Loader, Select, Listbox } from "@shared/ui";
 import { type ProfileScheme } from "../model/types/types";
 
 import s from "./ProfileCard.module.scss";
@@ -100,7 +100,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
           content: val,
         }))}
       />
-      <Select
+      <Listbox
         label={t("country") || ""}
         defaultValue={form?.country}
         onChange={onChangeCountry}

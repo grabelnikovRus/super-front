@@ -1,0 +1,40 @@
+.root {
+    position: relative;
+    width: 150px;
+    
+    &_options {
+        position: absolute;
+        display: grid;
+        row-gap: 5px;
+        width: auto;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        background-color: var(--bg-color-inverted);
+        padding: 0 12px 8px 12px;
+        box-shadow: 2px 2px 2px var(--bg-color-inverted);
+    }
+
+    &_btn {
+        width: 100%;
+        background-color: var(--bg-color-inverted);
+        box-shadow: 2px 2px 2px var(--bg-color-inverted);
+        border-radius: 4px;
+        border-style: none;
+        padding: 6px 8px;
+        margin-bottom: 2px;
+    }
+
+    &_item {
+        cursor: pointer;
+
+        &.active {
+            transition: all 0.2s ease-in;
+            background-color: var(--secondary-color);
+        }
+
+        &.selected {
+            border-top: 1px solid var(--primary-color);
+            border-bottom: 1px solid var(--primary-color);
+        }
+    }
+}
