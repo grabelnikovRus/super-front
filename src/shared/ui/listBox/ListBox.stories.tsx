@@ -11,11 +11,11 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const people = [
-  { id: 1, name: "Durward Reynolds" },
-  { id: 2, name: "Kenton Towne" },
-  { id: 3, name: "Therese Wunsch" },
-  { id: 4, name: "Benedict Kessler" },
-  { id: 5, name: "Katelyn Rohan" },
+  { value: "1", content: "Durward Reynolds" },
+  { value: "2", content: "Kenton Towne" },
+  { value: "3", content: "Therese Wunsch" },
+  { value: "4", content: "Benedict Kessler" },
+  { value: "5", content: "Katelyn Rohan" },
 ]
 
 export const Default: Story = {

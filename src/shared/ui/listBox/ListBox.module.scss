@@ -6,17 +6,24 @@
         position: absolute;
         display: grid;
         row-gap: 5px;
-        width: auto;
+        width: 100%;
         border: 1px solid var(--border-color);
         border-radius: 4px;
         background-color: var(--bg-color-inverted);
-        padding: 0 12px 8px 12px;
+        padding: 0 12px 8px;
         box-shadow: 2px 2px 2px var(--bg-color-inverted);
+
+        &.top {
+            bottom: 100%;
+        }
+
+        &.bottom {
+            top: 100%;
+        }
     }
 
     &_btn {
         width: 100%;
-        background-color: var(--bg-color-inverted);
         box-shadow: 2px 2px 2px var(--bg-color-inverted);
         border-radius: 4px;
         border-style: none;
@@ -33,6 +40,7 @@
         }
 
         &.selected {
+            background-color: red;
             border-top: 1px solid var(--primary-color);
             border-bottom: 1px solid var(--primary-color);
         }

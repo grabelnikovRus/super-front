@@ -54,6 +54,11 @@ export const ProfileCard: FC<ProfileCardProps> = ({
       </div>
     );
   }
+  
+  const listCountry = Object.entries(Country).map(([key, val]) => ({
+    value: key,
+    content: val,
+  }))
 
   return (
     <div
@@ -100,15 +105,11 @@ export const ProfileCard: FC<ProfileCardProps> = ({
           content: val,
         }))}
       />
-      <Listbox
-        label={t("country") || ""}
-        defaultValue={form?.country}
-        onChange={onChangeCountry}
+      <Listbox<typeof listCountry[0]>
+        defaultValue={listCountry.find((item) => item.value === form?.country)}
+        onChangeValue={(item: typeof listCountry[0]) => {onChangeCountry?.(item.value)}}
         readonly={readonly}
-        options={Object.entries(Country).map(([key, val]) => ({
-          value: key,
-          content: val,
-        }))}
+        list={listCountry}
       />
       <Input
         value={form?.username}
