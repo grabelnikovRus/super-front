@@ -14,6 +14,7 @@ export interface ListBoxProps<T extends ItemBoxProps> {
   onChangeValue: (i: T) => void;
   defaultValue?: T;
   readonly?: boolean;
+  label?: string
 }
 
 export function Listbox<T extends ItemBoxProps>({ 
@@ -21,6 +22,7 @@ export function Listbox<T extends ItemBoxProps>({
   onChangeValue, 
   defaultValue,
   readonly,
+  label,
 }: ListBoxProps<T>) {
   const [selectedPerson, setSelectedPerson] = useState(defaultValue || list[0])
   const [direction, setDirection] = useState<"bottom" | "top">("bottom")
@@ -38,8 +40,9 @@ export function Listbox<T extends ItemBoxProps>({
 
     setDirection((window.innerHeight / 2) < top ? "top" : "bottom" )
   }
-console.log(defaultValue)
-  return (
+
+  return (<>
+    {label && <label htmlFor={label}>{label}</label>}
     <HListbox 
       as="div" // обязательно задать наименование обертки 
       className={s.root} 
@@ -49,7 +52,7 @@ console.log(defaultValue)
       by="value" // свойство для сравнения объектов по определенному полю
       ref={ref}
     >
-      <HListbox.Button className={s.root_btn} onClick={setDirectionOptions}>
+      <HListbox.Button className={s.root_btn} onClick={setDirectionOptions} id={label}>
         {selectedPerson.content}
       </HListbox.Button>
       <HListbox.Options className={classNames(s.root_options, s[direction])}>
@@ -69,5 +72,5 @@ console.log(defaultValue)
         ))}
       </HListbox.Options>
     </HListbox>
-  )
+  </>)
 }
