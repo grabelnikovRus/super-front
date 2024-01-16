@@ -12,14 +12,6 @@
         background-color: var(--bg-color-inverted);
         padding: 0 12px 8px;
         box-shadow: 2px 2px 2px var(--bg-color-inverted);
-
-        &.top {
-            bottom: 100%;
-        }
-
-        &.bottom {
-            top: 100%;
-        }
     }
 
     &_btn {

@@ -1,6 +1,7 @@
 import { useState, type ReactNode, useRef } from "react"
 import { Listbox as HListbox } from "@headlessui/react"
 import { classNames } from "../../helpers/lib"
+import { useDirection } from "../../hooks/useDirection";
 
 import s from "./ListBox.module.scss"
 
@@ -25,20 +26,12 @@ export function Listbox<T extends ItemBoxProps>({
   label,
 }: ListBoxProps<T>) {
   const [selectedPerson, setSelectedPerson] = useState(defaultValue || list[0])
-  const [direction, setDirection] = useState<"bottom" | "top">("bottom")
   const ref = useRef<HTMLDivElement | null>(null)
+  const { vertDirection, setDirection } = useDirection({ ref }) 
 
   const onChange = (item: T) => {
     setSelectedPerson(item)
     onChangeValue(item)
-  }
-
-  const setDirectionOptions = () => {
-    const top = ref.current?.getBoundingClientRect().top;
-
-    if (!top) return;
-
-    setDirection((window.innerHeight / 2) < top ? "top" : "bottom" )
   }
 
   return (<>
@@ -52,10 +45,10 @@ export function Listbox<T extends ItemBoxProps>({
       by="value" // свойство для сравнения объектов по определенному полю
       ref={ref}
     >
-      <HListbox.Button className={s.root_btn} onClick={setDirectionOptions} id={label}>
+      <HListbox.Button className={s.root_btn} onClick={setDirection} id={label}>
         {selectedPerson.content}
       </HListbox.Button>
-      <HListbox.Options className={classNames(s.root_options, s[direction])}>
+      <HListbox.Options className={classNames(s.root_options, vertDirection)}>
         {list.map((item) => (
           <HListbox.Option key={item.value} value={item}>
             {({ active, selected }) => (
