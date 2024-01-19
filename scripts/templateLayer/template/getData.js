@@ -7,6 +7,22 @@ const getDataUI = (name) => `import { useTranslation } from "react-i18next";
 import { type ${name}Scheme } from "../model/types/types";
     
 import s from "./${name}.module.scss";
+
+interface ${name}Props {
+    onClickBtn: () => void;
+    onSave: () => void;
+    isEdit: boolean;
+    readonly: boolean | undefined;
+    isLoading: boolean | undefined;
+  }
+  
+  export const ${name} = ({}: ${name}Props) => {
+    const { t } = useTranslation("profile");
+  
+    return (
+
+    );
+  };
 `
 
 const getDataSlice = (nameFirtsUpper, name) => `import { createSlice, createEntityAdapter, type PayloadAction } from "@reduxjs/toolkit";
@@ -17,7 +33,7 @@ const initialState: ${nameFirtsUpper}Schema = {
 
 };
 
-export const ${name} = createSlice({
+export const ${name}Slice = createSlice({
   name: "${name}",
   initialState,
   reducers: {},
@@ -34,7 +50,7 @@ export const ${name} = createSlice({
 export const { 
   actions: ${name}Actions, 
   reducer: ${name}Reducer 
-} =${name};
+} =${name}Slice;
 `
 
 module.exports = { getDataTypes, getDataUI, getDataSlice }
