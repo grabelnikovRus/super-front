@@ -4,15 +4,17 @@ import {
   useGetArticleRecommendationsListQuery
 } from "../api/artcileRecommendationsListApi"
 
+import s from "./ArticleRecommendationsList.module.scss"
+
 export const ArticleRecommendationsList = () => {
-    const { t } = useTranslation("profile");
+    const { t } = useTranslation("articles");
     const { data, isLoading } = useGetArticleRecommendationsListQuery(3);
 
     if (isLoading) return null;
 
     return (
-      <>
-        <h3>{t("recommend")}</h3>
+      <div className={s.root}>
+        <h3 className={s.root_title}>{t("recommend")}</h3>
         {data && (
           <ArticleList 
             isLoading={false} 
@@ -21,6 +23,6 @@ export const ArticleRecommendationsList = () => {
             target="_self"
           />
         )} 
-      </>
+      </div>
     );
   };
