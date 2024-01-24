@@ -122,6 +122,14 @@ export default {
   // The root directory that Jest should scan for tests and modules within
   rootDir: "../../",
 
+  reporters: [
+    "default",
+    ["jest-html-reporters", {
+      publicPath: "<rootDir>/reports/jset/html-report",
+      filename: "report.html",
+      openReport: true
+    }]
+  ],
   // A list of paths to directories that Jest should use to search for files in
   // roots: [
   //   "<rootDir>"
