@@ -1,0 +1,13 @@
+.root {
+    margin: 25px 0;
+    overflow: auto hidden;
+    flex-wrap: nowrap;
+
+    &_title {
+      font: var(--font-l);
+    }
+
+    a {
+      flex-shrink: 0;
+    }
+}

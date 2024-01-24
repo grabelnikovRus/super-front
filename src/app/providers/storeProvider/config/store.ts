@@ -11,18 +11,20 @@ import { createReducerManager } from "./reducerManager";
 import { api } from "@shared/api/api";
 import { scrollReducer } from "@widgets/saveScroll";
 import { filterMiddleware } from "@feature/filters";
+import { rtkApi } from "@shared/api/rtkApi";
 
-
-const initialState: StateType = {
+console.log(rtkApi)
+const initialState = {
   counter: { value: 0 },
   user: { _isInit: false },
-  scroll: {}
-};
+  scroll: {},
+}
 
 const rootReducer: ReducersMapObject<StateType> = {
   counter: counterReducer,
   user: userReducer,
-  scroll: scrollReducer
+  scroll: scrollReducer,
+  [rtkApi.reducerPath]: rtkApi.reducer,
 };
 
 export const createStore = (state = initialState, initialReducer = rootReducer) => {
@@ -37,7 +39,11 @@ export const createStore = (state = initialState, initialReducer = rootReducer) 
         thunk: {
           extraArgument: { api },
         },
-      }).concat(userMiddleware.middleware, filterMiddleware.middleware),
+      }).concat(
+        userMiddleware.middleware, 
+        filterMiddleware.middleware, 
+        rtkApi.middleware
+      ),
   });
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment

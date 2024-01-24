@@ -87,6 +87,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
+    "jest-html-reporters": "^3.1.7",
     "json-server": "^0.17.3",
     "lint-staged": "^14.0.1",
     "loki": "^0.32.0",

@@ -18,11 +18,13 @@ import { type ArticlePageSchema } from "@page/articlePage";
 import { type ScrollScheme } from "@widgets/saveScroll";
 import { type FilterScheme } from "@feature/filters";
 import { type ReactWindowPageSchema } from "@page/reactWindowPage";
+import { type rtkApi } from "@shared/api/rtkApi";
 
 export interface StateType {
   counter: CounterShema;
   user: UserSchema;
   scroll: ScrollScheme
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
   // асинхронные редусеры
   login?: LoginSchema;

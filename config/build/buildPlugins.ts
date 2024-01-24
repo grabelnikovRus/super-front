@@ -31,9 +31,10 @@ export function buildPlugins(
         { from: paths.locales, to: paths.buildLocales },
       ],
     }),
+    new BundleAnalyzerPlugin(),
   ];
 
-  if (isDev) plugins.push(new BundleAnalyzerPlugin(), new ReactRefreshWebpackPlugin());
+  if (isDev) plugins.push(new ReactRefreshWebpackPlugin());
 
   return plugins;
 }
