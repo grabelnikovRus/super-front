@@ -35,6 +35,7 @@ export const ProfileHeader: FC<ProfileHeaderProps> = ({
           onClick={onClickBtn}
           className={s.card_btn}
           disabled={isLoading}
+          data-testid="edit-profile-btn"
         >
           {t(readonly ? "edit" : "cancel_edit")}
         </Button>

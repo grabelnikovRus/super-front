@@ -13,7 +13,6 @@ import { scrollReducer } from "@widgets/saveScroll";
 import { filterMiddleware } from "@feature/filters";
 import { rtkApi } from "@shared/api/rtkApi";
 
-console.log(rtkApi)
 const initialState = {
   counter: { value: 0 },
   user: { _isInit: false },
