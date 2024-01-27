@@ -34,7 +34,7 @@ const state: Partial<StateType> = {
     authData: {
       id: "1",
       username: "Ram",
-      role: "USER"
+      role: ["USER"]
     }
   },
   profile: {

@@ -1,7 +1,7 @@
 export interface UserType {
   id: string;
   username: string;
-  role: "ADMIN" | "USER"
+  role: Array<"ADMIN" | "USER">
   avatar?: string;
 }
 

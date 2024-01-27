@@ -54,7 +54,7 @@ const state = {
           user: {
             id: "1",
             username: "admin",
-            role: "ADMIN",
+            role: ["ADMIN"],
             avatar:
               "https://sun9-1.userapi.com/impg/SWPMaf_MSz9mzptUya0I9x8WWxEt7fwJ4uyD-g/EE4oVaRp3wI.jpg?size=604x604&quality=95&sign=177e4e821c4a6735db31fbeb84de41e2&c_uniq_tag=eunY8ZVj41jFPdcjxK3Tdq7WAayWGntN8dhmi3Hqliw&type=album",
           },
@@ -67,7 +67,7 @@ const state = {
           user: {
             id: "2",
             username: "user",
-            role: "USER",
+            role: ["USER"],
             avatar: "https://cspromogame.ru//storage/upload_images/avatars/1299.jpg",
           },
         },
@@ -79,7 +79,7 @@ const state = {
           user: {
             id: "1",
             username: "admin",
-            role: "ADMIN",
+            role: ["ADMIN"],
             avatar:
               "https://sun9-1.userapi.com/impg/SWPMaf_MSz9mzptUya0I9x8WWxEt7fwJ4uyD-g/EE4oVaRp3wI.jpg?size=604x604&quality=95&sign=177e4e821c4a6735db31fbeb84de41e2&c_uniq_tag=eunY8ZVj41jFPdcjxK3Tdq7WAayWGntN8dhmi3Hqliw&type=album",
           },

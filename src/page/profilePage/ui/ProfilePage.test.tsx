@@ -27,7 +27,7 @@ const state = {
             authData: {
                 id: "1",
                 username: "admin",
-                role: "ADMIN",
+                role: ["ADMIN"],
             }
         },
         profile: {
