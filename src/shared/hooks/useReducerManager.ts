@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { useStore } from "react-redux";
 import { useAppDispatch } from "./useAppDispatch";
 
-type ReducerObjType = {
+export type ReducerObjType = {
   [key in KeyStateType]?: Reducer;
 };
 

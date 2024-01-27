@@ -26,8 +26,8 @@ const rootReducer: ReducersMapObject<StateType> = {
   [rtkApi.reducerPath]: rtkApi.reducer,
 };
 
-export const createStore = (state = initialState, initialReducer = rootReducer) => {
-  const reducerManager = createReducerManager(initialReducer);
+export const createStore = (state = initialState, initialReducer = {}) => {
+  const reducerManager = createReducerManager({...rootReducer, ...initialReducer});
 
   const store = configureStore({
     reducer: reducerManager.reduce as Reducer<StateType, AnyAction>,

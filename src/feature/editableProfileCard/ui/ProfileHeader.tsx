@@ -25,7 +25,13 @@ export const ProfileHeader: FC<ProfileHeaderProps> = ({
     <header className={s.header}>
       <Text title={t("profile") || ""} />
       {!readonly && (
-        <Button theme="m" onClick={onSave} className={s.card_btn} disabled={isLoading}>
+        <Button 
+          theme="m" 
+          onClick={onSave} 
+          className={s.card_btn} 
+          disabled={isLoading}
+          data-testid="save-profile-btn"
+        >
           {t("save")}
         </Button>
       )}
