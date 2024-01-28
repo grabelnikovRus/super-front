@@ -1,7 +1,8 @@
-import { type FC } from "react";
+import { type ReactNode, type FC } from "react";
 import ReactDOM from "react-dom";
 
 interface PortalProps {
+  children: ReactNode
   container?: HTMLElement;
 }
 

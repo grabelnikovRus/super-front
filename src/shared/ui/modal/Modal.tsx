@@ -1,10 +1,11 @@
-import { type FC, type MouseEvent, useState, useEffect, useRef } from "react";
+import { type MouseEvent, useState, useEffect, useRef, type ReactNode } from "react";
 import { classNames } from "../../helpers/lib";
 import { Portal } from "../portal/Portal";
 
 import s from "./Modal.module.scss";
 
 interface ModalProps {
+  children: ReactNode
   isOpen: boolean;
   onClose: () => void;
   containerMount?: HTMLElement;
@@ -12,7 +13,7 @@ interface ModalProps {
 
 const DELAY_MODAL = 300;
 
-export const Modal: FC<ModalProps> = ({ children, isOpen, onClose, containerMount }) => {
+export const Modal = ({ children, isOpen, onClose, containerMount }: ModalProps) => {
   const [openModal, setOpenModal] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout>>();
 

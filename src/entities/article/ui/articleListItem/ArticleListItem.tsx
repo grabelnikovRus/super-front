@@ -32,12 +32,12 @@ interface WrapperListItemProps extends HTMLAttributes<HTMLDivElement> {
    target?: HTMLAttributeAnchorTarget
 }
 
-const WrapperListItem: FC<WrapperListItemProps> = ({ 
+const WrapperListItem = ({ 
   children, 
   articleView, 
   to, 
   target 
-}) => (
+}: WrapperListItemProps) => (
   articleView === "big" 
    ? <div className={classNames(s.item, s[articleView])}>{children}</div>
    : <AppLink 

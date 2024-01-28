@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { type PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { type AddCommentSchema } from "../types";
 
 const initialState: AddCommentSchema = {
@@ -9,7 +9,7 @@ const addCommentSlice = createSlice({
   name: "addComment",
   initialState,
   reducers: {
-    setText(state, action) {
+    setText(state, action: PayloadAction<string>) {
       state.text = action.payload;
     },
   },

@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { render } from "react-dom";
+import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
 import { App } from "@app/App";
@@ -8,7 +8,14 @@ import { ErrorBoundary } from "@app/providers/errorBoundary";
 import { PageLoader } from "@widgets/pageLoader";
 import { StoreProvider } from "@app/providers/storeProvider";
 
-render(
+const container = document.getElementById("root");
+
+if (!container) {
+  throw new Error("Is not container")
+}
+const root = createRoot(container);
+
+root.render(
   <BrowserRouter>
     <StoreProvider>
       <ThemeProvider>
@@ -19,6 +26,5 @@ render(
         </Suspense>
       </ThemeProvider>
     </StoreProvider>
-  </BrowserRouter>,
-  document.getElementById("root")
+  </BrowserRouter>
 );

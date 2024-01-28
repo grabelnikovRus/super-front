@@ -1,8 +1,12 @@
-import { type FC, useState, useEffect } from "react";
+import { useState, useEffect, type ReactNode } from "react";
 import { ThemeContext, type ThemeType } from "./ThemeContext";
 import { KEY_THEME } from "@shared/constants/common";
 
-export const ThemeProvider: FC = ({ children }) => {
+interface ThemeProviderProps {
+  children: ReactNode
+}
+
+export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [theme, setTheme] = useState<ThemeType>(
     (localStorage.getItem(KEY_THEME) as ThemeType) || "light"
   );

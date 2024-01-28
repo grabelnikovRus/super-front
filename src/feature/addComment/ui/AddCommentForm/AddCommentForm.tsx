@@ -18,7 +18,10 @@ export const AddCommentForm: FC<AddCommentFormProps> = ({ text = "", onSend }) =
   const { t } = useTranslation("articles");
   const dispatch = useAppDispatch();
 
-  const onChange = useCallback((value) => dispatch(addCommentActions.setText(value)), []);
+  const onChange = useCallback(
+    (value: string) => dispatch(addCommentActions.setText(value))
+    , []
+  );
 
   useReducerManager(reducer);
 
