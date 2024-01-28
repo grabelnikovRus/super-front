@@ -1,5 +1,5 @@
-import { useState, type FC, useCallback, useEffect } from "react";
-import { AppLink, Button } from "@shared/ui";
+import { useState, type FC, useCallback, useEffect, useMemo } from "react";
+import { AppLink, Avatar, Button, Dropdown } from "@shared/ui";
 import { useTranslation } from "react-i18next";
 import { LoginModal } from "@feature/authByUser";
 import { useSelector } from "react-redux";
@@ -23,10 +23,10 @@ export const NavBar: FC<NavBarProps> = () => {
     setOpenAuthModal((prev) => !prev);
   }, []);
 
-  const onClickBtn = useCallback(() => {
-    if (authData) dispatch(userActions.logout());
-    else setOpenAuthModal(true);
-  }, [openAuthModal, authData]);
+  const listDropdown = useMemo(() => ([
+    { content: t("profile"), href: RouterPath.PROFILE.replace(":id", authData?.id || "")},
+    { content: t("logout"), onClick: () => dispatch(userActions.logout()) }
+  ]), [authData?.id])  
 
   useEffect(() => {
     if (authData) setOpenAuthModal(false);
@@ -42,9 +42,22 @@ export const NavBar: FC<NavBarProps> = () => {
               {t("create")}
           </AppLink>
         }
-        <Button theme="outline" className={s.navbar__link} onClick={onClickBtn}>
-          {t(authData ? "logout" : "sign_in")}
-        </Button>
+        {authData 
+          ? (
+              <Dropdown 
+                trigger={<Avatar src={authData.avatar} theme="s"/>} 
+                list={listDropdown}
+              />
+            )
+          : (
+              <Button 
+                theme="outline" 
+                className={s.navbar__link} 
+                onClick={() => { setOpenAuthModal(true); }}
+              >
+                {t("sign_in")}
+              </Button>
+          )}
         <LoginModal isOpen={openAuthModal} onClose={toggleAuthModal} />
       </div>
     </div>

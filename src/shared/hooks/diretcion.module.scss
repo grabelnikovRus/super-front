@@ -1,0 +1,19 @@
+.vert {
+    &_top {
+        bottom: 100%;
+    }
+    
+    &_bottom {
+        top: 100%;
+    }
+}
+
+.hor {
+    &_left {
+        left: 0;
+    }
+    
+    &_right {
+        right: 0;
+    }
+}
