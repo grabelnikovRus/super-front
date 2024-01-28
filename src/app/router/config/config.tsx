@@ -8,11 +8,13 @@ import { ArticleDetailsPage } from "@page/articleDetailsPage";
 import { ArticlePage } from "@page/articlePage";
 import { ArticleDetailsEditPage } from "@page/articleDetailsEditPage";
 import { ReactWindowPage } from "@page/reactWindowPage";
+import { AdminPanelPage } from "@page/adminPanelPage";
 
 export enum RouterPath {
   MAIN = "/",
   ABOUT = "/about",
   PROFILE = "/profile/:id",
+  ADMIN_PANEL = "/admin-panel",
   ARTICLES = "/articles",
   ARTICLES_CREATE = "/articles/create",
   ARTICLES_DETAILS = "/articles/:id",
@@ -62,6 +64,14 @@ export const routerConfig: Record<RouterPath, PathRouteProps> = {
         <ArticleDetailsEditPage />
       </RequiredAuth>
     ),
+  },
+  [RouterPath.ADMIN_PANEL]: {
+    element: (
+      <RequiredAuth>
+        <AdminPanelPage />
+      </RequiredAuth>
+    ),
+    
   },
   [RouterPath.REACT_WINDOW]: {
     element: (
