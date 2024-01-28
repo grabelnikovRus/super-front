@@ -9,6 +9,7 @@ import { ArticlePage } from "@page/articlePage";
 import { ArticleDetailsEditPage } from "@page/articleDetailsEditPage";
 import { ReactWindowPage } from "@page/reactWindowPage";
 import { AdminPanelPage } from "@page/adminPanelPage";
+import { ForbiddenPage } from "@page/forbiddenPage";
 
 export enum RouterPath {
   MAIN = "/",
@@ -19,7 +20,8 @@ export enum RouterPath {
   ARTICLES_CREATE = "/articles/create",
   ARTICLES_DETAILS = "/articles/:id",
   ARTICLES_DETAILS_EDIT = "/articles/:id/edit",
-  REACT_WINDOW = "react-window",
+  REACT_WINDOW = "/react-window",
+  FORBIDDEN = "/forbidden-page",
   NOT_FOUND = "*",
 }
 
@@ -67,11 +69,10 @@ export const routerConfig: Record<RouterPath, PathRouteProps> = {
   },
   [RouterPath.ADMIN_PANEL]: {
     element: (
-      <RequiredAuth>
+      <RequiredAuth nameComp="AdminPanelPage">
         <AdminPanelPage />
       </RequiredAuth>
     ),
-    
   },
   [RouterPath.REACT_WINDOW]: {
     element: (
@@ -82,5 +83,8 @@ export const routerConfig: Record<RouterPath, PathRouteProps> = {
   },
   [RouterPath.NOT_FOUND]: {
     element: <NotFoundPageAsync />,
+  },
+  [RouterPath.FORBIDDEN]: {
+    element: <ForbiddenPage />,
   },
 };

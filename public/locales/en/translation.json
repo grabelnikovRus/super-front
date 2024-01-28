@@ -12,5 +12,7 @@
   "profile": "Profile",
   "articles": "Articles",
   "article_not": "This article does not exist",
-  "create": "Create Article"
+  "create": "Create Article",
+  "admin_panel": "Admin Panel",
+  "forbidden_page": "Access to this page is denied"
 }

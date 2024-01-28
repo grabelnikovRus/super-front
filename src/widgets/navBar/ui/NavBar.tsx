@@ -3,7 +3,7 @@ import { AppLink, Avatar, Button, Dropdown } from "@shared/ui";
 import { useTranslation } from "react-i18next";
 import { LoginModal } from "@feature/authByUser";
 import { useSelector } from "react-redux";
-import { getAuthData, userActions } from "@entities/user";
+import { getAuthData, isAdmin, isManager, userActions } from "@entities/user";
 import { useAppDispatch } from "@shared/hooks/useAppDispatch";
 import { RouterPath } from "@app/router/config/config"
 
@@ -19,13 +19,21 @@ export const NavBar: FC<NavBarProps> = () => {
   const authData = useSelector(getAuthData);
   const { t } = useTranslation();
 
+  const isAdn = useSelector(isAdmin);
+  const isMng = useSelector(isManager)
+  const isVisiblePanel = isAdn || isMng
+
   const toggleAuthModal = useCallback(() => {
     setOpenAuthModal((prev) => !prev);
   }, []);
 
   const listDropdown = useMemo(() => ([
-    { content: t("profile"), href: RouterPath.PROFILE.replace(":id", authData?.id || "")},
-    { content: t("logout"), onClick: () => dispatch(userActions.logout()) }
+    { content: t("profile"), href: RouterPath.PROFILE.replace(":id", authData?.id || "") },
+    { content: t("logout"), onClick: () => dispatch(userActions.logout()) },
+    ...(isVisiblePanel 
+        ? [{ content: t("admin_panel"), href: RouterPath.ADMIN_PANEL }] 
+        : []
+      ),
   ]), [authData?.id])  
 
   useEffect(() => {
