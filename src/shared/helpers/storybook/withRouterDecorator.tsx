@@ -1,6 +1,6 @@
-import { type PartialStoryFn, type Renderer, type Args } from "@storybook/csf";
+import { type FC } from "react";
 import { BrowserRouter } from "react-router-dom";
 
-export const withRouterDecorator = (story: PartialStoryFn<Renderer, Args>) => (
-  <BrowserRouter>{story()}</BrowserRouter>
+export const withRouterDecorator = (Story: FC) => (
+  <BrowserRouter><Story /></BrowserRouter>
 );
