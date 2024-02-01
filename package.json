@@ -130,6 +130,7 @@
     "react-window-infinite-loader": "^1.0.9"
   },
   "loki": {
+    "fetchFailIgnore": "^http(.*)$", 
     "configurations": {
       "chrome.laptop": {
         "target": "chrome.docker",
