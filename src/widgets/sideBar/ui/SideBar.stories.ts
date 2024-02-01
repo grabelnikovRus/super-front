@@ -1,11 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-
 import { SideBar } from "./SideBar";
 import { styleDecorator } from "@shared/helpers/storybook/styleDecorator";
 import { storeDecorator } from "@shared/helpers/storybook/storeDecorator";
 import { type StateType } from "@app/providers/storeProvider";
 import { type ReducersMapObject } from "@reduxjs/toolkit";
-import { userReducer } from "@entities/user";
+import { RoleTypes, userReducer } from "@entities/user";
 
 const meta = {
   title: "widgets/SideBar",
@@ -22,7 +21,7 @@ const state: Partial<StateType> = {
     authData: {
       id: "1",
       username: "Ram",
-      role: ["USER"]
+      role: [RoleTypes.ADMIN]
     }
   },
 }

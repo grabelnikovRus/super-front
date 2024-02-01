@@ -1,5 +1,5 @@
 import { Menu } from "@headlessui/react"
-import { Fragment, useRef, type HTMLAttributes, type ReactNode } from "react";
+import { Fragment, useRef,type ReactNode } from "react";
 import { useDirection } from "../../hooks/useDirection";
 import { classNames } from "../../helpers/lib";
 
@@ -16,7 +16,7 @@ interface DropdownProps {
    trigger: ReactNode
 }
 
-const getTag = (props: DropdownItem & HTMLAttributes<HTMLElement>) => {
+const getTag = (props: DropdownItem & { className: string}) => {
    if ("href" in props) {
       return (<a href={props.href} className={props.className}>{props.content}</a>)
    }
@@ -47,7 +47,7 @@ export const Dropdown = ({ trigger, list }: DropdownProps) => {
       <Menu.Items className={classNames(s.dropdown_items, vertDirection, horDirection)}>
          {list.map((prop, i) => (
             <Menu.Item as={Fragment} key={prop.href || i}>
-               {() => getTag({ ...prop, className: s.dropdown_item })}
+               {getTag({ ...prop, className: s.dropdown_item })}
             </Menu.Item>
          ))}
       </Menu.Items>

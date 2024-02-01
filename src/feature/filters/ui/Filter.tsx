@@ -49,11 +49,13 @@ export const Filter: FC<FilterProps> = ({ search, order, sort, type }) => {
         { value: "asc", content: t("ascending")},
         { value: "desc" , content: t("descending")},
     ]), [i18n.language])
-
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     const onChangeSelect = useCallback((action) => (value: SortType | OrderSortType) => {
         dispatch(action(value))
     }, [])
-
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     const onChangeInput = useCallback((action) => (value: string) => {
         dispatch(action(value))
     }, [])
