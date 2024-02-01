@@ -6,11 +6,24 @@ import { styleDecorator } from "@shared/helpers/storybook/styleDecorator";
 import { profileReducer } from "@feature/editableProfileCard";
 import { type ReducersMapObject } from "@reduxjs/toolkit";
 import { userReducer } from "@entities/user";
+import { RoleTypes } from "@entities/user/model/types/userSchema";
+import { reactRouterParameters } from "storybook-addon-react-router-v6";
 
 const meta = {
   title: "page/ProfilePage",
   component: ProfilePage,
   tags: ["autodocs"],
+  parameters: {
+    reactRouter: reactRouterParameters({
+      location: {
+        pathParams: { id: "1" },
+      },
+      routing: {
+        path: "/profile/:id",
+      },
+    }),
+
+  }
 } satisfies Meta<typeof ProfilePage>;
 
 export default meta;
@@ -34,7 +47,7 @@ const state: Partial<StateType> = {
     authData: {
       id: "1",
       username: "Ram",
-      role: ["USER"]
+      role: [RoleTypes.USER]
     }
   },
   profile: {
@@ -45,6 +58,8 @@ const state: Partial<StateType> = {
     error: "",
   },
 };
+
+
 
 const reducer = { 
   profile: profileReducer,

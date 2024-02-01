@@ -7,6 +7,7 @@ import { type StateType } from "@app/providers/storeProvider";
 import { type DeepPartial } from "redux";
 import { profileReducer } from "@feature/editableProfileCard";
 import { api } from "@shared/api/api";
+import { RoleTypes } from "@entities/user/model/types/userSchema";
 
 const form = {
   id: "1",
@@ -27,7 +28,7 @@ const state = {
             authData: {
                 id: "1",
                 username: "admin",
-                role: ["ADMIN"],
+                role: [RoleTypes.ADMIN],
             }
         },
         profile: {
