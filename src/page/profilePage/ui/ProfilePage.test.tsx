@@ -7,7 +7,7 @@ import { type StateType } from "@app/providers/storeProvider";
 import { type DeepPartial } from "redux";
 import { profileReducer } from "@feature/editableProfileCard";
 import { api } from "@shared/api/api";
-import { RoleTypes } from "@entities/user/model/types/userSchema";
+import { RoleTypes } from "@entities/user";
 
 const form = {
   id: "1",

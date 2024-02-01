@@ -1,8 +1,8 @@
 import { getAuthData, isAdmin, isManager } from "@entities/user";
 import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
-import { RouterPath } from "../config/config";
 import { useMemo, type ReactNode } from "react";
+import { RouterPath } from "../consts";
 
 interface RequiredAuthProps {
   children: ReactNode

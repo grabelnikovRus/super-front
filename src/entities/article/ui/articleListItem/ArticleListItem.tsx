@@ -13,12 +13,12 @@ import {
    type ArticleBlocksTypes
 } from "../../model/types/article";
 import Eye from "@shared/assest/icon/eye.svg"
-
-import s from "./ArticleListItem.module.scss";
 import { useHover } from "@shared/hooks/useHover";
 import { Avatar, AppLink } from "@shared/ui";
-import { RouterPath } from "@app/router/config/config";
 import { type To } from "react-router-dom";
+import { RouterPath } from "@app/router/consts";
+
+import s from "./ArticleListItem.module.scss";
 
 interface ArticleListItemProps {
    article: ArticleType

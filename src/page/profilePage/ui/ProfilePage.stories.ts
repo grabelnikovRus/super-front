@@ -5,8 +5,7 @@ import { type StateType } from "@app/providers/storeProvider";
 import { styleDecorator } from "@shared/helpers/storybook/styleDecorator";
 import { profileReducer } from "@feature/editableProfileCard";
 import { type ReducersMapObject } from "@reduxjs/toolkit";
-import { userReducer } from "@entities/user";
-import { RoleTypes } from "@entities/user/model/types/userSchema";
+import { RoleTypes, userReducer } from "@entities/user";
 import { reactRouterParameters } from "storybook-addon-react-router-v6";
 
 const meta = {

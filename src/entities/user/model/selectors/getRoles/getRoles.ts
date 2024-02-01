@@ -1,6 +1,6 @@
 import { type StateType } from "@app/providers/storeProvider";
 import { createSelector } from "reselect";
-import { RoleTypes } from "../../types/userSchema";
+import { RoleTypes } from "../../consts";
 
 const getRoles = (state: StateType) => state.user.authData?.role;
 

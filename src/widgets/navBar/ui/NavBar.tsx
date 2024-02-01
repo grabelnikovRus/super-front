@@ -5,9 +5,9 @@ import { LoginModal } from "@feature/authByUser";
 import { useSelector } from "react-redux";
 import { getAuthData, isAdmin, isManager, userActions } from "@entities/user";
 import { useAppDispatch } from "@shared/hooks/useAppDispatch";
-import { RouterPath } from "@app/router/config/config"
 
 import s from "./NavBar.module.scss";
+import { RouterPath } from "@app/router/consts";
 
 interface NavBarProps {
   className?: string;
