@@ -99,6 +99,7 @@
     "sass": "^1.62.1",
     "sass-loader": "^13.2.2",
     "storybook": "^7.6.11",
+    "storybook-addon-mock": "^4.3.0",
     "storybook-react-i18next": "^2.0.10",
     "style-loader": "^3.3.3",
     "stylelint": "^15.11.0",

@@ -10,6 +10,7 @@ const config: StorybookConfig = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
+    "storybook-addon-mock",
     "storybook-react-i18next",
   ],
   framework: {
@@ -43,7 +44,7 @@ const config: StorybookConfig = {
     config.plugins?.push(
       new DefinePlugin({
         _IS_DEV_: false,
-        _API_: "/dist/",
+        _API_: JSON.stringify("http://localhost:6006"),
         _PROJECT_: JSON.stringify("storybook"),
       })
     );
