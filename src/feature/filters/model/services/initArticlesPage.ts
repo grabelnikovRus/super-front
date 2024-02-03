@@ -1,11 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { type OptionsCreateAsync } from "@app/providers/storeProvider";
-import { fetchArticlePage } from "./fetchArticlePage";
-import { getArticlePageIsInit } from "../selectors";
-import { filterActions } from "@feature/filters";
-import { type OmitFilterScheme } from "@feature/filters/model/types";
-
-
+import { filterActions } from "../slice/filterSlice";
+import { type OmitFilterScheme } from "../types";
 
 export const initArticlePage = createAsyncThunk<
   void,
@@ -13,7 +9,7 @@ export const initArticlePage = createAsyncThunk<
   OptionsCreateAsync
 >(
   "articlePage/initArticlePage",
-  async (searchParams, { dispatch, getState }) => {
+  async (searchParams, { dispatch }) => {
     const obj: OmitFilterScheme = {
       sort: "createdAt",
       order: "asc",
@@ -28,10 +24,5 @@ export const initArticlePage = createAsyncThunk<
     }
 
     dispatch(filterActions.init(obj)) 
-    const isInit = getArticlePageIsInit(getState())
-
-    if (isInit) return;
-
-    await dispatch(fetchArticlePage({}));
   }
 );

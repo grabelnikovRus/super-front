@@ -1,31 +1,33 @@
 import { ArticleList } from "@entities/article"
 import { LoadingOnScroll } from "@shared/ui"
 import { useSelector } from "react-redux"
-import { getArticlePage } from "../model/slice/articlePageSlice"
+import { articlePageReducer, getArticlePage } from "../model/slice/articlePageSlice"
 import { 
   getArticlePageError, 
   getArticlePageHasMore, 
   getArticlePageIsLoading 
 } from "../model/selectors"
 import { getFilterView } from "@feature/filters"
-import { useDebounce } from "@shared/hooks/useDebounce"
-import { fetchNextArticlePage } from "../model/services/fetchNextArticlePage"
-import { useAppDispatch } from "@shared/hooks/useAppDispatch"
+import { useReducerManager } from "@shared/hooks/useReducerManager"
 
-export const ArticleInfiniteList = () => {
-  const dispatch = useAppDispatch();
+interface ArticleInfiniteListProps {
+  fetchInfo: () => void
+}
+
+const reducer = { 
+  articlePage: articlePageReducer,
+};
+
+export const ArticleInfiniteList = ({ fetchInfo }: ArticleInfiniteListProps) => {
+  useReducerManager(reducer, false);
     
   const articles = useSelector(getArticlePage.selectAll);
   const error = useSelector(getArticlePageError);
   const isLoading = useSelector(getArticlePageIsLoading);
   const view = useSelector(getFilterView);
   const hasMore = useSelector(getArticlePageHasMore);
-
-  const fetchNextArticlePageDebounce = useDebounce(
-    async () =>  await dispatch(fetchNextArticlePage()), 400
-  )
     
-  console.log(error);
+  if (error) return <span>{error}</span>
 
   return (
     <>
@@ -35,7 +37,7 @@ export const ArticleInfiniteList = () => {
         isLoading={isLoading} 
         target="_blank"
       />
-      {!isLoading && hasMore && <LoadingOnScroll cb={fetchNextArticlePageDebounce} />}  
+      {!isLoading && hasMore && <LoadingOnScroll cb={fetchInfo} />}  
     </>
   )
 }

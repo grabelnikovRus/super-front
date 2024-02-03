@@ -1,19 +1,32 @@
-import { useCallback, type FC, useMemo } from "react"
+import { useCallback, useEffect, useMemo, useRef } from "react"
 import { ViewSwitcher, type ViewType } from "@entities/viewSwitcher";
 import ListIcon from "@shared/assest/icon/list.svg";
 import TileIcon from "@shared/assest/icon/tile.svg";
-import { filterActions } from "../model/slice/filterSlice";
+import { filterActions, filterReducer } from "../model/slice/filterSlice";
 import { useSelector } from "react-redux";
-import { getFilterView } from "../model/selectors";
+import { 
+  getFilterOrder, 
+  getFilterSearch, 
+  getFilterSort, 
+  getFilterView, 
+  getType 
+} from "../model/selectors";
 import { useAppDispatch } from "@shared/hooks/useAppDispatch";
 import { Input, type OptionsSelect, Select, Tabs, type TansItem } from "@shared/ui";
-import { type OmitFilterScheme, type OrderSortType, type SortType } from "../model/types";
+import { type OrderSortType, type SortType } from "../model/types";
 import { useTranslation } from "react-i18next";
 import { type ArticleThemeType } from "@entities/article";
+import { addQueryParams } from "@shared/helpers/lib/addQueryParams/addQueryParams";
+import { useInitEffect } from "@shared/hooks/useInitEffect";
+import { useSearchParams } from "react-router-dom";
+import { initArticlePage } from "../model/services/initArticlesPage";
+import { useReducerManager } from "@shared/hooks/useReducerManager";
 
 import s from "./Filter.module.scss"
 
-interface FilterProps extends OmitFilterScheme {}
+interface FilterProps {
+    fetchInfo: (isRemove: boolean) => void
+}
 
 const views: ViewType[] = [
     {
@@ -34,10 +47,23 @@ const tabs: Array<TansItem<ArticleThemeType>> = [
     { value: "ECONOMY", content: "ECONOMY"},
 ]
 
-export const Filter: FC<FilterProps> = ({ search, order, sort, type }) => {
+const reducer = { 
+  filter: filterReducer
+};
+
+export const Filter = ({ fetchInfo }: FilterProps) => {
     const dispatch = useAppDispatch()
     const view = useSelector(getFilterView)
     const { t, i18n } = useTranslation("articles")
+    const [ searchParams ] = useSearchParams()
+    const isMounted = useRef(false)
+
+    useReducerManager(reducer, false);
+
+    const order = useSelector(getFilterOrder)
+    const sort = useSelector(getFilterSort)
+    const search = useSelector(getFilterSearch)
+    const type = useSelector(getType);
 
     const optionsSelectSort: Array<OptionsSelect<SortType>> = useMemo(() => ([
         { value: "createdAt", content: t("by_date")},
@@ -49,11 +75,13 @@ export const Filter: FC<FilterProps> = ({ search, order, sort, type }) => {
         { value: "asc", content: t("ascending")},
         { value: "desc" , content: t("descending")},
     ]), [i18n.language])
+
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
     const onChangeSelect = useCallback((action) => (value: SortType | OrderSortType) => {
         dispatch(action(value))
     }, [])
+
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
     const onChangeInput = useCallback((action) => (value: string) => {
@@ -63,6 +91,20 @@ export const Filter: FC<FilterProps> = ({ search, order, sort, type }) => {
     const onChangeType = useCallback((value: ArticleThemeType) => {
         dispatch(filterActions.setType(value))
     }, [])
+
+    useEffect(() => {
+        addQueryParams({ order, sort, search, type });
+    }, [order, sort, search, type])
+
+    useEffect(() => {
+        console.log({order, sort, search}, isMounted.current)
+       if (isMounted.current) fetchInfo(true)
+    }, [order, sort, search])
+
+    useInitEffect(async () => {
+        dispatch(initArticlePage(searchParams))
+        isMounted.current = true
+    }, []);
 
     return (
         <div className={s.filter}>

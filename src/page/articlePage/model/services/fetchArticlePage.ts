@@ -8,31 +8,21 @@ import {
   getFilterSort, 
   getType
 } from "@feature/filters";
-import { articlePageActions } from "../slice/articlePageSlice";
-
-export interface FetchArticlePageProps {
-  replace?: boolean
-}
+import { getArticleNumPage } from "../selectors";
 
 export const fetchArticlePage = createAsyncThunk<
   ArticleType[],
-  FetchArticlePageProps,
+  void,
   OptionsCreateAsync
 >(
   "articlePage/fetchArticlePage",
-  async ({ replace }, { dispatch, rejectWithValue, extra, getState }) => {
+  async (_, { dispatch, rejectWithValue, extra, getState }) => {
+    const numPage = getArticleNumPage(getState())
     const limit = getFilterLimit(getState());
     const order = getFilterOrder(getState())
     const sort = getFilterSort(getState())
     const search = getFilterSearch(getState())
     const type = getType(getState())
-    const numPage = 1
-
-    if (replace) {
-      dispatch(articlePageActions.setPage(numPage))
-    } else {
-      dispatch(articlePageActions.setPage(numPage + 1))
-    }
 
     try {
       const res = await extra.api.get("/articles", {

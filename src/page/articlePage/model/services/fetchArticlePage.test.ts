@@ -1,5 +1,4 @@
-import { fetchNextArticlePage } from "./fetchNextArticlePage";
-import { articlePageActions } from "../slice/articlePageSlice";
+import { fetchArticlePage } from "./fetchArticlePage";
 import { articlesMock } from "@shared/assest/mock/mocks";
 import { TestAsyncThunk } from "@shared/helpers/test/testAsyncThunk";
 import { type DeepPartial } from "@reduxjs/toolkit";
@@ -17,17 +16,14 @@ const state: DeepPartial<StateType> = {
   }
 }
 
-const action = new TestAsyncThunk(fetchNextArticlePage, state);
+const action = new TestAsyncThunk(fetchArticlePage, state);
 
-describe("fetchNextArticlePage", () => {
+describe("fetchArticlePage", () => {
   test("success login", async () => {
     action.api.get.mockResolvedValue({ data: articlesMock });
     const result = await action.callThunk(undefined);
 
-    expect(action.dispatch).toBeCalledTimes(3);
-    expect(action.dispatch).toHaveBeenCalledWith(articlePageActions.setPage(2)); // проверяет с каким аргументом была вызвана функция
+    expect(action.dispatch).toBeCalledTimes(2);
     expect(result.payload).toEqual(articlesMock);
   });
-
-
 });
