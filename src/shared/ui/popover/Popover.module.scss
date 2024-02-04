@@ -1,0 +1,22 @@
+.popover {
+	position: relative;
+    width: fit-content;
+    
+    &__btn {
+        background: transparent;
+        border: none;
+        outline: none;
+        padding: 3px;
+        cursor: pointer;
+    }
+
+    &__wrapper {
+        position: absolute;
+        width: fit-content;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        background-color: var(--bg-color-inverted);
+        padding: 8px;
+        box-shadow: 2px 2px 2px var(--bg-color-inverted);
+    }
+}
