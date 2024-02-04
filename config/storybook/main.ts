@@ -21,6 +21,16 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag",
   },
+  babel: async (options ) => ({
+    ...options, 
+    presets: [
+      ["@babel/preset-env", { targets: { node: "current" } }],
+      ["@babel/preset-react", { runtime: "automatic" }],
+      ["@babel/preset-typescript", { isTSX: true, allExtensions: true }],
+    ],
+    plugins: ["@babel/plugin-transform-runtime"]
+  }),
+
   webpackFinal: async (config, { configType }): Promise<Configuration> => {
     if (config.resolve?.plugins) config.resolve.plugins = [new TsconfigPathsPlugin()];
     else if (config.resolve) config.resolve.plugins = [new TsconfigPathsPlugin()];

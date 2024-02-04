@@ -34,7 +34,6 @@
     "./src/**/*.tsx",
     "./src/**/*.ts",
     "./.eslintrc.js",
-    "./babel.config.js",
     "./webpack.config.ts"
   ]
 }
