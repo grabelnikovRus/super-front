@@ -1,8 +1,8 @@
-import ReactRefreshTypeScript from "react-refresh-typescript";
 import { type RuleSetRule } from "webpack";
 import { type BuildOptions } from "./types/config";
 import { buildCssLoader } from "./buildCssLoader";
 import { buildSvgLoader } from "./buildSvgLOader";
+import { RemovePropsPlugin } from "../babel/babelRemovePropsPlugin";
 
 export function buildLoaders(mode: BuildOptions["mode"]): RuleSetRule[] {
   const svgLoader = buildSvgLoader();
@@ -16,25 +16,46 @@ export function buildLoaders(mode: BuildOptions["mode"]): RuleSetRule[] {
     ],
   };
 
-  const tsLoader = {
-    // лоадер применяется только к файлам с .tsx
-    test: /\.tsx?$/,
+  const babelLoader = (isTSX?: boolean) => ({
+    test: isTSX ? /\.(tsx|jsx)?$/ : /\.(ts|js)?$/,
     exclude: /node_modules/,
     use: [
       {
-        loader: "ts-loader",
+        loader: "babel-loader",
         options: {
-          getCustomTransformers: () => ({
-            before: [mode === "development" && ReactRefreshTypeScript()].filter(Boolean),
-          }),
-          transpileOnly: mode === "development",
+          presets: [
+            ["@babel/preset-env", { targets: { node: "current" } }],
+            ["@babel/preset-react", { runtime: "automatic" }],
+            ["@babel/preset-typescript", { isTSX, allExtensions: isTSX }],
+          ],
+          plugins: [
+            "@babel/plugin-transform-runtime",
+            isTSX && [ RemovePropsPlugin, { props: ["data-testid"] }]
+          ].filter(Boolean)
         },
       },
     ],
-  };
+  });
+
+  // const tsLoader = {
+  //   // лоадер применяется только к файлам с .tsx
+  //   test: /\.tsx?$/,
+  //   exclude: /node_modules/,
+  //   use: [
+  //     {
+  //       loader: "ts-loader",
+  //       options: {
+  //         getCustomTransformers: () => ({
+  //           before: [mode === "development" && ReactRefreshTypeScript()].filter(Boolean),
+  //         }),
+  //         transpileOnly: mode === "development",
+  //       },
+  //     },
+  //   ],
+  // };
 
   const cssLoader = buildCssLoader(mode === "production");
 
   // важен порядок лоадеров
-  return [svgLoader, fileLoader, tsLoader, cssLoader];
+  return [svgLoader, fileLoader, babelLoader(), babelLoader(true), cssLoader];
 }
