@@ -8,9 +8,10 @@ import s from "./Popover.module.scss";
 interface PopoverProps {
   children: ReactNode
   trigger: ReactNode
+  className?: string
 }
 
-export function Popover({ children, trigger }: PopoverProps) {
+export function Popover({ children, trigger, className }: PopoverProps) {
   const ref = useRef<HTMLDivElement | null>(null)
   const { vertDirection, horDirection, setDirection } = useDirection({ ref }) 
   return (
@@ -21,7 +22,14 @@ export function Popover({ children, trigger }: PopoverProps) {
       >
         {trigger}
       </HPopover.Button>
-      <HPopover.Panel className={cn(s.popover__wrapper, horDirection, vertDirection)}>
+      <HPopover.Panel 
+        className={cn(
+          s.popover__wrapper, 
+          className, 
+          horDirection, 
+          vertDirection
+        )}
+      >
         {children}
       </HPopover.Panel>
     </HPopover>

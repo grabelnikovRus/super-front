@@ -1,0 +1,13 @@
+.btn {
+  &__icon {
+    path {
+      fill: green;
+    }
+  }
+
+  &__list {
+    min-width: 150px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+}

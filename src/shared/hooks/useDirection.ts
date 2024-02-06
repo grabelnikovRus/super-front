@@ -19,7 +19,7 @@ export const useDirection = ({ ref }: UseDirectionType) => {
     const left = objRect.left
 
     setVertDirection((window.innerHeight / 2) < top ? s.vert_top : s.vert_bottom)
-    setHorDirection((window.innerWidth / 2) <  left ? s.hor_left : s.hor_right) 
+    setHorDirection((window.innerWidth / 2) <  left ? s.hor_right : s.hor_left) 
   }
 
   return {

@@ -1,0 +1,8 @@
+.item {
+    display: grid;
+    row-gap: 3px;
+    border: 1px solid gray;
+    border-radius: 3px;
+    font: var(--font-s);
+    padding: 2px;
+}

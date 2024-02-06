@@ -1,12 +1,12 @@
 import { useState, type FC, useCallback, useEffect, useMemo } from "react";
-import { AppLink, Avatar, Button, Dropdown, Popover } from "@shared/ui";
+import { AppLink, Avatar, Button, Dropdown } from "@shared/ui";
 import { useTranslation } from "react-i18next";
 import { LoginModal } from "@feature/authByUser";
 import { useSelector } from "react-redux";
 import { getAuthData, isAdmin, isManager, userActions } from "@entities/user";
 import { useAppDispatch } from "@shared/hooks/useAppDispatch";
-import Icon from "@shared/assest/icon/notification.svg"
 import { RouterPath } from "@app/router/consts";
+import { NotificationButton } from "@feature/notificationButton";
 
 import s from "./NavBar.module.scss";
 
@@ -50,7 +50,7 @@ export const NavBar: FC<NavBarProps> = () => {
             className={s.navbar__create} >
               {t("create")}
           </AppLink>
-          <Popover trigger={<Icon className={s.navbar__icon}/>}>fdfsdfsdfsdfsdf</Popover>
+          <NotificationButton />
         </>
         }
         {authData 
