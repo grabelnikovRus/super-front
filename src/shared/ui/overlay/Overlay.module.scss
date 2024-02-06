@@ -1,0 +1,11 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba($color: black, $alpha: 70%);
+    opacity: 0;
+    transition: 0.2s opacity;
+
+    &__open {
+      opacity: 1;
+    }
+}

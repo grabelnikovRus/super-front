@@ -1,6 +1,7 @@
-import { type MouseEvent, useState, useEffect, useRef, type ReactNode } from "react";
+import { useState, useEffect, useRef, type ReactNode } from "react";
 import { classNames } from "../../helpers/lib";
 import { Portal } from "../portal/Portal";
+import { Overlay } from "../overlay/Overlay";
 
 import s from "./Modal.module.scss";
 
@@ -16,10 +17,6 @@ const DELAY_MODAL = 300;
 export const Modal = ({ children, isOpen, onClose, containerMount }: ModalProps) => {
   const [openModal, setOpenModal] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout>>();
-
-  const onClickContent = (e: MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
-  };
 
   const onClickOverlay = () => {
     setOpenModal(false);
@@ -50,20 +47,13 @@ export const Modal = ({ children, isOpen, onClose, containerMount }: ModalProps)
   return (
     <Portal container={containerMount}>
       <div className={classNames(s.modal, { [s.modal__close]: !isOpen })}>
+        <Overlay isOpen={openModal} onClick={onClickOverlay}/>
         <div
-          onClick={onClickOverlay}
-          className={classNames(s.modal_overlay, {
-            [s.modal_overlay__open]: openModal,
+          className={classNames(s.modal_content, {
+            [s.modal_content__open]: openModal,
           })}
         >
-          <div
-            onClick={onClickContent}
-            className={classNames(s.modal_content, {
-              [s.modal_content__open]: openModal,
-            })}
-          >
             {children}
-          </div>
         </div>
       </div>
     </Portal>
