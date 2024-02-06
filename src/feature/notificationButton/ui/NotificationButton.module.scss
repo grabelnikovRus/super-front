@@ -6,8 +6,10 @@
   }
 
   &__list {
-    min-width: 150px;
-    max-height: 300px;
-    overflow-y: auto;
+    @media (pointer: fine) {
+      min-width: 150px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
   }
 }
