@@ -8,13 +8,12 @@ import s from "./BottomSheet.module.scss";
 interface BottomSheetProps {
   children: ReactNode
   isOpen: boolean;
-  trigger: ReactNode
   onClose: () => void;
 }
 
 const DELAY_MODAL = 300;
 
-export const BottomSheet = ({ children, isOpen, trigger, onClose }: BottomSheetProps) => {
+export const BottomSheet = ({ children, isOpen, onClose }: BottomSheetProps) => {
   const [openModal, setOpenModal] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout>>();
 
@@ -42,12 +41,10 @@ export const BottomSheet = ({ children, isOpen, trigger, onClose }: BottomSheetP
     };
   }, [isOpen]);
 
-  if (!isOpen) return <>{trigger}</>;
+  if (!isOpen) return null;
 
   return (
-    <div className={s.block_wrapper}>
-      {trigger}
-      <Portal>
+      <Portal container={document.body}>
         <div className={classNames(s.block, { [s.block__close]: !isOpen })}>
           <Overlay isOpen={openModal} onClick={onClickOverlay}/>
           <div
@@ -59,6 +56,5 @@ export const BottomSheet = ({ children, isOpen, trigger, onClose }: BottomSheetP
           </div>
         </div>
       </Portal>
-    </div>
   );
 };

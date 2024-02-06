@@ -19,15 +19,18 @@ export const NotificationButton = () => {
     setIsOpen(true)
   }
 
-  const trigger = (<Button onClick={onOpenBS}>
-    <Icon className={s.btn__icon} />
-  </Button>)
+  const trigger = (<Icon className={s.btn__icon} />)
 
   return (
     isMobile ? (
-      <BottomSheet trigger={trigger} isOpen={isOpen} onClose={onCloseBS}>
-        <NotificationList />
-      </BottomSheet>
+      <>
+        <Button onClick={onOpenBS}>
+          {trigger}
+        </Button>
+        <BottomSheet isOpen={isOpen} onClose={onCloseBS}>
+          <NotificationList />
+        </BottomSheet>
+      </>
     ) : (
       <Popover 
         className={s.btn__list} 
