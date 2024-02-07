@@ -1,27 +1,18 @@
 .block {
-    position: relative;
-
-    &_wrapper {
-        height: 20px;
-    }
+    display: flex;
+    align-items: center;
 
     &_content {
+        z-index: 100;
         position: fixed;
+        left: 2vw;
+        height: 40vh;
+        width: 96vw;
         background-color: var(--gray);
         padding: 30px 10px 20px;
-        width: 100vw;
-        height: 0;
-        left: 0;
-        bottom: 0;
-        z-index: 1;
+        touch-action: none;
         overflow-y: auto;
         border-radius: 20px 20px 0 0;
-        transition: height .3s, opacity .3s;
-        opacity: 0;
-
-        &__open {
-            height: 40vh;
-            opacity: 1;
-        }
+        bottom: 0;
     }
 }

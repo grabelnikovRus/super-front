@@ -1,6 +1,6 @@
 
 import { NotificationList } from "@entities/notification"
-import { BottomSheet, Button, Popover } from "@shared/ui"
+import { BottomSheet, Popover } from "@shared/ui"
 import { useDevice } from "@shared/hooks/useDevice"
 import { useState } from "react"
 import Icon from "@shared/assest/icon/notification.svg"
@@ -23,14 +23,14 @@ export const NotificationButton = () => {
 
   return (
     isMobile ? (
-      <>
-        <Button onClick={onOpenBS}>
-          {trigger}
-        </Button>
-        <BottomSheet isOpen={isOpen} onClose={onCloseBS}>
-          <NotificationList />
-        </BottomSheet>
-      </>
+      <BottomSheet 
+        trigger={trigger} 
+        isOpen={isOpen} 
+        onClose={onCloseBS} 
+        onOpen={onOpenBS}
+      >
+        <NotificationList />
+      </BottomSheet>
     ) : (
       <Popover 
         className={s.btn__list} 

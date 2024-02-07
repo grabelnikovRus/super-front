@@ -4,6 +4,7 @@
     background-color: rgba($color: black, $alpha: 70%);
     opacity: 0;
     transition: 0.2s opacity;
+    z-index: 10;
 
     &__open {
       opacity: 1;
