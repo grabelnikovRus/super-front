@@ -4,6 +4,7 @@ import { BottomSheet, Popover } from "@shared/ui"
 import { useDevice } from "@shared/hooks/useDevice"
 import { useState } from "react"
 import Icon from "@shared/assest/icon/notification.svg"
+import { AnimationProvider } from "@shared/helpers/components/AnimationProvider"
 
 import s from "./NotificationButton.module.scss"
 
@@ -23,14 +24,16 @@ export const NotificationButton = () => {
 
   return (
     isMobile ? (
-      <BottomSheet 
-        trigger={trigger} 
-        isOpen={isOpen} 
-        onClose={onCloseBS} 
-        onOpen={onOpenBS}
-      >
-        <NotificationList />
-      </BottomSheet>
+      <AnimationProvider>
+        <BottomSheet 
+          trigger={trigger} 
+          isOpen={isOpen} 
+          onClose={onCloseBS} 
+          onOpen={onOpenBS}
+        >
+          <NotificationList />
+        </BottomSheet>
+      </AnimationProvider>
     ) : (
       <Popover 
         className={s.btn__list} 

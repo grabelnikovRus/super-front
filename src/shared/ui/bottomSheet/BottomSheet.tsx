@@ -1,7 +1,13 @@
-import { useEffect, type ReactNode, cloneElement, type ReactElement } from "react";
+import { 
+  useEffect, 
+  type ReactNode, 
+  cloneElement, 
+  type ReactElement, 
+  useContext 
+} from "react";
 import { Overlay } from "../overlay/Overlay";
-import { useSpring, animated, config } from "@react-spring/web"
-import { useDrag } from "@use-gesture/react"
+import { AnimationLib, AnimationType } from "../../helpers/components/AnimationProvider";
+import { Loader } from "../loader/Loader";
 
 import s from "./BottomSheet.module.scss";
 
@@ -13,13 +19,18 @@ interface BottomSheetProps {
   onOpen: () => void
 }
 
-export const BottomSheet = ({ 
+const BottomSheet = ({ 
   children, 
   isOpen, 
   trigger, 
   onClose, 
   onOpen 
 }: BottomSheetProps) => {
+  const { 
+    Spring: { useSpring, config, animated }, 
+    Gesture: { useDrag }
+  } = useContext(AnimationLib) as Required<AnimationType>;
+
   const height = window.innerHeight * 0.3
   const [{ y }, api] = useSpring(() => ({ y: height }))
 
@@ -89,3 +100,11 @@ export const BottomSheet = ({
     </>
   );
 };
+
+export const BottomSheetAsync = (props: BottomSheetProps) => {
+  const { load } = useContext(AnimationLib)
+
+  if (!load) return <Loader />
+
+  return <BottomSheet {...props}/>
+}

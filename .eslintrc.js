@@ -42,6 +42,7 @@ module.exports = {
     "linebreak-style": "off",
     "@typescript-eslint/no-dynamic-delete": "off",
     "@typescript-eslint/no-invalid-void-type": "off",
-    "plugin-grabelnikov/path-check-in-fsd": "error"
+    "plugin-grabelnikov/path-check-in-fsd": "error",
+    "@typescript-eslint/consistent-type-imports": "off"
   },
 };
