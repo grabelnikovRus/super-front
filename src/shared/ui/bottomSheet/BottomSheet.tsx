@@ -6,7 +6,11 @@ import {
   useContext 
 } from "react";
 import { Overlay } from "../overlay/Overlay";
-import { AnimationLib, AnimationType } from "../../helpers/components/AnimationProvider";
+import { 
+  AnimationLib, 
+  AnimationProvider, 
+  AnimationType 
+} from "../../helpers/components/AnimationProvider";
 import { Loader } from "../loader/Loader";
 
 import s from "./BottomSheet.module.scss";
@@ -85,7 +89,7 @@ const BottomSheet = ({
   const Bttn = cloneElement(trigger, { onClick: onOpen })
 
   return (
-    <>
+    <div>
       {Bttn}
       <animated.div style={{ display }} className={s.block}>
         <Overlay isOpen={isOpen} onClick={onClickOverlay}/>
@@ -97,14 +101,18 @@ const BottomSheet = ({
           {children}
          </animated.div>
       </animated.div>
-    </>
+    </div>
   );
 };
 
-export const BottomSheetAsync = (props: BottomSheetProps) => {
+const BottomSheetAsync = (props: BottomSheetProps) => {
   const { load } = useContext(AnimationLib)
 
   if (!load) return <Loader />
 
   return <BottomSheet {...props}/>
 }
+
+export const BottomSheetProvider = (props: BottomSheetProps) => (
+  <AnimationProvider><BottomSheetAsync {...props} /></AnimationProvider>
+);

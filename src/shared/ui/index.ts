@@ -14,4 +14,4 @@ export { Tabs, type TansItem } from "./tabs/Tabs"
 export { LoadingOnScrollMemo as LoadingOnScroll } from "./onscroll/OnScroll";
 export { Listbox, type ListBoxProps } from "./listBox/ListBox"
 export { Dropdown } from "./dropdown/Dropdown"
-export { BottomSheetAsync as BottomSheet } from "./bottomSheet/BottomSheet"
+export { BottomSheetProvider as BottomSheet } from "./bottomSheet/BottomSheet"
