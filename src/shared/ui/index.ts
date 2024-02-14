@@ -15,3 +15,4 @@ export { LoadingOnScrollMemo as LoadingOnScroll } from "./onscroll/OnScroll";
 export { Listbox, type ListBoxProps } from "./listBox/ListBox"
 export { Dropdown } from "./dropdown/Dropdown"
 export { BottomSheetProvider as BottomSheet } from "./bottomSheet/BottomSheet"
+export { StarRating } from "./starRating/StarRating"

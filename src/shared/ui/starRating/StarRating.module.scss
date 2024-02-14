@@ -1,0 +1,13 @@
+.root {
+	&__star {
+        path {
+          stroke: var(--secondary-color);
+          cursor: pointer;
+        }
+
+        &.active path,
+        &.hover path {
+            fill: var(--secondary-color);
+        }
+    }
+}

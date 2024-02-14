@@ -10,11 +10,18 @@ interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   containerMount?: HTMLElement;
+  classes?: { wrapperContent: string }
 }
 
 const DELAY_MODAL = 300;
 
-export const Modal = ({ children, isOpen, onClose, containerMount }: ModalProps) => {
+export const Modal = ({ 
+  children, 
+  isOpen, 
+  onClose, 
+  containerMount, 
+  classes 
+}: ModalProps) => {
   const [openModal, setOpenModal] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout>>();
 
@@ -49,7 +56,7 @@ export const Modal = ({ children, isOpen, onClose, containerMount }: ModalProps)
       <div className={classNames(s.modal, { [s.modal__close]: !isOpen })}>
         <Overlay isOpen={openModal} onClick={onClickOverlay}/>
         <div
-          className={classNames(s.modal_content, {
+          className={classNames(s.modal_content, classes?.wrapperContent, {
             [s.modal_content__open]: openModal,
           })}
         >
