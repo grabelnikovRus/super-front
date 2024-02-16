@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Button, Modal, StarRating } from "@shared/ui";
+import { BottomSheet, Button, Modal, StarRating } from "@shared/ui";
+import { useDevice } from "@shared/hooks/useDevice";
 
 import s from "./RatingCard.module.scss";
 
@@ -17,6 +18,7 @@ export const RatingCard = ({
    onAccept,
 }: RatingCardProps) => {
    const [isOpen, setIsOpen] = useState(false);
+   const isMobile = useDevice()
 
    const onClickStar = (num: number) => {
       hasFeedback && setIsOpen(true);
@@ -27,20 +29,32 @@ export const RatingCard = ({
       setIsOpen(false);
    }
 
+   const Content = (<>
+     {titleFeedback && <h3>{titleFeedback}</h3>}
+     <textarea className={s.card__text}/>
+     <Button>Отправить</Button>
+   </>)
+
    return (
       <div className={s.card}>
-         {title && <span>{title}</span>}
-         <StarRating setGradeRating={onClickStar} />
-         <Modal 
-           containerMount={document.body} 
-           isOpen={isOpen} 
-           onClose={onClose} 
-           classes={{ wrapperContent: s.root__content }}
-         >
-            {titleFeedback && <h3>{titleFeedback}</h3>}
-            <textarea className={s.card__text}/>
-            <Button>Отправить</Button>
-         </Modal>
+         {isMobile ? (<>
+            {title && <span>{title}</span>}
+            <StarRating setGradeRating={onClickStar} />
+            <BottomSheet isOpen={isOpen} onClose={onClose}>
+              {Content}
+            </BottomSheet>
+         </>) : (<>
+            {title && <span>{title}</span>}
+            <StarRating setGradeRating={onClickStar} />
+            <Modal 
+              containerMount={document.body} 
+              isOpen={isOpen} 
+              onClose={onClose} 
+              classes={{ wrapperContent: s.root__content }}
+            >
+              {Content}
+            </Modal>
+         </>)}
       </div>
    );
 }

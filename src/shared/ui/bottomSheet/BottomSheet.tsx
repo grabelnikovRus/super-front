@@ -17,10 +17,10 @@ import s from "./BottomSheet.module.scss";
 
 interface BottomSheetProps {
   children: ReactNode
-  trigger: ReactElement
+  trigger?: ReactElement
   isOpen: boolean;
   onClose: () => void;
-  onOpen: () => void
+  onOpen?: () => void
 }
 
 const BottomSheet = ({ 
@@ -86,11 +86,11 @@ const BottomSheet = ({
     }
   }, [])
 
-  const Bttn = cloneElement(trigger, { onClick: onOpen })
+  const Bttn = trigger && cloneElement(trigger, { onClick: onOpen })
 
   return (
     <div>
-      {Bttn}
+      {Bttn && Bttn}
       <animated.div style={{ display }} className={s.block}>
         <Overlay isOpen={isOpen} onClick={onClickOverlay}/>
         <animated.div
