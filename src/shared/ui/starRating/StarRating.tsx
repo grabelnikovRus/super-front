@@ -1,4 +1,4 @@
-import { MouseEvent, useState } from "react";
+import { MouseEvent, useEffect, useState } from "react";
 import Star from "../../assest/icon/star.svg"
 import { classNames } from "../../helpers/lib";
 
@@ -10,15 +10,21 @@ interface StarRatingProps {
 }
 
 export const StarRating = ({ gradeRating, setGradeRating }: StarRatingProps) => {
-   const [rating, setRating] = useState(gradeRating = 0)
+   const [rating, setRating] = useState(gradeRating ?? 0)
    const [hovered, setHovered] = useState(0)
 
+   const isUse = gradeRating && gradeRating > 0
+
    const onClickStar = (num: number) => () => {
+      if (isUse) return
+
       setRating(num)
       setGradeRating?.(num)
    }
 
    const onHover = (num?: number) => ({ type }: MouseEvent)=> {
+      if (isUse) return
+
       if (type === "mouseleave") {
          setHovered(0)
          return
@@ -26,6 +32,10 @@ export const StarRating = ({ gradeRating, setGradeRating }: StarRatingProps) => 
 
       num && setHovered(num)
    }
+
+   useEffect(() => {
+      if (gradeRating && gradeRating > 0) setRating(gradeRating)
+   }, [gradeRating])
 
    return (
       <div className={s.root}>

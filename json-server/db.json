@@ -961,5 +961,49 @@
       "username": "user",
       "avatar": "https://cspromogame.ru//storage/upload_images/avatars/1299.jpg"
     }
+  ],
+  "article-rating": [
+    {
+      "id": "1",
+      "rate": 4,
+      "articleId": "1",
+      "feedback": "fsdfd sd fsdf dsf dsfsdf s f fsdf ",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 2,
+      "articleId": "1",
+      "userId": "1"
+    },
+    {
+      "articleId": "8",
+      "userId": "1",
+      "rate": 5,
+      "feedback": "",
+      "id": "OhY6PKl"
+    },
+    {
+      "articleId": "8",
+      "userId": "1",
+      "rate": 5,
+      "feedback": "",
+      "id": "1g5ux4h"
+    }
+  ],
+  "profile-rating": [
+    {
+      "id": "1",
+      "rate": 4,
+      "profileId": "1",
+      "feedback": "fsdfd s f fsdf ",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 2,
+      "profileId": "1",
+      "userId": "1"
+    }
   ]
 }

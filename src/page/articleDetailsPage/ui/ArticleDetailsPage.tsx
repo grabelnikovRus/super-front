@@ -7,6 +7,9 @@ import { type ReducerList } from "@app/providers/storeProvider";
 import { ArticleDetailsPageHeader } from "./ArticleDetailsPageHeader";
 import { ArticleRecommendationsList } from "@feature/articleRecommendationsList";
 import { ArticleDetailsComments } from "./ArticleDetailsComments";
+import { ArticleRating } from "@feature/articleRating";
+
+import s from "./ArticleDetailsPage.module.scss"
 
 const reducer: ReducerList = { 
   articleDetailsPage: articleDetailsPageReducer
@@ -17,12 +20,15 @@ export const ArticleDetailsPage: FC = () => {
 
   useReducerManager(reducer);
 
+  if (!id) return null;
+
   return (
-    <>
+    <div className={s.page}>
       <ArticleDetailsPageHeader id={id}/>
       <ArticleDetails id={id} />
+      <ArticleRating articleId={id} />
       <ArticleRecommendationsList />
       <ArticleDetailsComments id={id} />
-    </>
+    </div>
   );
 };
