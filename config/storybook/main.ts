@@ -3,6 +3,7 @@ import { buildCssLoader } from "../build/buildCssLoader";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import { buildSvgLoader } from "../../config/build/buildSvgLOader";
 import { type Configuration, DefinePlugin } from "webpack";
+import path from "path";
 
 const config: StorybookConfig = {
   stories: ["../../src/**/*.stories.@(js|jsx|ts|tsx)"],
@@ -34,6 +35,16 @@ const config: StorybookConfig = {
   webpackFinal: async (config, { configType }): Promise<Configuration> => {
     if (config.resolve?.plugins) config.resolve.plugins = [new TsconfigPathsPlugin()];
     else if (config.resolve) config.resolve.plugins = [new TsconfigPathsPlugin()];
+
+    if (config.resolve?.alias) config.resolve.alias = {
+      ...config.resolve.alias,
+      "@app": path.resolve(__dirname, "src", "app"),
+      "@page": path.resolve(__dirname, "src", "page"),
+      "@widgets": path.resolve(__dirname, "src", "widgets"),
+      "@shared": path.resolve(__dirname, "src", "shared"),
+      "@entities": path.resolve(__dirname, "src", "entities"),
+      "@feature": path.resolve(__dirname, "src", "feature"),
+    };
 
     if (config.module?.rules) {
       config.module.rules = config.module.rules.map((rule) => {
