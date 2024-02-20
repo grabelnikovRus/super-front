@@ -43,6 +43,7 @@ module.exports = {
     "@typescript-eslint/no-dynamic-delete": "off",
     "@typescript-eslint/no-invalid-void-type": "off",
     "plugin-grabelnikov/path-check-in-fsd": ["error", { alias: "@" }],
+    "plugin-grabelnikov/public-api-import": ["error", { alias: "@" }],
     "@typescript-eslint/consistent-type-imports": "off"
   },
 };

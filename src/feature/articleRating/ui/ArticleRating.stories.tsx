@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { ArticleRating } from "./ArticleRating";
 import { storeDecorator } from "@shared/helpers/storybook/storeDecorator";
-import { RoleTypes } from "@entities/user/model/consts";
+import { RoleTypes } from "@entities/user";
 
 const meta = {
   title: "feature/ArticleRating",

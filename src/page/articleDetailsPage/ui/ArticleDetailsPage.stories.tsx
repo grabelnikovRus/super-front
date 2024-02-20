@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { ArticleDetailsPage } from "./ArticleDetailsPage";
 import { storeDecorator } from "@shared/helpers/storybook/storeDecorator";
-import { articleDetailsReducer } from "@entities/article/model/slice/articleDetailsSlice";
+import { articleDetailsReducer } from "@entities/article";
 import { type ReducersMapObject } from "@reduxjs/toolkit";
 import { type ReducerList, type StateType } from "@app/providers/storeProvider";
 import { articleMock } from "@shared/assest/mock/mocks";

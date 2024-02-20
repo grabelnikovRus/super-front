@@ -21,8 +21,7 @@ import { fetchReactWindowPage } from "../model/services/fetchReactWindowPage";
 import { useReducerManager } from "@shared/hooks/useReducerManager";
 import { type ReducerList } from "@app/providers/storeProvider";
 import { useInitEffect } from "@shared/hooks/useInitEffect";
-import { ArticleListItem } from "@entities/article/ui/articleListItem/ArticleListItem";
-import { ArticleListItemSkeleton } from "@entities/article";
+import { ArticleListItemSkeleton, ArticleListItem } from "@entities/article";
 
 import s from "./ReactWindowPage.module.scss"
 import { useDebounce } from "@shared/hooks/useDebounce";

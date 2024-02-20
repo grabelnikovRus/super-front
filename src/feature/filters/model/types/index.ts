@@ -1,5 +1,4 @@
-import { type ArticleThemeType } from "@entities/article"
-import { type ArticleViewType } from "@entities/article/model/types/article"
+import { type ArticleThemeType, type ArticleViewType } from "@entities/article"
 
 export type OrderSortType = "desc" | "asc"
 

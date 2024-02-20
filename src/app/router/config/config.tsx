@@ -1,7 +1,7 @@
 import { AboutAsync } from "@page/aboutPage";
 import { MainAsync } from "@page/mainPage";
 import { NotFoundPageAsync } from "@page/notFoundPage";
-import { ProfilePageAsync } from "@page/profilePage/ui/ProfilePageAsync";
+import { ProfilePageAsync } from "@page/profilePage";
 import { type PathRouteProps } from "react-router-dom";
 import { RequiredAuth } from "../ui/RequiredAuth";
 import { ArticleDetailsPage } from "@page/articleDetailsPage";

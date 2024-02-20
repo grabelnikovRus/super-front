@@ -1,5 +1,5 @@
 import { rtkApi } from "@shared/api/rtkApi";
-import { type RatingCardType } from "@entities/ratingCard/";
+import { type RatingCardType } from "@entities/ratingCard";
 
 export interface ArticleRatingArg {
   userId: string, 

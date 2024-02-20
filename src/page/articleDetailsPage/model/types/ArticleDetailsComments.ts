@@ -1,4 +1,4 @@
-import { type CommentTypes } from "@entities/comment/model/types/comment";
+import { type CommentTypes } from "@entities/comment";
 import { type EntityState } from "@reduxjs/toolkit";
 
 export interface ArticleDetailsCommentsSchema extends EntityState<CommentTypes> {
