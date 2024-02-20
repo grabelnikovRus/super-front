@@ -23,7 +23,6 @@ const meta = {
   ]
 } satisfies Meta<typeof ArticleRating>;
 
-export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const WithRating: Story = {
@@ -42,3 +41,5 @@ WithRating.parameters = {
     ],
   };
 
+export default meta;
+  
