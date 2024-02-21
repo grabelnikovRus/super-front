@@ -4,7 +4,7 @@ import { useSelector } from "react-redux"
 import { getCanEditArticle } from "../model/selectors/getCanEditArticle"
 import { AppLink } from "@shared/ui"
 import { useTranslation } from "react-i18next"
-import { RouterPath } from "@app/router/consts"
+import { RouterPath } from "@shared/constants/routerPath"
 
 import s from "./ArticleDetailsPageHeader.module.scss"
 

@@ -10,4 +10,4 @@ export enum RouterPath {
     REACT_WINDOW = "/react-window",
     FORBIDDEN = "/forbidden-page",
     NOT_FOUND = "*",
-  };
+};

@@ -5,7 +5,7 @@ import { LoginModal } from "@feature/authByUser";
 import { useSelector } from "react-redux";
 import { getAuthData, isAdmin, isManager, userActions } from "@entities/user";
 import { useAppDispatch } from "@shared/hooks/useAppDispatch";
-import { RouterPath } from "@app/router/consts";
+import { RouterPath } from "@shared/constants/routerPath";
 import { NotificationButton } from "@feature/notificationButton";
 
 import s from "./NavBar.module.scss";

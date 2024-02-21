@@ -16,7 +16,7 @@ import Eye from "@shared/assest/icon/eye.svg"
 import { useHover } from "@shared/hooks/useHover";
 import { Avatar, AppLink } from "@shared/ui";
 import { type To } from "react-router-dom";
-import { RouterPath } from "@app/router/consts";
+import { RouterPath } from "@shared/constants/routerPath";
 
 import s from "./ArticleListItem.module.scss";
 

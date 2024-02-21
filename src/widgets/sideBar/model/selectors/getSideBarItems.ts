@@ -5,7 +5,7 @@ import Articles from "@shared/assest/icon/articles.svg";
 import { type SideBarItemsType } from "../types";
 import { createSelector } from "@reduxjs/toolkit";
 import { getAuthData } from "@entities/user";
-import { RouterPath } from "@app/router/consts";
+import { RouterPath } from "@shared/constants/routerPath";
 
 export const getSideBarItems = createSelector(getAuthData, (authData) => {
   const items: SideBarItemsType[] = [

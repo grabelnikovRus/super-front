@@ -1,3 +1,4 @@
+// eslint-disable-next-line plugin-grabelnikov/layer-imports
 import { type ThemeType } from "@app/providers/themeProviders";
 import { type FC, useEffect } from "react";
 

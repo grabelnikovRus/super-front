@@ -1,3 +1,4 @@
+// eslint-disable-next-line plugin-grabelnikov/layer-imports
 import { RoleTypes } from "@entities/user";
 import { type ArticleType } from "../../../entities/article/model/types/article";
 

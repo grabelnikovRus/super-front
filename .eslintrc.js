@@ -44,6 +44,11 @@ module.exports = {
     "@typescript-eslint/no-invalid-void-type": "off",
     "plugin-grabelnikov/path-check-in-fsd": ["error", { alias: "@" }],
     "plugin-grabelnikov/public-api-import": ["error", { alias: "@" }],
-    "@typescript-eslint/consistent-type-imports": "off"
+    "plugin-grabelnikov/layer-imports": [
+      "error", 
+      { alias: "@", excludePatterns: ["**/styleDecorator", "**/storeProvider"] }
+    ],
+    "@typescript-eslint/consistent-type-imports": "off",
+    "@typescript-eslint/prefer-export-type": "off"
   },
 };

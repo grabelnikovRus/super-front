@@ -1,3 +1,5 @@
+// TODO
+// eslint-disable-next-line plugin-grabelnikov/layer-imports
 import { useTheme } from "@app/providers/themeProviders";
 import { memo, type FC } from "react";
 import IconDark from "@shared/assest/icon/theme-dark.svg";
