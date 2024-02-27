@@ -10,7 +10,7 @@ import { ArticleDetailsEditPage } from "@page/articleDetailsEditPage";
 import { ReactWindowPage } from "@page/reactWindowPage";
 import { AdminPanelPage } from "@page/adminPanelPage";
 import { ForbiddenPage } from "@page/forbiddenPage";
-import { RouterPath } from "../consts";
+import { RouterPath } from "@shared/constants/routerPath";
 
 export const routerConfig: Record<RouterPath, PathRouteProps> = {
   [RouterPath.MAIN]: {

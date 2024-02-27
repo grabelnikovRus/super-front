@@ -1,5 +1,5 @@
 import { useState, useEffect, type ReactNode } from "react";
-import { ThemeContext, type ThemeType } from "./ThemeContext";
+import { ThemeContext, type ThemeType } from "@shared/helpers/lib";
 import { KEY_THEME } from "@shared/constants/common";
 
 interface ThemeProviderProps {
