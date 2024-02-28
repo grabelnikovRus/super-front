@@ -18,7 +18,8 @@ module.exports = {
   },
   plugins: [
     "react",
-    "plugin-grabelnikov"
+    "plugin-grabelnikov",
+    "unused-imports"
   ],
   rules: {
     quotes: ["error", "double", { avoidEscape: true }],
@@ -29,6 +30,7 @@ module.exports = {
         tabWidth: 2,
       },
     ],
+    "unused-imports/no-unused-imports": "error",
     "@typescript-eslint/quotes": "off",
     "@typescript-eslint/no-misused-promises": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",
